@@ -1,8 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d06d6c73-48e9-4a20-b349-f742342710d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/software/ElasticBeanstalk/src/main/java/com/newsapp24/elasticbeanstalk/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/java/com/myorg/InfrastructureStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/main/java/com/myorg/InfrastructureStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/ElasticBeanstalk/assets/elasticBeanstalk.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/ElasticBeanstalk/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/software/ElasticBeanstalk/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/ElasticBeanstalk/src/main/java/com/newsapp24/elasticbeanstalk/domain/TestControllerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/software/ElasticBeanstalk/src/main/java/com/newsapp24/elasticbeanstalk/domain/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software/ElasticBeanstalk/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/software/ElasticBeanstalk/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2k79RRlmoRFkibJxCXPVjblzSxt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;/home/zalman/Documents/JavaProjects/JavaFx/javafx-maven-archetypes/javafx-archetype-simple&quot;
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/zalman/Documents/JavaProjects/NewsApp24/software/ElasticBeanstalk/assets&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/software/ElasticBeanstalk/assets" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ElasticBeanstalkApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ElasticBeanstalk" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.newsapp24.elasticbeanstalk.ElasticBeanstalkApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17890.1" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17890.1" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d06d6c73-48e9-4a20-b349-f742342710d6" name="Changes" comment="" />
+      <created>1722623739575</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722623739575</updated>
+      <workItem from="1722623740662" duration="3770000" />
+      <workItem from="1722629364142" duration="7000" />
+      <workItem from="1722630632229" duration="3479000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
 </project>
