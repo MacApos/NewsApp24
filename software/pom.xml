@@ -5,8 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.newsapp24</groupId>
-    <artifactId>ElasticBeanstalk</artifactId>
+    <artifactId>software</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>22</maven.compiler.source>
