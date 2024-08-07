@@ -1,4 +1,4 @@
-package com.myorg;
+package com.newsapp24;
 
 import software.amazon.awscdk.App;
 import software.amazon.awscdk.StackProps;

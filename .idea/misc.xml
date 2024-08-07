@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/Lambda/pom.xml" />
         <option value="$PROJECT_DIR$/software/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/infrastructure/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

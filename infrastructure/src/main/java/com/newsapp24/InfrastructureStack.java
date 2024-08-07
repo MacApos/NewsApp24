@@ -1,4 +1,4 @@
-package com.myorg;
+package com.newsapp24;
 
 import software.amazon.awscdk.services.elasticbeanstalk.CfnApplication;
 import software.amazon.awscdk.services.elasticbeanstalk.CfnApplicationVersion;
