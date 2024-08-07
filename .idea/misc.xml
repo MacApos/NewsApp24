@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/software/software/pom.xml" />
         <option value="$PROJECT_DIR$/ElasticBeanstalk/pom.xml" />
         <option value="$PROJECT_DIR$/infrastructure2/pom.xml" />
+        <option value="$PROJECT_DIR$/Lambda/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -1,4 +1,4 @@
-package com.newsapp24.elasticbeanstalk.domain;
+package com.newsapp24.domain;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

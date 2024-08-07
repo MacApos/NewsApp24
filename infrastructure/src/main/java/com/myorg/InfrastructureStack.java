@@ -14,7 +14,6 @@ import software.amazon.awscdk.Stack;
 import software.amazon.awscdk.StackProps;
 
 import java.util.List;
-import java.util.Map;
 
 public class InfrastructureStack extends Stack {
     public InfrastructureStack(final Construct scope, final String id) {
@@ -32,26 +31,25 @@ public class InfrastructureStack extends Stack {
 
     public InfrastructureStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
+        String appName = "NewsApp";
 
         // Create S3 asset from zip file
-        Asset S3 = Asset.Builder.create(this, "NewsAppS3")
+        Asset S3 = Asset.Builder.create(this, appName + "S3")
                 .path("../software/ElasticBeanstalk/target/elastic-beanstalk.jar")
                 .build();
 
         // Create Elastic Beanstalk app
-        String appName = "NewsApp";
         CfnApplication cfnApplication = CfnApplication.Builder.create(this, appName)
                 .applicationName(appName).build();
 
         // Create Elastic Beanstalk app version
-        CfnApplicationVersion newsAppVersion = CfnApplicationVersion.Builder.create(this, "NewsAppVersion")
+        CfnApplicationVersion newsAppVersion = CfnApplicationVersion.Builder.create(this, appName + "Version")
                 .applicationName(appName)
                 .sourceBundle(CfnApplicationVersion.SourceBundleProperty.builder()
                         .s3Bucket(S3.getS3BucketName())
                         .s3Key(S3.getS3ObjectKey())
                         .build())
                 .build();
-
 
         // Connect Elastic Beanstalk resource with S3 resource
         newsAppVersion.addDependency(cfnApplication);
@@ -78,8 +76,10 @@ public class InfrastructureStack extends Stack {
                 "IamInstanceProfile",
                 EC2instanceProfile);
 
-        OptionSettingProperty environmentProperties = createOptionSettings("aws:elasticbeanstalk:application:environment",
-                "EnvironmentProperties", null);
+        OptionSettingProperty environmentProperties = createOptionSettings(
+                "aws:elasticbeanstalk:application:environment",
+                "EnvironmentProperties",
+                null);
 
         // Create Elastic Beanstalk environment
         String envName = appName + "Env";
@@ -91,6 +91,5 @@ public class InfrastructureStack extends Stack {
                 .optionSettings(List.of(iamInstanceProfile, environmentProperties))
                 .cnamePrefix("newsapp24")
                 .build();
-
     }
 }
