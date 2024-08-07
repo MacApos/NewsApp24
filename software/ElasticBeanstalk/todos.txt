@@ -1,0 +1,13 @@
+- database service
+- controller
+- jar
+- test
+- file read
+
+select:
+- time span,
+- language,
+- area (nearest city, state, country),
+sort
+news based on location
+
