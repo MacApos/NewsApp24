@@ -9,9 +9,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 
 @SpringBootApplication
-public class NewsApplication {
+public class ElasticBeanstalkApplication {
     public static void main(String[] args) {
-        SpringApplication.run(NewsApplication.class, args);
+        SpringApplication.run(ElasticBeanstalkApplication.class, args);
     }
 
     @Value("${newsHost}")

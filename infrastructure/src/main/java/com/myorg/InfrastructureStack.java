@@ -1,4 +1,4 @@
-package com.newsapp24;
+package com.myorg;
 
 import software.amazon.awscdk.services.elasticbeanstalk.CfnApplication;
 import software.amazon.awscdk.services.elasticbeanstalk.CfnApplicationVersion;
@@ -31,11 +31,11 @@ public class InfrastructureStack extends Stack {
 
     public InfrastructureStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
-        String appName = "NewsApp";
+        String appName = "NewsApp24";
 
         // Create S3 asset from zip file
         Asset S3 = Asset.Builder.create(this, appName + "S3")
-                .path("../software/ElasticBeanstalk/target/elastic-beanstalk.jar")
+                .path("../software/ElasticBeanstalk/target/ElasticBeanstalkTest-0.0.1-SNAPSHOT.jar")
                 .build();
 
         // Create Elastic Beanstalk app
@@ -65,7 +65,7 @@ public class InfrastructureStack extends Stack {
 
         // Create instance profile for EC2 instances
         String EC2instanceProfile = "aws-elasticbeanstalk-ec2-role";
-        CfnInstanceProfile build = CfnInstanceProfile.Builder.create(this, EC2instanceProfile)
+        CfnInstanceProfile.Builder.create(this, EC2instanceProfile)
                 .instanceProfileName(EC2instanceProfile)
                 .roles(List.of(role.getRoleName()))
                 .build();
@@ -89,7 +89,7 @@ public class InfrastructureStack extends Stack {
                 .solutionStackName("64bit Amazon Linux 2023 v4.2.7 running Corretto 17")
                 .versionLabel(newsAppVersion.getRef())
                 .optionSettings(List.of(iamInstanceProfile, environmentProperties))
-                .cnamePrefix("newsapp24")
+                .cnamePrefix(appName.toLowerCase())
                 .build();
     }
 }
