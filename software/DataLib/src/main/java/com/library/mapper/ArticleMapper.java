@@ -9,12 +9,12 @@ import org.mapstruct.Named;
 
 @Mapper(componentModel = "spring")
 public interface ArticleMapper {
-    @Mapping(target = "contentUrl", source = "image", qualifiedByName = "imageToContentUrl")
+    @Mapping(source = "image", target = "contentUrl", qualifiedByName = "imageToContentUrl")
     Article valueToArticle(Value value);
 
     @Named("imageToContentUrl")
     static String imageToContentUrl(Image image) {
-        if(image!=null){
+        if (image != null) {
             return image.getContentUrl();
         }
         return null;

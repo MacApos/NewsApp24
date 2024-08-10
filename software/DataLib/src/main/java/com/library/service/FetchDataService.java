@@ -9,7 +9,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
 import reactor.core.publisher.Mono;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Service
@@ -48,7 +47,6 @@ public class FetchDataService {
         if (headers != null) {
             headers.forEach(requestHeadersSpec::header);
         }
-
         return requestHeadersSpec;
     }
 
@@ -57,7 +55,6 @@ public class FetchDataService {
         Mono<Answer> answerMono = createRequestSpec(newsHost, newsPath, newsApiUriParams, newsApiUriHeaders)
                 .retrieve()
                 .bodyToMono(Answer.class);
-
         return answerMono.map(cityMapper::answerToCity);
     }
 
