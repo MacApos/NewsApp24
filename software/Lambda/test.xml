@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.spring.sample</groupId>
+    <artifactId>function-sample-aws</artifactId>
+    <version>0.0.1-SNAPSHOT</version><!-- @releaser:version-check-off -->
+    <packaging>jar</packaging>
+
+    <name>function-sample-aws</name>
+    <description>Spring Cloud Function Sample for AWS Lambda</description>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.2</version>
+        <version>3.4.0-M1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.lambda</groupId>
-    <artifactId>Lambda</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -46,11 +52,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>com.library</groupId>
-            <artifactId>DataLib</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

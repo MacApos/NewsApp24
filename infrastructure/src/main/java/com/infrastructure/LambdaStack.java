@@ -17,7 +17,7 @@ public class LambdaStack extends Stack {
                 .runtime(Runtime.JAVA_17)
 //                .code(Code.fromAsset("../software/Lambda/target/lambda.jar"))
                 .code(Code.fromAsset("../../spring-cloud-function/spring-cloud-function-main/spring-cloud-function-samples/function-sample-aws/target/function-sample-aws-0.0.1-SNAPSHOT.jar"))
-                .handler("org.springframework.cloud.function.adapter.aws.FunctionInvoker")
+                .handler("com.lambda.LambdaApplication.java")
                 .build();
 
         // Lambda function URL resource
