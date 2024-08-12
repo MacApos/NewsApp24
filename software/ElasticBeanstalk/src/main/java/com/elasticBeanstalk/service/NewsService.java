@@ -2,7 +2,7 @@ package com.elasticBeanstalk.service;
 
 import com.library.dto.City;
 import com.library.service.FetchDataService;
-import com.library.service.DynamoDbService;
+import com.library.service.DynamoDBService;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -10,10 +10,10 @@ import reactor.core.publisher.Mono;
 @Service
 public class NewsService {
     private final FetchDataService fetchDataService;
-    private final DynamoDbService dynamoDbService;
+    private final DynamoDBService dynamoDbService;
     private final ProcessDataService processDataService;
 
-    public NewsService(DynamoDbService dynamoDbService, ProcessDataService processDataService, FetchDataService fetchDataService) {
+    public NewsService(DynamoDBService dynamoDbService, ProcessDataService processDataService, FetchDataService fetchDataService) {
         this.dynamoDbService = dynamoDbService;
         this.processDataService = processDataService;
         this.fetchDataService = fetchDataService;

@@ -1,5 +1,6 @@
 package com.elasticBeanstalk;
 
+import com.library.service.FetchDataService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,9 +14,17 @@ import java.util.Map;
 
 @SpringBootApplication(scanBasePackages = {"com.elasticBeanstalk", "com.library"})
 public class ElasticBeanstalkApplication {
+    private final FetchDataService fetchDataService;
+
+    public ElasticBeanstalkApplication(FetchDataService fetchDataService) {
+        this.fetchDataService = fetchDataService;
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(ElasticBeanstalkApplication.class, args);
     }
+
+
 
 //    @Value("${newsHost}")
 //    String newsHost;

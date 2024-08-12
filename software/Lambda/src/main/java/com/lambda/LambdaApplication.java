@@ -1,6 +1,6 @@
 package com.lambda;
 
-import org.springframework.boot.SpringApplication;
+import com.library.service.FetchDataService;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
@@ -11,7 +11,13 @@ import java.util.stream.Collectors;
 @SpringBootApplication(scanBasePackages = {"com.lambda", "com.library"})
 public class LambdaApplication {
     public static void main(String[] args) {
-        SpringApplication.run(LambdaApplication.class, args);
+//        SpringApplication.run(LambdaApplication.class, args);
+    }
+
+    private final FetchDataService fetchDataService;
+
+    public LambdaApplication(FetchDataService fetchDataService) {
+        this.fetchDataService = fetchDataService;
     }
 
     @Bean

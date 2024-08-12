@@ -48,6 +48,15 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>com.library</groupId>
             <artifactId>DataLib</artifactId>
             <version>${project.version}</version>
@@ -134,5 +143,6 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
 
 </project>

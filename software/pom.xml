@@ -12,7 +12,8 @@
         <module>DataLib</module>
         <module>ElasticBeanstalk</module>
         <module>Lambda</module>
-        <module>Test</module>
+
+        <module>function-sample-aws</module>
     </modules>
 
 
