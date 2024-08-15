@@ -15,23 +15,25 @@ import software.amazon.awscdk.StackProps;
 
 import java.util.List;
 
+import static com.infrastructure.InfrastructureApp.APP_NAME;
+
 public class ElasticBeanstalkStack extends Stack {
     public ElasticBeanstalkStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
-        String appName = "NewsApp24-1";
 
         // Create S3 asset from zip file
-        Asset S3 = Asset.Builder.create(this, appName + "S3")
+        Asset S3 = Asset.Builder.create(this, APP_NAME + "S3")
                 .path("../software/ElasticBeanstalk/target/elastic-beanstalk.jar")
                 .build();
 
         // Create Elastic Beanstalk app
-        CfnApplication cfnApplication = CfnApplication.Builder.create(this, appName)
-                .applicationName(appName).build();
+        CfnApplication cfnApplication = CfnApplication.Builder.create(this, APP_NAME)
+                .applicationName(APP_NAME).build();
 
         // Create Elastic Beanstalk app version
-        CfnApplicationVersion newsAppVersion = CfnApplicationVersion.Builder.create(this, appName + "Version")
-                .applicationName(appName)
+        CfnApplicationVersion newsAppVersion = CfnApplicationVersion.Builder.create(this,
+                        APP_NAME + "Version")
+                .applicationName(APP_NAME)
                 .sourceBundle(CfnApplicationVersion.SourceBundleProperty.builder()
                         .s3Bucket(S3.getS3BucketName())
                         .s3Key(S3.getS3ObjectKey())
@@ -44,7 +46,6 @@ public class ElasticBeanstalkStack extends Stack {
         // Create role for ElasticBeanstalk service
         Role role = Role.Builder.create(this, "aws-elasticbeanstalk-service-role")
                 .assumedBy(new ServicePrincipal("ec2.amazonaws.com"))
-                // ServicePrincipal.Builder.create("ec2.amazonaws.com").build())
                 .build();
 
         // Add appropriate permission policy
@@ -70,14 +71,13 @@ public class ElasticBeanstalkStack extends Stack {
                 null);
 
         // Create Elastic Beanstalk environment
-        String envName = appName + "Env";
         CfnEnvironment.Builder.create(this, "Environment")
-                .applicationName(appName)
-                .environmentName(envName)
+                .applicationName(APP_NAME)
+                .environmentName(APP_NAME + "Env")
                 .solutionStackName("64bit Amazon Linux 2023 v4.2.7 running Corretto 17")
                 .versionLabel(newsAppVersion.getRef())
                 .optionSettings(List.of(iamInstanceProfile, environmentProperties))
-                .cnamePrefix(appName.toLowerCase())
+                .cnamePrefix(APP_NAME.toLowerCase())
                 .build();
     }
 

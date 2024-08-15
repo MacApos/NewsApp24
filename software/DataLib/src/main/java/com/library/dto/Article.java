@@ -1,9 +1,7 @@
 package com.library.dto;
 
-import org.springframework.stereotype.Component;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
-@Component
 @DynamoDbBean
 public class Article {
     private String name;

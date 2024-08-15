@@ -14,16 +14,9 @@ import java.util.Map;
 
 @SpringBootApplication(scanBasePackages = {"com.elasticBeanstalk", "com.library"})
 public class ElasticBeanstalkApplication {
-    private final FetchDataService fetchDataService;
-
-    public ElasticBeanstalkApplication(FetchDataService fetchDataService) {
-        this.fetchDataService = fetchDataService;
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(ElasticBeanstalkApplication.class, args);
     }
-
 
 
 //    @Value("${newsHost}")
@@ -44,10 +37,10 @@ public class ElasticBeanstalkApplication {
 //    @Value("${cityApiKey}")
 //    public String cityApiKey;
 //
-//    @Bean
-//    public WebClient webClient() {
-//        return WebClient.create();
-//    }
+    @Bean
+    public WebClient webClient() {
+        return WebClient.create();
+    }
 //
 //    @Bean
 //    public UriComponentsBuilder newsApiUriBuilder() {
