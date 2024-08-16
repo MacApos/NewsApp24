@@ -9,10 +9,6 @@ import com.library.dto.Article;
 import com.library.dto.City;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class CityDeserializer extends StdDeserializer<City> {
     public CityDeserializer() {
@@ -30,8 +26,8 @@ public class CityDeserializer extends StdDeserializer<City> {
         JsonNode queryContext = node.get("queryContext");
 
         if (queryContext != null) {
-            String[] originalQuery = queryContext.path("originalQuery").asText("").
-                    replaceAll(" ","").split(",");
+            String[] originalQuery = queryContext.path("originalQuery").asText("")
+                    .trim().split(" *, *");
             if (originalQuery.length >= 1) {
                 city.setName(originalQuery[0]);
             }
@@ -54,8 +50,11 @@ public class CityDeserializer extends StdDeserializer<City> {
             return city;
         }
 
-        city.setName(node.path("name").asText(null));
-        city.setState(node.path("state").asText(null));
+        if (!node.isEmpty()) {
+            node = node.get(0);
+            city.setName(node.path("name").asText(null));
+            city.setState(node.path("state").asText(null));
+        }
 
         return city;
     }

@@ -24,6 +24,8 @@ public class City {
     @Size(min = 2)
     private String state;
     private List<Article> articles = new ArrayList<>();
+    private String dateUpdated;
+
 
     public City() {
     }
@@ -74,5 +76,11 @@ public class City {
         this.articles = values;
     }
 
+    public String getDateUpdated() {
+        return dateUpdated;
+    }
 
+    public void setDateUpdated(String dateUpdated) {
+        this.dateUpdated = dateUpdated;
+    }
 }

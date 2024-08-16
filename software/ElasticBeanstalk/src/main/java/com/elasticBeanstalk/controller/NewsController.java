@@ -22,7 +22,7 @@ public class NewsController {
     }
 
     @RequestMapping(value = {"/{name}", "/{name}/{state}"})
-    public Mono<Object> newsController(@PathVariable String name, @PathVariable String state) {
+    public Mono<City> newsController(@PathVariable String name, @PathVariable String state) {
         return newsService.putNewsIntoTable(name, state);
     }
 }

@@ -16,7 +16,7 @@ public class LambdaStack extends Stack {
         Function saveDataFunction = Function.Builder.create(this, functionName)
                 .runtime(Runtime.JAVA_17)
 //                .code(Code.fromAsset("../software/Lambda/target/lambda.jar"))
-                .code(Code.fromAsset("../software/Lambda/target/Lambda-0.0.1-SNAPSHOT.jar"))
+                .code(Code.fromAsset("../software/Lambda/target/lambda.jar"))
                 .handler("com.lambda.Handler")
                 .build();
 
