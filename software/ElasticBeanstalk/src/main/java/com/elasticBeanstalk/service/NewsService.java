@@ -16,6 +16,7 @@ public class NewsService {
         this.processDataService = processDataService;
     }
 
+
     public Mono<City> putNewsIntoTable(String name, String state) {
         return Mono.fromFuture(dynamoDbService.getNews(name))
                 .switchIfEmpty(processDataService.validateCity(name, state)
