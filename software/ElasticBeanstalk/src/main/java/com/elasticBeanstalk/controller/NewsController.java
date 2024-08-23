@@ -16,7 +16,6 @@ public class NewsController {
         this.newsService = newsService;
     }
 
-
     @RequestMapping("/test")
     public String test() {
         return "test";
