@@ -2,7 +2,7 @@ package com.elasticBeanstalk.controller;
 
 import com.elasticBeanstalk.service.NewsService;
 
-import com.library.dto.City;
+import com.lambda.dto.City;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

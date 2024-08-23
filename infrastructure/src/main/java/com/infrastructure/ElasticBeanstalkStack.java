@@ -15,14 +15,14 @@ import software.amazon.awscdk.StackProps;
 
 import java.util.List;
 
-import static com.infrastructure.InfrastructureApp.APP_NAME;
+import static com.infrastructure.InfrastructureApp.*;
 
 public class ElasticBeanstalkStack extends Stack {
     public ElasticBeanstalkStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
 
-        // Create S3 asset from zip file
-        Asset S3 = Asset.Builder.create(this, APP_NAME + "S3")
+        // Create S3 asset from jar file
+        Asset asset = Asset.Builder.create(this, APP_NAME + "S3")
                 .path("../software/ElasticBeanstalk/target/elastic-beanstalk.jar")
                 .build();
 
@@ -35,8 +35,8 @@ public class ElasticBeanstalkStack extends Stack {
                         APP_NAME + "Version")
                 .applicationName(APP_NAME)
                 .sourceBundle(CfnApplicationVersion.SourceBundleProperty.builder()
-                        .s3Bucket(S3.getS3BucketName())
-                        .s3Key(S3.getS3ObjectKey())
+                        .s3Bucket(asset.getS3BucketName())
+                        .s3Key(asset.getS3ObjectKey())
                         .build())
                 .build();
 

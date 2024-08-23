@@ -1,16 +1,15 @@
-package com.library.dto;
+package com.lambda.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.library.deserializer.CityDeserializer;
+import com.lambda.deserializer.CityDeserializer;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @DynamoDbBean
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -24,8 +23,7 @@ public class City {
     @Size(min = 2)
     private String state;
     private List<Article> articles = new ArrayList<>();
-    private String dateUpdated;
-
+    private String updateDate;
 
     public City() {
     }
@@ -47,8 +45,23 @@ public class City {
         return String.join(",", queryParams);
     }
 
-    public void addArticle(Article article){
+    public void addArticle(Article article) {
         articles.add(article);
+    }
+
+    public void updateCity(City city) {
+        List<Article> newArticles = city.getArticles();
+        if (articles.isEmpty()) {
+            articles = city.getArticles();
+            return;
+        }
+        TreeSet<Article> currentArticles = new TreeSet<>(articles);
+        currentArticles.addAll(newArticles);
+        articles = currentArticles.stream().limit(20).toList();
+    }
+
+    public void setUpdateDateToNow() {
+        updateDate = String.valueOf(LocalDateTime.now());
     }
 
     @DynamoDbPartitionKey
@@ -76,11 +89,12 @@ public class City {
         this.articles = values;
     }
 
-    public String getDateUpdated() {
-        return dateUpdated;
+    public String getUpdateDate() {
+        return updateDate;
     }
 
-    public void setDateUpdated(String dateUpdated) {
-        this.dateUpdated = dateUpdated;
+    public void setUpdateDate(String updateDate) {
+        this.updateDate = updateDate;
     }
+
 }

@@ -1,8 +1,8 @@
 package com.elasticBeanstalk.service;
 
-import com.library.dto.City;
-import com.library.service.FetchDataService;
-import com.library.service.DynamoDBService;
+import com.lambda.dto.City;
+import com.lambda.service.FetchDataService;
+import com.lambda.service.DynamoDBService;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -19,7 +19,7 @@ public class NewsService {
     public Mono<City> putNewsIntoTable(String name, String state) {
         return Mono.fromFuture(dynamoDbService.getNews(name))
                 .switchIfEmpty(processDataService.validateCity(name, state)
-                        .flatMap(city -> fetchDataService.fetchCity(city.prepareQuery()))
+                        .flatMap(fetchDataService::fetchCity)
                         .doOnNext(dynamoDbService::putNews)
                 );
     }

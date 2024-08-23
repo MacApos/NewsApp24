@@ -1,9 +1,12 @@
-package com.library.dto;
+package com.lambda.dto;
 
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 @DynamoDbBean
-public class Article {
+public class Article implements Comparable<Article> {
     private String name;
     private String url;
     private String contentUrl;
@@ -59,6 +62,15 @@ public class Article {
 
     public void setDatePublished(String datePublished) {
         this.datePublished = datePublished;
+    }
+
+    private LocalDateTime parseDate(String date) {
+        return LocalDateTime.parse(date.replaceAll("\\.\\d+Z$", ""));
+    }
+
+    @Override
+    public int compareTo(Article article) {
+        return parseDate(datePublished).compareTo(parseDate(article.getDatePublished()));
     }
 }
 
