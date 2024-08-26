@@ -69,6 +69,12 @@ class MainTest {
 //    }
 
     @Test
+    void test(){
+        System.out.println(System.getenv());
+
+    }
+
+    @Test
     void syncTest() {
         long start = System.currentTimeMillis();
         dynamoDBService.getAllNews().stream()
