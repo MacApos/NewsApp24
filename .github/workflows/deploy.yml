@@ -15,7 +15,7 @@ jobs:
 
       - run: cd software/Lambda/
 #      - run: java -jar target/lambda.jar
-      - run: ls
+      - run: mvn clean install; ls
         name: Run Java application
         env:
           CITY_API_KEY: ${{ secrets.CITY_API_KEY }}
