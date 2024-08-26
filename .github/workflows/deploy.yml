@@ -10,15 +10,15 @@ jobs:
       - uses: actions/checkout@v4.1.7
       
       - run: cd software/
-      - run: mvn clean install
+      - run: mvn clean install --quiet; ls
         name: Create software JARs file
 
-      - run: cd software/Lambda/
+#      - run: cd software/Lambda/
 #      - run: java -jar target/lambda.jar
-      - run: mvn clean install; ls
-        name: Run Java application
-        env:
-          CITY_API_KEY: ${{ secrets.CITY_API_KEY }}
+#      - run: mvn clean install; ls
+#        name: Run Java application
+#        env:
+#          CITY_API_KEY: ${{ secrets.CITY_API_KEY }}
 
 
 #      - run: cdk synth; cdk bootstrap; cdk deploy --require-approval never
