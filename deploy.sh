@@ -2,12 +2,15 @@
 
 git add .
 echo "Commit message: "
-read varname
-git commit -m "$varname"
+read -r commitMessage;
+if [ -z "$varname" ]; then
+    commitMessage="Commit "$(date +'%Y.%m.%d %H:%M')
+fi
+git commit -m "$commitMessage"
 git push
-#cd software/ || exit
-#mvn clean install --quiet
-#cd ../infrastructure/ || exit
+cd software/ || exit
+mvn clean install --quiet
+cd ../infrastructure/ || exit
 #cdk synth
 #cdk bootstrap
-#cdk deploy --require-approval never
+cdk deploy --require-approval never
