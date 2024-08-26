@@ -13,7 +13,7 @@ jobs:
       - run: mvn clean install
         name: Create software JARs file
 
-      - run: cd Lambda/
+      - run: cd software/Lambda/
       - run: java -jar target/lambda.jar
         name: Run Java application
         env:
