@@ -70,7 +70,7 @@ class MainTest {
 
     @Test
     void test(){
-        System.out.println(System.getenv());
+        System.out.println(System.getenv("CITY_API_KEY"));
 
     }
 
