@@ -12,6 +12,8 @@ jobs:
       - run: cd infrastructure/; ls
         name: Create infrastructure JAR file
 
+      - run: mvn clean install
+
 #      - run: cd ../software; mvn clean install
 #        name: Create software JARs file
 #
