@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.7
       
-      - run: cd ../software
+      - run: cd software/
       - run: mvn clean install
         name: Create software JARs file
         
