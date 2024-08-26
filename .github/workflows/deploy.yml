@@ -8,20 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.7
-      - run: echo ${{ github.path }}
-      
-      - run: cd software/; echo ${{ github.path }}
-      - run: echo ${{ github.workspace }}; mvn clean install --quiet; ls
-        name: Create software JARs file
-
-#      - run: cd software/Lambda/; echo ${{ github.path }}
-#      - run: java -jar target/lambda.jar
-#      - run: mvn clean install; ls
-#        name: Run Java application
-#        env:
-#          CITY_API_KEY: ${{ secrets.CITY_API_KEY }}
-
-
-#      - run: cdk synth; cdk bootstrap; cdk deploy --require-approval never
-      # - run: cdk deploy --require-approval never
-#        name: Deploy JARs to AWS services with CDK
+      - uses: actions/setup-java@v4.2.2
+        name: Setup Java JDK
+        with:
+          version: '17'
+          distribution: 'oracle'
+        
