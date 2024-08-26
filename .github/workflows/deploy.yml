@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.7
-      - run: echo ${{ github.workspace }}
+      - run: echo ${{ github.path }}
       
-      - run: cd software/; echo ${{ github.workspace }}
+      - run: cd software/; echo ${{ github.path }}
       - run: echo ${{ github.workspace }}; mvn clean install --quiet; ls
         name: Create software JARs file
 
-#      - run: cd software/Lambda/
+#      - run: cd software/Lambda/; echo ${{ github.path }}
 #      - run: java -jar target/lambda.jar
 #      - run: mvn clean install; ls
 #        name: Run Java application
