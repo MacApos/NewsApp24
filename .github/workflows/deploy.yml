@@ -7,5 +7,4 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.workspace }}
-      - run: cd infrastructure
+      - run: echo ${{ github.workspace }}; cd ../; ls
