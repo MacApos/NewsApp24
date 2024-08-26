@@ -11,6 +11,6 @@ jobs:
       - uses: actions/setup-java@v4.2.2
         name: Setup Java JDK
         with:
-          version: '17'
+          java-version: '17'
           distribution: 'oracle'
       - run: ./deploy.sh
