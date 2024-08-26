@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v4.1.7
       
       - run: cd software/
-      - run: mvn clean install --quiet; ls
+      - run: echo pwd; mvn clean install --quiet; ls
         name: Create software JARs file
 
 #      - run: cd software/Lambda/
