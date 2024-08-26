@@ -13,4 +13,4 @@ jobs:
         with:
           version: '17'
           distribution: 'oracle'
-
+      - run: ./deploy.sh
