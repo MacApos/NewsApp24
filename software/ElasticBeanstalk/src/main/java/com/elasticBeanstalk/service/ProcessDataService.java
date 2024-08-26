@@ -2,6 +2,7 @@ package com.elasticBeanstalk.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lambda.Secrets;
 import com.lambda.dto.City;
 import com.lambda.service.FetchDataService;
 import org.springframework.http.HttpStatus;
@@ -16,20 +17,22 @@ import java.util.Map;
 
 @Service
 public class ProcessDataService {
-    private final String CITY_HOST="api.openweathermap.org";
-    private final String CITY_PATH="/geo/1.0";
-    private final String CITY_API_KEY="0708f2cdb6c2de6a7b1a98127ec9ef71";
+    private final Validator validator;
+    private final FetchDataService fetchDataService = new FetchDataService();
+    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final Secrets secrets = Secrets.getSecret();
+
+    private final String CITY_HOST = "api.openweathermap.org";
+    private final String CITY_PATH = "/geo/1.0";
+    private final String COUNTRY_CODE = "US";
+    private final String CITY_API_KEY = secrets.CITY_API_KEY;
     private final ResponseStatusException CITY_NOT_FOUND =
             new ResponseStatusException(HttpStatus.BAD_REQUEST, "City not found");
-    private final String COUNTRY_CODE = "US";
 
-    private final FetchDataService fetchDataService = new FetchDataService();
-    private final Validator validator;
     public ProcessDataService(Validator validator) {
         this.validator = validator;
     }
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
     public Mono<City> fetchCity(String query) {
         String path = CITY_PATH + "/direct";
         Map<String, String> cityApiUriParams = Map.of("appid", CITY_API_KEY, "q", query);
