@@ -8,9 +8,9 @@ fi
 git add .
 git commit -m "$commitMessage"
 git push
-#cd software/ || exit
-#mvn clean install --quiet
-#cd ../infrastructure/ || exit
-#cdk synth
-#cdk bootstrap
-#cdk deploy --require-approval never
+cd software/ || exit
+mvn clean install --quiet
+cd ../infrastructure/ || exit
+cdk synth
+cdk bootstrap
+cdk deploy --require-approval never
