@@ -7,4 +7,4 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.workspace }}; cd ../; ls
+      - run: cd ~; echo "pwd:" ${{ github.workspace }}; ls
