@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v4.1.7
       - run: echo ${{ github.workspace }}
       
-      - run: cd software/
+      - run: cd software/; echo ${{ github.workspace }}
       - run: echo ${{ github.workspace }}; mvn clean install --quiet; ls
         name: Create software JARs file
 
