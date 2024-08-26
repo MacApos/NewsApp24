@@ -11,7 +11,7 @@ jobs:
       - run: echo ${{ github.workspace }}
       
       - run: cd software/
-      - run: echo pwd; mvn clean install --quiet; ls
+      - run: echo ${{ github.workspace }}; mvn clean install --quiet; ls
         name: Create software JARs file
 
 #      - run: cd software/Lambda/
