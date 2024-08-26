@@ -9,10 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.7
 
-      - run: cd infrastructure/; ls
+      - run: cd infrastructure/; mvn clean install
         name: Create infrastructure JAR file
-
-      - run: mvn clean install
 
 #      - run: cd ../software; mvn clean install
 #        name: Create software JARs file
