@@ -51,13 +51,12 @@ public class City {
 
     public void updateCity(City city) {
         List<Article> newArticles = city.getArticles();
-        if (articles.isEmpty()) {
-            articles = city.getArticles();
-            return;
+        if (!newArticles.isEmpty()) {
+            TreeSet<Article> currentArticles = new TreeSet<>(articles);
+            currentArticles.addAll(newArticles);
+            articles = currentArticles.stream().toList();
         }
-        TreeSet<Article> currentArticles = new TreeSet<>(articles);
-        currentArticles.addAll(newArticles);
-        articles = currentArticles.stream().limit(20).toList();
+        articles = articles.subList(0, Math.min(20, articles.size()));
     }
 
     public void setUpdateDateToNow() {

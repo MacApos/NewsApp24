@@ -8,9 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.7
-      - run: echo ${{ github.workspace }}
-#      - uses: actions/setup-java@v4.2.2
-#        with:
-#          distribution: 'oracle'
-#          java-version: 17
-      - run: cd infrastructure/
+
+      - run: cd infrastructure/; mvn clean install
+        name: Create infrastructure JAR file
+
+      - run: cd ../software; mvn clean install
+        name: Create software JARs file
+
+#      - run: cdk synth; cdk bootstrap; cdk deploy --require-approval never
+      - run: cdk deploy --require-approval never
+        name: Deploy JARs to AWS services with CDK

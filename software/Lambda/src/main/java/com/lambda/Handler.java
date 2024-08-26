@@ -48,10 +48,11 @@ public class Handler implements RequestStreamHandler {
                 .flatMap(Collection::stream)
                 .forEach(city -> {
                     City block = fetchDataService.mockFetchCity(city, recentNews).block();
-                    if (block != null) {
+                    if(block != null){
                         block.updateCity(city);
+                        city = block;
                     }
-                    dynamoDBService.table.putItem(block);
+                    dynamoDBService.table.putItem(city);
                 });
     }
 }
