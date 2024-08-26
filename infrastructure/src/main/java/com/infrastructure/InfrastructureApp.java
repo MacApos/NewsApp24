@@ -20,10 +20,10 @@ public class InfrastructureApp {
                 .region(REGION)
                 .build();
 
-//        new ElasticBeanstalkStack(app, "ElasticBeanstalkStack", StackProps.builder().build());
-
-        new LambdaStack(app, "LambdaStack", StackProps.builder().build());
-//        new StaticSiteStack(app, "StaticSiteStack", StackProps.builder().env(environment).build());
+        StackProps stackProps = StackProps.builder().build();
+        new ElasticBeanstalkStack(app, "ElasticBeanstalkStack", stackProps);
+        new LambdaStack(app, "LambdaStack", stackProps);
+        new StaticSiteStack(app, "StaticSiteStack", StackProps.builder().env(environment).build());
 
         app.synth();
     }
