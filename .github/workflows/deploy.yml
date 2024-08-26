@@ -14,7 +14,8 @@ jobs:
         name: Create software JARs file
 
       - run: cd software/Lambda/
-      - run: java -jar target/lambda.jar
+#      - run: java -jar target/lambda.jar
+      - run: ls
         name: Run Java application
         env:
           CITY_API_KEY: ${{ secrets.CITY_API_KEY }}
