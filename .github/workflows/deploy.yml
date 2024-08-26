@@ -18,4 +18,4 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.workspace }} event."
+      - run: echo ${{ github.workspace }}
