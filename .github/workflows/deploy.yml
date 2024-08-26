@@ -12,9 +12,9 @@ jobs:
       - run: cd infrastructure/; mvn clean install
         name: Create infrastructure JAR file
 
-      - run: cd ../software; mvn clean install
-        name: Create software JARs file
-
-#      - run: cdk synth; cdk bootstrap; cdk deploy --require-approval never
-      - run: cdk deploy --require-approval never
-        name: Deploy JARs to AWS services with CDK
+#      - run: cd ../software; mvn clean install
+#        name: Create software JARs file
+#
+##      - run: cdk synth; cdk bootstrap; cdk deploy --require-approval never
+#      - run: cdk deploy --require-approval never
+#        name: Deploy JARs to AWS services with CDK
