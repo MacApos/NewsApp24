@@ -8,13 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.7
-
-      - run: cd infrastructure/; mvn clean install
-        name: Create infrastructure JAR file
-
-#      - run: cd ../software; mvn clean install
-#        name: Create software JARs file
-#
-##      - run: cdk synth; cdk bootstrap; cdk deploy --require-approval never
-#      - run: cdk deploy --require-approval never
-#        name: Deploy JARs to AWS services with CDK
+      
+      - run: cd ../software
+      - run: mvn clean install
+        name: Create software JARs file
+        
+      - run: cdk synth; cdk bootstrap; cdk deploy --require-approval never
+      # - run: cdk deploy --require-approval never
+        name: Deploy JARs to AWS services with CDK
