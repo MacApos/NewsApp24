@@ -2,24 +2,23 @@ package com.lambda.dto;
 
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @DynamoDbBean
 public class Article implements Comparable<Article> {
     private String name;
     private String url;
-    private String contentUrl;
+    private String image;
     private String description;
     private String datePublished;
 
     public Article() {
     }
 
-    public Article(String name, String url, String contentUrl, String description, String datePublished) {
+    public Article(String name, String url, String image, String description, String datePublished) {
         this.name = name;
         this.url = url;
-        this.contentUrl = contentUrl;
+        this.image = image;
         this.description = description;
         this.datePublished = datePublished;
     }
@@ -40,12 +39,12 @@ public class Article implements Comparable<Article> {
         this.url = url;
     }
 
-    public String getContentUrl() {
-        return contentUrl;
+    public String getImage() {
+        return image;
     }
 
-    public void setContentUrl(String contentUrl) {
-        this.contentUrl = contentUrl;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getDescription() {

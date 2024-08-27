@@ -7,11 +7,11 @@ import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueReques
 import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueResponse;
 
 public class Secrets {
-    public final String NEWS_API_KEY = "";
-    public final String CITY_API_KEY = "";
+    public String NEWS_API_KEY;
+    public String CITY_API_KEY;
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    public static Secrets getSecret() {
+    public static Secrets getSecrets() {
         String secretName = "com/lambda";
         Region region = Region.EU_CENTRAL_1;
 

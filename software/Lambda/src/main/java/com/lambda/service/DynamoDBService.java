@@ -23,8 +23,12 @@ public class DynamoDBService {
                     .build();
     public final DynamoDbTable<City> table = enhancedClient.table("News", tableSchema);
 
-    public CompletableFuture<City> getNews(String cityName) {
-        Key key = Key.builder().partitionValue(cityName).build();
+    public CompletableFuture<City> getNews(City city) {
+        Key key = Key.builder()
+                .partitionValue(city.getName())
+                .sortValue(city.getState())
+                .build();
+
         return asyncTable.getItem(key);
     }
 

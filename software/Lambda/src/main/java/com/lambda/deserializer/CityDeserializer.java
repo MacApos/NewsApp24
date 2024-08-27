@@ -36,23 +36,23 @@ public class CityDeserializer extends StdDeserializer<City> {
             JsonNode value = node.path("value");
             if (value.isArray()) {
                 for (JsonNode valueNode : value) {
+                    JsonNode image = valueNode.path("image");
                     city.addArticle(new Article(
                             getField(valueNode, "name"),
                             getField(valueNode, "url"),
-                            getField(valueNode, "image"),
+                            image == null ? null : getField(image, "contentUrl"),
                             getField(valueNode, "description"),
                             getField(valueNode, "datePublished"))
                     );
                 }
-
             }
             return city;
         }
 
         if (!node.isEmpty()) {
             node = node.get(0);
-            city.setName(node.path("name").asText(null));
-            city.setState(node.path("state").asText(null));
+            city.setName(getField(node, "name"));
+            city.setState(getField(node, "state"));
         }
 
         return city;

@@ -17,11 +17,11 @@ public class NewsService {
     }
 
     public Mono<City> putNewsIntoTable(String name, String state) {
-        return Mono.fromFuture(dynamoDbService.getNews(name))
-                .switchIfEmpty(processDataService.validateCity(name, state)
-                        .flatMap(fetchDataService::fetchCity)
-                        .doOnNext(dynamoDbService::putNews)
-                );
+        Mono<City> cityMono = processDataService.validateCity(name, state)
+                .flatMap(city -> Mono.fromFuture(dynamoDbService.getNews(city))
+                        .switchIfEmpty(fetchDataService.mockFetchNews(city, "recent")
+                                .doOnNext(dynamoDbService::putNews)));
+        return cityMono;
     }
 
 }
