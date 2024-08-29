@@ -1,0 +1,1063 @@
+[
+  {
+    "name": "Alabama",
+    "id": "AL",
+    "cities": [
+      {
+        "name": "Montgomery",
+        "population": 193702,
+        "capital": true
+      },
+      {
+        "name": "Huntsville",
+        "population": 228616,
+        "capital": false
+      },
+      {
+        "name": "Birmingham",
+        "population": 195400,
+        "capital": false
+      },
+      {
+        "name": "Mobile",
+        "population": 181253,
+        "capital": false
+      },
+      {
+        "name": "Tuscaloosa",
+        "population": 113711,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Alaska",
+    "id": "AK",
+    "cities": [
+      {
+        "name": "Anchorage",
+        "population": 284469,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Arizona",
+    "id": "AZ",
+    "cities": [
+      {
+        "name": "Phoenix",
+        "population": 1662607,
+        "capital": true
+      },
+      {
+        "name": "Tucson",
+        "population": 548772,
+        "capital": false
+      },
+      {
+        "name": "Mesa",
+        "population": 513567,
+        "capital": false
+      },
+      {
+        "name": "Chandler",
+        "population": 281107,
+        "capital": false
+      },
+      {
+        "name": "Gilbert",
+        "population": 277490,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Arkansas",
+    "id": "AR",
+    "cities": [
+      {
+        "name": "Little Rock",
+        "population": 204244,
+        "capital": true
+      }
+    ]
+  },
+  {
+    "name": "California",
+    "id": "CA",
+    "cities": [
+      {
+        "name": "Sacramento",
+        "population": 526669,
+        "capital": true
+      },
+      {
+        "name": "Los Angeles",
+        "population": 3795936,
+        "capital": false
+      },
+      {
+        "name": "San Diego",
+        "population": 1388996,
+        "capital": false
+      },
+      {
+        "name": "San Jose",
+        "population": 956433,
+        "capital": false
+      },
+      {
+        "name": "San Francisco",
+        "population": 788478,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Colorado",
+    "id": "CO",
+    "cities": [
+      {
+        "name": "Denver",
+        "population": 716234,
+        "capital": true
+      },
+      {
+        "name": "Colorado Springs",
+        "population": 491441,
+        "capital": false
+      },
+      {
+        "name": "Aurora",
+        "population": 397811,
+        "capital": false
+      },
+      {
+        "name": "Fort Collins",
+        "population": 170507,
+        "capital": false
+      },
+      {
+        "name": "Lakewood",
+        "population": 155865,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Connecticut",
+    "id": "CT",
+    "cities": [
+      {
+        "name": "Hartford",
+        "population": 119626,
+        "capital": true
+      },
+      {
+        "name": "Bridgeport",
+        "population": 148131,
+        "capital": false
+      },
+      {
+        "name": "New Haven",
+        "population": 137173,
+        "capital": false
+      },
+      {
+        "name": "Stamford",
+        "population": 136480,
+        "capital": false
+      },
+      {
+        "name": "Waterbury",
+        "population": 115360,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "District of Columbia",
+    "id": "DC",
+    "cities": [
+      {
+        "name": "Washington",
+        "population": 681683,
+        "capital": true
+      }
+    ]
+  },
+  {
+    "name": "Florida",
+    "id": "FL",
+    "cities": [
+      {
+        "name": "Tallahassee",
+        "population": 203650,
+        "capital": true
+      },
+      {
+        "name": "Jacksonville",
+        "population": 997164,
+        "capital": false
+      },
+      {
+        "name": "Miami",
+        "population": 460289,
+        "capital": false
+      },
+      {
+        "name": "Tampa",
+        "population": 408510,
+        "capital": false
+      },
+      {
+        "name": "Orlando",
+        "population": 325044,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Georgia",
+    "id": "GA",
+    "cities": [
+      {
+        "name": "Atlanta",
+        "population": 514465,
+        "capital": true
+      },
+      {
+        "name": "Augusta-Richmond County",
+        "population": 200512,
+        "capital": false
+      },
+      {
+        "name": "Columbus",
+        "population": 200167,
+        "capital": false
+      },
+      {
+        "name": "Macon-Bibb County",
+        "population": 156337,
+        "capital": false
+      },
+      {
+        "name": "Savannah",
+        "population": 147845,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Hawaii",
+    "id": "HI",
+    "cities": [
+      {
+        "name": "Honolulu",
+        "population": 339558,
+        "capital": true
+      }
+    ]
+  },
+  {
+    "name": "Idaho",
+    "id": "ID",
+    "cities": [
+      {
+        "name": "Boise",
+        "population": 235216,
+        "capital": true
+      },
+      {
+        "name": "Meridian",
+        "population": 139920,
+        "capital": false
+      },
+      {
+        "name": "Nampa",
+        "population": 118587,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Illinois",
+    "id": "IL",
+    "cities": [
+      {
+        "name": "Springfield",
+        "population": 111959,
+        "capital": true
+      },
+      {
+        "name": "Chicago",
+        "population": 2638159,
+        "capital": false
+      },
+      {
+        "name": "Aurora",
+        "population": 176679,
+        "capital": false
+      },
+      {
+        "name": "Joliet",
+        "population": 150568,
+        "capital": false
+      },
+      {
+        "name": "Naperville",
+        "population": 150520,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Indiana",
+    "id": "IN",
+    "cities": [
+      {
+        "name": "Indianapolis",
+        "population": 876665,
+        "capital": true
+      },
+      {
+        "name": "Fort Wayne",
+        "population": 271865,
+        "capital": false
+      },
+      {
+        "name": "Evansville",
+        "population": 114651,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Iowa",
+    "id": "IA",
+    "cities": [
+      {
+        "name": "Des Moines",
+        "population": 209232,
+        "capital": true
+      },
+      {
+        "name": "Cedar Rapids",
+        "population": 135358,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Kansas",
+    "id": "KS",
+    "cities": [
+      {
+        "name": "Topeka",
+        "population": 125154,
+        "capital": true
+      },
+      {
+        "name": "Wichita",
+        "population": 395484,
+        "capital": false
+      },
+      {
+        "name": "Overland Park",
+        "population": 196874,
+        "capital": false
+      },
+      {
+        "name": "Kansas City",
+        "population": 151811,
+        "capital": false
+      },
+      {
+        "name": "Olathe",
+        "population": 149419,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Kentucky",
+    "id": "KY",
+    "cities": [
+      {
+        "name": "Louisville/Jefferson County",
+        "population": 620004,
+        "capital": false
+      },
+      {
+        "name": "Lexington",
+        "population": 319329,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Louisiana",
+    "id": "LA",
+    "cities": [
+      {
+        "name": "Baton Rouge",
+        "population": 217342,
+        "capital": true
+      },
+      {
+        "name": "New Orleans",
+        "population": 357767,
+        "capital": false
+      },
+      {
+        "name": "Shreveport",
+        "population": 174996,
+        "capital": false
+      },
+      {
+        "name": "Metairie",
+        "population": 138958,
+        "capital": false
+      },
+      {
+        "name": "Lafayette",
+        "population": 121471,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Maryland",
+    "id": "MD",
+    "cities": [
+      {
+        "name": "Baltimore",
+        "population": 559266,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Massachusetts",
+    "id": "MA",
+    "cities": [
+      {
+        "name": "Boston",
+        "population": 646622,
+        "capital": true
+      },
+      {
+        "name": "Worcester",
+        "population": 208476,
+        "capital": false
+      },
+      {
+        "name": "Springfield",
+        "population": 153136,
+        "capital": false
+      },
+      {
+        "name": "Cambridge",
+        "population": 118212,
+        "capital": false
+      },
+      {
+        "name": "Lowell",
+        "population": 113907,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Michigan",
+    "id": "MI",
+    "cities": [
+      {
+        "name": "Lansing",
+        "population": 111964,
+        "capital": true
+      },
+      {
+        "name": "Detroit",
+        "population": 631524,
+        "capital": false
+      },
+      {
+        "name": "Grand Rapids",
+        "population": 195908,
+        "capital": false
+      },
+      {
+        "name": "Warren",
+        "population": 135832,
+        "capital": false
+      },
+      {
+        "name": "Sterling Heights",
+        "population": 133055,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Minnesota",
+    "id": "MN",
+    "cities": [
+      {
+        "name": "Minneapolis",
+        "population": 423250,
+        "capital": false
+      },
+      {
+        "name": "StPaul",
+        "population": 301380,
+        "capital": false
+      },
+      {
+        "name": "Rochester",
+        "population": 122692,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Mississippi",
+    "id": "MS",
+    "cities": [
+      {
+        "name": "Jackson",
+        "population": 140613,
+        "capital": true
+      }
+    ]
+  },
+  {
+    "name": "Missouri",
+    "id": "MO",
+    "cities": [
+      {
+        "name": "Kansas City",
+        "population": 511532,
+        "capital": false
+      },
+      {
+        "name": "StLouis",
+        "population": 275506,
+        "capital": false
+      },
+      {
+        "name": "Springfield",
+        "population": 170525,
+        "capital": false
+      },
+      {
+        "name": "Columbia",
+        "population": 130337,
+        "capital": false
+      },
+      {
+        "name": "Independence",
+        "population": 120263,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Montana",
+    "id": "MT",
+    "cities": [
+      {
+        "name": "Billings",
+        "population": 122077,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Nebraska",
+    "id": "NE",
+    "cities": [
+      {
+        "name": "Lincoln",
+        "population": 295798,
+        "capital": true
+      },
+      {
+        "name": "Omaha",
+        "population": 480194,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Nevada",
+    "id": "NV",
+    "cities": [
+      {
+        "name": "Las Vegas",
+        "population": 665640,
+        "capital": false
+      },
+      {
+        "name": "Henderson",
+        "population": 343382,
+        "capital": false
+      },
+      {
+        "name": "North Las Vegas",
+        "population": 292623,
+        "capital": false
+      },
+      {
+        "name": "Reno",
+        "population": 278226,
+        "capital": false
+      },
+      {
+        "name": "Enterprise",
+        "population": 236331,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "New Hampshire",
+    "id": "NH",
+    "cities": [
+      {
+        "name": "Manchester",
+        "population": 115462,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "New Jersey",
+    "id": "NJ",
+    "cities": [
+      {
+        "name": "Newark",
+        "population": 303065,
+        "capital": false
+      },
+      {
+        "name": "Jersey City",
+        "population": 291559,
+        "capital": false
+      },
+      {
+        "name": "Paterson",
+        "population": 155495,
+        "capital": false
+      },
+      {
+        "name": "Elizabeth",
+        "population": 135546,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "New Mexico",
+    "id": "NM",
+    "cities": [
+      {
+        "name": "Albuquerque",
+        "population": 558736,
+        "capital": false
+      },
+      {
+        "name": "Las Cruces",
+        "population": 115956,
+        "capital": false
+      },
+      {
+        "name": "Rio Rancho",
+        "population": 112735,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "New York",
+    "id": "NY",
+    "cities": [
+      {
+        "name": "New York",
+        "population": 8097282,
+        "capital": false
+      },
+      {
+        "name": "Buffalo",
+        "population": 273720,
+        "capital": false
+      },
+      {
+        "name": "Yonkers",
+        "population": 206544,
+        "capital": false
+      },
+      {
+        "name": "Rochester",
+        "population": 206078,
+        "capital": false
+      },
+      {
+        "name": "Syracuse",
+        "population": 145171,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "North Carolina",
+    "id": "NC",
+    "cities": [
+      {
+        "name": "Raleigh",
+        "population": 487942,
+        "capital": true
+      },
+      {
+        "name": "Charlotte",
+        "population": 923164,
+        "capital": false
+      },
+      {
+        "name": "Greensboro",
+        "population": 304279,
+        "capital": false
+      },
+      {
+        "name": "Durham",
+        "population": 300100,
+        "capital": false
+      },
+      {
+        "name": "Winston-Salem",
+        "population": 254032,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "North Dakota",
+    "id": "ND",
+    "cities": [
+      {
+        "name": "Fargo",
+        "population": 135588,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Ohio",
+    "id": "OH",
+    "cities": [
+      {
+        "name": "Columbus",
+        "population": 915427,
+        "capital": true
+      },
+      {
+        "name": "Cleveland",
+        "population": 359606,
+        "capital": false
+      },
+      {
+        "name": "Cincinnati",
+        "population": 311595,
+        "capital": false
+      },
+      {
+        "name": "Toledo",
+        "population": 263646,
+        "capital": false
+      },
+      {
+        "name": "Akron",
+        "population": 188219,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Oklahoma",
+    "id": "OK",
+    "cities": [
+      {
+        "name": "Oklahoma City",
+        "population": 709330,
+        "capital": true
+      },
+      {
+        "name": "Tulsa",
+        "population": 411308,
+        "capital": false
+      },
+      {
+        "name": "Norman",
+        "population": 130674,
+        "capital": false
+      },
+      {
+        "name": "Broken Arrow",
+        "population": 120949,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Oregon",
+    "id": "OR",
+    "cities": [
+      {
+        "name": "Salem",
+        "population": 177928,
+        "capital": true
+      },
+      {
+        "name": "Portland",
+        "population": 622882,
+        "capital": false
+      },
+      {
+        "name": "Eugene",
+        "population": 178056,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Pennsylvania",
+    "id": "PA",
+    "cities": [
+      {
+        "name": "Philadelphia",
+        "population": 1533828,
+        "capital": false
+      },
+      {
+        "name": "Pittsburgh",
+        "population": 303413,
+        "capital": false
+      },
+      {
+        "name": "Allentown",
+        "population": 124597,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Rhode Island",
+    "id": "RI",
+    "cities": [
+      {
+        "name": "Providence",
+        "population": 190807,
+        "capital": true
+      }
+    ]
+  },
+  {
+    "name": "South Carolina",
+    "id": "SC",
+    "cities": [
+      {
+        "name": "Columbia",
+        "population": 144489,
+        "capital": true
+      },
+      {
+        "name": "Charleston",
+        "population": 156868,
+        "capital": false
+      },
+      {
+        "name": "North Charleston",
+        "population": 123441,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "South Dakota",
+    "id": "SD",
+    "cities": [
+      {
+        "name": "Sioux Falls",
+        "population": 210734,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Tennessee",
+    "id": "TN",
+    "cities": [
+      {
+        "name": "Nashville",
+        "population": 687150,
+        "capital": true
+      },
+      {
+        "name": "Memphis",
+        "population": 613110,
+        "capital": false
+      },
+      {
+        "name": "Knoxville",
+        "population": 200400,
+        "capital": false
+      },
+      {
+        "name": "Chattanooga",
+        "population": 188850,
+        "capital": false
+      },
+      {
+        "name": "Clarksville",
+        "population": 185118,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Texas",
+    "id": "TX",
+    "cities": [
+      {
+        "name": "Austin",
+        "population": 984567,
+        "capital": true
+      },
+      {
+        "name": "Houston",
+        "population": 2319119,
+        "capital": false
+      },
+      {
+        "name": "San Antonio",
+        "population": 1513974,
+        "capital": false
+      },
+      {
+        "name": "Dallas",
+        "population": 1302753,
+        "capital": false
+      },
+      {
+        "name": "Fort Worth",
+        "population": 996756,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Utah",
+    "id": "UT",
+    "cities": [
+      {
+        "name": "Salt Lake City",
+        "population": 212570,
+        "capital": true
+      },
+      {
+        "name": "West Valley City",
+        "population": 132635,
+        "capital": false
+      },
+      {
+        "name": "West Jordan",
+        "population": 114200,
+        "capital": false
+      },
+      {
+        "name": "Provo",
+        "population": 112756,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Virginia",
+    "id": "VA",
+    "cities": [
+      {
+        "name": "Richmond",
+        "population": 230017,
+        "capital": true
+      },
+      {
+        "name": "Virginia Beach",
+        "population": 451637,
+        "capital": false
+      },
+      {
+        "name": "Chesapeake",
+        "population": 255254,
+        "capital": false
+      },
+      {
+        "name": "Arlington",
+        "population": 236007,
+        "capital": false
+      },
+      {
+        "name": "Norfolk",
+        "population": 228643,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Washington",
+    "id": "WA",
+    "cities": [
+      {
+        "name": "Seattle",
+        "population": 759915,
+        "capital": false
+      },
+      {
+        "name": "Spokane",
+        "population": 229527,
+        "capital": false
+      },
+      {
+        "name": "Tacoma",
+        "population": 223968,
+        "capital": false
+      },
+      {
+        "name": "Vancouver",
+        "population": 198163,
+        "capital": false
+      },
+      {
+        "name": "Bellevue",
+        "population": 151505,
+        "capital": false
+      }
+    ]
+  },
+  {
+    "name": "Wisconsin",
+    "id": "WI",
+    "cities": [
+      {
+        "name": "Madison",
+        "population": 282005,
+        "capital": true
+      },
+      {
+        "name": "Milwaukee",
+        "population": 556111,
+        "capital": false
+      }
+    ]
+  }
+]

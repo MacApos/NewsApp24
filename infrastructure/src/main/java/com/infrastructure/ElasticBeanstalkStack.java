@@ -51,6 +51,7 @@ public class ElasticBeanstalkStack extends Stack {
         // Add appropriate permission policy
         role.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("AWSElasticBeanstalkWebTier"));
         role.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("AmazonDynamoDBFullAccess"));
+        role.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("SecretsManagerReadWrite"));
 
         // Create instance profile for EC2 instances
         String EC2instanceProfile = "aws-elasticbeanstalk-ec2-role";
