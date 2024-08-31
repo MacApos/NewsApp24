@@ -1,50 +1,59 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {newsAPI} from "./newsAPI";
 
+const PENDING = "pending";
+const SUCCEEDED = "succeeded";
+const REJECTED = "rejected";
+
 const initialState = {
-    posts: [],
+    news: [],
     status: "idle",
     error: null,
 };
 
-const fetchNews = createAsyncThunk(
+export const fetchNews = createAsyncThunk(
     'news/fetchNews',
     async (city) => {
         const response = await newsAPI.fetchNews(city);
-        return response.json();
+        return await response.json();
     },
 );
 
 const newsSlice = createSlice({
         name: "news",
         initialState,
-    extraReducers:(builder)=>{
-            builder
-                .addCase(fetchPosts.pending, (state, action) => {
-                    state.status = "pending";
-                })
-                .addCase(fetchPosts.fulfilled, (state, action) => {
-                    state.status = "succeeded";
-                    // Save the fetched posts into state
-                    state.posts = action.payload;
-                })
-                .addCase(fetchPosts.rejected, (state, action) => {
-                    state.status = "rejected";
-                    state.error = action.error.message ?? "Unknown Error";
-                })
-    },
         reducers: {
-
+            updateNews: (state, action) => {
+                state.news = action.payload;
+            }
+        },
+        extraReducers: (builder) => {
+            builder
+                .addCase(fetchNews.pending, (state) => {
+                    state.status = PENDING;
+                })
+                .addCase(fetchNews.fulfilled, (state, action) => {
+                    state.status = SUCCEEDED;
+                    state.news = action.payload;
+                })
+                .addCase(fetchNews.rejected, (state) => {
+                    state.status = REJECTED;
+                    state.error = "Unknown Error";
+                    console.warn("rejected");
+                });
         },
         selectors: {
-            selectNews: (state) => state
+            selectNews: state => state.news,
+            selectStatus: state => state.status,
+            selectError: state => state.error,
         },
-
     }
 );
 
-export const {newsFetched} = newsSlice.actions;
-
-export const {selectNews} = newsSlice.selectors;
-
+export {PENDING, SUCCEEDED, REJECTED};
+export const {
+    selectNews,
+    selectStatus, selectError
+} = newsSlice.selectors;
+export const {updateNews} = newsSlice.actions;
 export default newsSlice.reducer;

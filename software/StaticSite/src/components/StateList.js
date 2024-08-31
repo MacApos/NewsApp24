@@ -40,7 +40,6 @@ const StateItem = ({state, onClick, onBlur}) => {
     return (
         <div key={state.id} onClick={handleClick} onBlur={() => {
             if (typeof onBlur === "function") {
-                console.log("blur");
                 onBlur();
             }
         }}>

@@ -20,7 +20,6 @@ public class City {
     @Size(min = 3)
     private String name;
 
-    @NotNull
     @Size(min = 2)
     private String state;
     private List<Article> articles = new ArrayList<>();
@@ -41,7 +40,14 @@ public class City {
     }
 
     public String prepareQuery(String... params) {
-        ArrayList<String> queryParams = new ArrayList<>(List.of(name, state));
+        int paramsLen = params.length;
+        if (state == null && paramsLen == 0) {
+            return name;
+        }
+        ArrayList<String> queryParams = new ArrayList<>(paramsLen + 2);
+        if (state != null) {
+            queryParams.add(state);
+        }
         Collections.addAll(queryParams, params);
         return String.join(",", queryParams);
     }

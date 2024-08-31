@@ -36,8 +36,8 @@ public class ProcessDataService {
     public Mono<City> fetchCity(String query) {
         String path = CITY_PATH + "/direct";
         Map<String, String> cityApiUriParams = Map.of("appid", CITY_API_KEY, "q", query);
-//        return fetchDataService.prepareResponse(CITY_HOST, path, cityApiUriParams, null);
-
+//        Mono<City> cityMono = fetchDataService.prepareResponse(CITY_HOST, path, cityApiUriParams, null);
+//        return cityMono;
         ObjectMapper objectMapper = new ObjectMapper();
         String mockCity = "[{\"name\":\"New York County\",\"local_names\":{\"te\":\"న్యూయొర్క్\",\"ko\":\"뉴욕\",\"en\":\"New York\",\"gl\":\"Nova York\",\"fr\":\"New York\",\"he\":\"ניו יורק\",\"is\":\"Nýja Jórvík\",\"cs\":\"New York\",\"uk\":\"Нью-Йорк\",\"ca\":\"Nova York\",\"eo\":\"Novjorko\",\"vi\":\"New York\",\"el\":\"Νέα Υόρκη\",\"es\":\"Nueva York\",\"hi\":\"न्यूयॊर्क्\",\"be\":\"Нью-Ёрк\",\"ar\":\"نيويورك\",\"pt\":\"Nova Iorque\",\"oc\":\"Nòva York\",\"zh\":\"纽约/紐約\",\"de\":\"New York\",\"ru\":\"Нью-Йорк\",\"fa\":\"نیویورک\",\"cy\":\"Efrog Newydd\",\"ja\":\"ニューヨーク\",\"it\":\"New York\",\"pl\":\"Nowy Jork\",\"kn\":\"ನ್ಯೂಯೊರ್ಕ್\"},\"lat\":40.7127281,\"lon\":-74.0060152,\"country\":\"US\",\"state\":\"New York\"}]";
         City city;

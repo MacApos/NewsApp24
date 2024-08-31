@@ -2,7 +2,7 @@ import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import newsSlice from "../features/reducers/newsSlice";
 
 const rootReducer = combineReducers({
-    counter:newsSlice
+    news:newsSlice
 });
 
 // const persistConfig = {
