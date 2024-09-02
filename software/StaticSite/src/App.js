@@ -1,6 +1,8 @@
 import {Provider} from "react-redux";
 import {Form} from "./components/Form";
 import {store} from "./app/store";
+import {News} from "./components/News";
+import {Sort} from "./components/Sort";
 
 const initMaps = (g) => {
     (g => {
@@ -34,6 +36,8 @@ export const App = () => {
     return (
         <Provider store={store}>
             <Form/>
+            <Sort/>
+            <News/>
             {/*<News/>*/}
             {/*<StateList/>*/}
         </Provider>

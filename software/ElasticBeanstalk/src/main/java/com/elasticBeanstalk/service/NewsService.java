@@ -16,12 +16,18 @@ public class NewsService {
         this.processDataService = processDataService;
     }
 
-    public Mono<City> putNewsIntoTable(String name, String state) {
-        Mono<City> cityMono = processDataService.validateCity(name, state)
-                .flatMap(city -> Mono.fromFuture(dynamoDbService.getNews(city))
-                        .switchIfEmpty(fetchDataService.mockFetchNews(city, "recent")
-                                .doOnNext(dynamoDbService::putNews)));
-        return cityMono;
+    public Mono<City> putNewsIntoTable(City city) {
+        Mono<City> cityMono = processDataService.validateCity(city)
+                .flatMap(validCity -> Mono.fromFuture(dynamoDbService.getNews(validCity)));
+
+        return processDataService.validateCity(city)
+                .flatMap(validCity -> Mono.fromFuture(dynamoDbService.getNews(validCity))
+                        .switchIfEmpty(fetchDataService
+                                .fetchNews(validCity)
+//                                .mockFetchNews(validCity, "recent")
+                                .doOnNext(dynamoDbService::putNews)
+                        )
+                );
     }
 
 }

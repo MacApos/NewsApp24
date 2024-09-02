@@ -4,11 +4,19 @@ import {newsAPI} from "./newsAPI";
 const PENDING = "pending";
 const SUCCEEDED = "succeeded";
 const REJECTED = "rejected";
+const ASC = "ascending";
+const DESC = "descending";
 
 const initialState = {
-    news: [],
-    status: "idle",
-    error: null,
+    newsResponse: {
+        news: {},
+        status: "idle",
+        error: null,
+    },
+    sort: {
+        category: "datePublished",
+        order: ASC | DESC
+    }
 };
 
 export const fetchNews = createAsyncThunk(
@@ -23,37 +31,43 @@ const newsSlice = createSlice({
         name: "news",
         initialState,
         reducers: {
-            updateNews: (state, action) => {
-                state.news = action.payload;
+            setNews: (state, action) => {
+                state.newsResponse.news = action.payload;
+            },
+            setSort: (state, action) => {
+                state.sort = action.payload;
             }
         },
         extraReducers: (builder) => {
             builder
                 .addCase(fetchNews.pending, (state) => {
-                    state.status = PENDING;
+                    state.newsResponse.status = PENDING;
                 })
                 .addCase(fetchNews.fulfilled, (state, action) => {
-                    state.status = SUCCEEDED;
-                    state.news = action.payload;
+                    state.newsResponse.status = SUCCEEDED;
+                    state.newsResponse.news = action.payload;
                 })
                 .addCase(fetchNews.rejected, (state) => {
-                    state.status = REJECTED;
-                    state.error = "Unknown Error";
+                    state.newsResponse.status = REJECTED;
+                    state.newsResponse.error = "Unknown Error";
                     console.warn("rejected");
                 });
         },
         selectors: {
-            selectNews: state => state.news,
-            selectStatus: state => state.status,
-            selectError: state => state.error,
+            selectNews: state => state.newsResponse.news,
+            selectArticles: state => state.newsResponse.news.articles,
+            selectStatus: state => state.newsResponse.status,
+            selectError: state => state.newsResponse.error,
+            selectSort: state => state.sort,
         },
     }
 );
 
-export {PENDING, SUCCEEDED, REJECTED};
+export {PENDING, SUCCEEDED, REJECTED, ASC, DESC};
 export const {
-    selectNews,
-    selectStatus, selectError
+    selectNews, selectStatus,
+    selectError, selectSort,
+    selectArticles
 } = newsSlice.selectors;
-export const {updateNews} = newsSlice.actions;
+export const {setNews, setSort} = newsSlice.actions;
 export default newsSlice.reducer;

@@ -22,8 +22,9 @@ public class City {
 
     @Size(min = 2)
     private String state;
+
     private List<Article> articles = new ArrayList<>();
-    private String updateDate;
+    private LocalDateTime updateDate;
 
     public City() {
     }
@@ -44,7 +45,7 @@ public class City {
         if (state == null && paramsLen == 0) {
             return name;
         }
-        ArrayList<String> queryParams = new ArrayList<>(paramsLen + 2);
+        ArrayList<String> queryParams = new ArrayList<>(List.of(name));
         if (state != null) {
             queryParams.add(state);
         }
@@ -67,7 +68,7 @@ public class City {
     }
 
     public void setUpdateDateToNow() {
-        updateDate = String.valueOf(LocalDateTime.now());
+        updateDate = LocalDateTime.now();
     }
 
     @DynamoDbPartitionKey
@@ -96,11 +97,11 @@ public class City {
         this.articles = values;
     }
 
-    public String getUpdateDate() {
+    public LocalDateTime getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(String updateDate) {
+    public void setUpdateDate(LocalDateTime updateDate) {
         this.updateDate = updateDate;
     }
 
