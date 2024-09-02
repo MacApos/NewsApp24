@@ -45,9 +45,8 @@ public class Handler implements RequestStreamHandler {
                     if (fetch != null) {
                         fetch.addArticles(city.getArticles());
                         fetch.sortArticles();
-                        city = fetch;
+                        dynamoDBService.table.putItem(fetch);
                     }
-                    dynamoDBService.table.putItem(city);
                 });
     }
 }
