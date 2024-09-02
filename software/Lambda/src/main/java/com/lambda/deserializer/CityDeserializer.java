@@ -38,11 +38,10 @@ public class CityDeserializer extends StdDeserializer<City> {
                 city.setState(originalQuery[1]);
             }
             JsonNode value = node.path("value");
-            if (value.isArray()) {
+            if (value.isArray() && !value.isEmpty()) {
 
-                ArrayList<Article> articles = new ArrayList<>();
                 for (JsonNode valueNode : value) {
-                    articles.add(new Article(
+                    city.addArticle(new Article(
                             getField(valueNode, "name"),
                             getField(valueNode, "url"),
                             getField(valueNode.path("image"), "contentUrl"),
@@ -50,7 +49,7 @@ public class CityDeserializer extends StdDeserializer<City> {
                             getField(valueNode, "datePublished"))
                     );
                 }
-                List<Article> list = articles.stream().sorted().toList();
+                city.sortArticles();
             }
             return city;
         }

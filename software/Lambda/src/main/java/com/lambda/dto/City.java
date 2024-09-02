@@ -11,6 +11,10 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSortK
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @DynamoDbBean
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -23,7 +27,7 @@ public class City {
     @Size(min = 2)
     private String state;
 
-    private List<Article> articles = new ArrayList<>();
+    private ArrayList<Article> articles  = new ArrayList<>();
     private LocalDateTime updateDate;
 
     public City() {
@@ -32,12 +36,6 @@ public class City {
     public City(String name, String state) {
         this.name = name;
         this.state = state;
-    }
-
-    public City(String name, String state, ArrayList<Article> articles) {
-        this.name = name;
-        this.state = state;
-        this.articles = articles;
     }
 
     public String prepareQuery(String... params) {
@@ -57,14 +55,30 @@ public class City {
         articles.add(article);
     }
 
+    public void addArticles(List<Article> articles) {
+        this.articles.addAll(articles);
+    }
+
+    private <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+        Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+        return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+    }
+
+    public void sortArticles() {
+        if (!articles.isEmpty()) {
+            articles = articles.stream().filter(distinctByKey(Article::getName)).sorted()
+                    .limit(Math.min(20, articles.size())).collect(Collectors.toCollection(ArrayList::new));
+        }
+    }
+
     public void updateCity(City city) {
         List<Article> newArticles = city.getArticles();
         if (!newArticles.isEmpty()) {
             TreeSet<Article> currentArticles = new TreeSet<>(articles);
             currentArticles.addAll(newArticles);
-            articles = currentArticles.stream().toList();
+            articles = new ArrayList<>(currentArticles);
         }
-        articles = articles.subList(0, Math.min(20, articles.size()));
+        articles.subList(0, Math.min(20, articles.size()));
     }
 
     public void setUpdateDateToNow() {
@@ -94,7 +108,7 @@ public class City {
     }
 
     public void setArticles(List<Article> values) {
-        this.articles = values;
+        this.articles = new ArrayList<>(values);
     }
 
     public LocalDateTime getUpdateDate() {

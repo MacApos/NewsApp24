@@ -1,5 +1,6 @@
 package com.lambda;
 
+import com.lambda.dto.Article;
 import com.lambda.dto.City;
 import com.lambda.service.DynamoDBService;
 import com.lambda.service.FetchDataService;
@@ -11,9 +12,7 @@ import reactor.core.scheduler.Schedulers;
 
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 import static com.lambda.Handler.initialCities;
 import static com.lambda.service.FetchDataService.*;
@@ -63,10 +62,12 @@ class MainTest {
                 .map(cityPage -> cityPage.items().isEmpty() ? initialCities : cityPage.items())
                 .flatMap(Collection::stream)
                 .forEach(city -> {
-                    City block = fetchDataService.mockFetchNews(city, "recent").block();
-                    if(block != null){
-                        block.updateCity(city);
-                        city = block;
+                    City fetch = fetchDataService.fetchNews(city).block();
+
+                    if (fetch != null) {
+                        fetch.addArticles(city.getArticles());
+                        fetch.sortArticles();
+                        city = fetch;
                     }
                     dynamoDBService.table.putItem(city);
                 });

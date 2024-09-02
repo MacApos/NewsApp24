@@ -20,7 +20,7 @@ public class Handler implements RequestStreamHandler {
     private static final DynamoDBService dynamoDBService = new DynamoDBService();
     private static final FetchDataService fetchDataService = new FetchDataService();
     public static final ObjectMapper objectMapper = new ObjectMapper();
-    public static final List<City> initialCities = List.of(new City("New York County", "New York"),
+    public static final List<City> initialCities = List.of(new City("New York", "New York"),
             new City("Ashburn", "Virginia"),
             new City("Hemingford", "Nebraska"));
 
@@ -41,10 +41,11 @@ public class Handler implements RequestStreamHandler {
                 .map(cityPage -> cityPage.items().isEmpty() ? initialCities : cityPage.items())
                 .flatMap(Collection::stream)
                 .forEach(city -> {
-                    City block = fetchDataService.mockFetchNews(city, "recent").block();
-                    if (block != null) {
-                        block.updateCity(city);
-                        city = block;
+                    City fetch = fetchDataService.fetchNews(city).block();
+                    if (fetch != null) {
+                        fetch.addArticles(city.getArticles());
+                        fetch.sortArticles();
+                        city = fetch;
                     }
                     dynamoDBService.table.putItem(city);
                 });
