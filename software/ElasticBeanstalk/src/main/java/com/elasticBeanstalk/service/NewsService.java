@@ -6,6 +6,8 @@ import com.lambda.service.DynamoDBService;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
+import static com.lambda.service.FetchDataService.TRENDING;
+
 @Service
 public class NewsService {
     private final FetchDataService fetchDataService = new FetchDataService();
@@ -16,18 +18,21 @@ public class NewsService {
         this.processDataService = processDataService;
     }
 
-    public Mono<City> putNewsIntoTable(City city) {
-        Mono<City> cityMono = processDataService.validateCity(city)
-                .flatMap(validCity -> Mono.fromFuture(dynamoDbService.getNews(validCity)));
+    private Mono<City> getOrFetchNews(City city) {
+        return Mono.fromFuture(dynamoDbService.getNews(city))
+                .switchIfEmpty(fetchDataService
+                .fetchNews(city)
+                .doOnNext(dynamoDbService::putNews)
+        );
+    }
 
-        return processDataService.validateCity(city)
-                .flatMap(validCity -> Mono.fromFuture(dynamoDbService.getNews(validCity))
-                        .switchIfEmpty(fetchDataService
-                                .fetchNews(validCity)
-//                                .mockFetchNews(validCity, "recent")
-                                .doOnNext(dynamoDbService::putNews)
-                        )
-                );
+    public Mono<City> getTrending() {
+        City city = new City(TRENDING, "-");
+        return getOrFetchNews(city);
+    }
+
+    public Mono<City> getNewsByCity(City city) {
+        return processDataService.validateCity(city).flatMap(this::getOrFetchNews);
     }
 
 }

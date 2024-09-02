@@ -15,9 +15,14 @@ public class NewsController {
         this.newsService = newsService;
     }
 
+    @RequestMapping(value = {"/trending"})
+    public Mono<City> getTrending() {
+        return newsService.getTrending();
+    }
+
     @RequestMapping(value = {"/{name}", "/{name}/{state}"})
-    public Mono<City> newsController(@PathVariable String name,
-                                     @PathVariable(required = false) String state) {
-        return newsService.putNewsIntoTable(new City(name, state));
+    public Mono<City> getNewsByCity(@PathVariable String name,
+                                    @PathVariable(required = false) String state) {
+        return newsService.getNewsByCity(new City(name, state));
     }
 }

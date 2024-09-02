@@ -26,32 +26,19 @@ public class CityDeserializer extends StdDeserializer<City> {
     public City deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         City city = new City();
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
-        JsonNode queryContext = node.get("queryContext");
 
-        if (queryContext != null) {
-            String[] originalQuery = queryContext.path("originalQuery").asText("")
-                    .trim().split(" *, *");
-            if (originalQuery.length > 0) {
-                city.setName(originalQuery[0]);
+        JsonNode value = node.path("value");
+        if (value.isArray() && !value.isEmpty()) {
+            for (JsonNode valueNode : value) {
+                city.addArticle(new Article(
+                        getField(valueNode, "name"),
+                        getField(valueNode, "url"),
+                        getField(valueNode.path("image"), "contentUrl"),
+                        getField(valueNode, "description"),
+                        getField(valueNode, "datePublished"))
+                );
             }
-            if (originalQuery.length > 1) {
-                city.setState(originalQuery[1]);
-            }
-            JsonNode value = node.path("value");
-            if (value.isArray() && !value.isEmpty()) {
-
-                for (JsonNode valueNode : value) {
-                    city.addArticle(new Article(
-                            getField(valueNode, "name"),
-                            getField(valueNode, "url"),
-                            getField(valueNode.path("image"), "contentUrl"),
-                            getField(valueNode, "description"),
-                            getField(valueNode, "datePublished"))
-                    );
-                }
-                city.sortArticles();
-            }
-            return city;
+            city.sortArticles();
         }
 
         if (node.isArray() && !node.isEmpty()) {

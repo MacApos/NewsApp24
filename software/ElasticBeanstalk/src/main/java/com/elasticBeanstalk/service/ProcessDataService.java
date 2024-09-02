@@ -44,8 +44,7 @@ public class ProcessDataService {
                             City.class.getName());
                     validator.validate(initialCity, errors);
                     if (errors.getAllErrors().isEmpty()) {
-                        Mono<City> cityMono = fetchDataService.mockFetchCity(initialCity.prepareQuery(COUNTRY_CODE));
-                        return cityMono;
+                        return fetchCity(initialCity.prepareQuery(COUNTRY_CODE));
                     } else {
                         return Mono.error(CITY_NOT_FOUND);
                     }
