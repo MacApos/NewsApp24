@@ -1,21 +1,10 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {
-    ASC,
-    DESC, selectArticles,
-    selectArticlesOnPage,
-    selectSort,
-    setArticlesOnPage,
-    setNews,
-    setSort,
-    sortNews
-} from "../features/reducers/newsSlice";
+import {ASC, DESC, selectSort, setSort} from "../features/reducers/newsSlice";
 
 export const Sort = () => {
     const dispatch = useDispatch();
     const sort = useSelector(selectSort);
-    const articlesOnPage = useSelector(selectArticlesOnPage);
-    const articles = useSelector(selectArticles);
     const {category, order} = sort;
     const datePublished = "datePublished";
     const random = "random";
@@ -24,11 +13,6 @@ export const Sort = () => {
         const [category, order] = e.target.value.split(",");
         dispatch(setSort({category, order}));
     };
-
-    const handleArticlesOnPage = (e) => {
-        dispatch(setArticlesOnPage(e.target.value));
-    };
-
 
     const style = {display: "inline"};
     return (
@@ -40,19 +24,6 @@ export const Sort = () => {
                 <option value={joinWithComa(random, DESC)}>Random DESC</option>
                 <option value={joinWithComa(random, ASC)}>Random ASC</option>
             </select>
-            <div style={style}>{"Articles on page "}
-                <form style={style}>
-                    <input type={"number"} onChange={e =>
-                        dispatch(setArticlesOnPage(e.target.value))}/>
-                </form>
-            </div>
-
-            {/*<select  onChange={handleSortChange}>*/}
-            {/*<option value={joinWithComa(datePublished, DESC)}>Latest</option>*/}
-            {/*<option value={joinWithComa(datePublished, ASC)}>Oldest</option>*/}
-            {/*<option value={joinWithComa(random, DESC)}>Random DESC</option>*/}
-            {/*<option value={joinWithComa(random, ASC)}>Random ASC</option>*/}
-            {/*</select>*/}
         </>
     );
 };

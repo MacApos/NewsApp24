@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {selectArticles, selectArticlesOnPage, selectSort} from "../features/reducers/newsSlice";
+import {selectArticles, selectArticlesOnPage, selectSort, setPage} from "../features/reducers/newsSlice";
 
 export const Pagination = () => {
     const dispatch = useDispatch();
@@ -9,13 +9,12 @@ export const Pagination = () => {
 
     let list = null;
     if (articles) {
-        const numberOfPages= Math.ceil(articles.length / articlesOnPage);
-        // style="width:10%; float:left;
-
-        const from = Array.from({length: numberOfPages});
+        const numberOfPages = Math.ceil(articles.length / articlesOnPage);
+        const pages = Array.from({length: numberOfPages}, (_, i) => i + 1);
         list =
-            <ul style={{}}>
-                {from.map(pageIdx=><li style={{width:"10%", float:"left"}}></li>)}
+            <ul style={{display: "block", listStyle: "none"}}>
+                {pages.map(pageIdx => <li style={{width: "5%", float: "left"}}
+                onClick={() => dispatch(setPage(pageIdx))}>{pageIdx}</li>)}
             </ul>;
     }
 

@@ -8,6 +8,9 @@ import {useEffect} from "react";
 import {fetchNews} from "./features/reducers/newsSlice";
 import {TRENDING} from "./features/reducers/newsAPI";
 import {Pagination} from "./components/Pagination";
+import {PagesSelect} from "./components/PagesSelect";
+import { Button } from 'react-bootstrap';
+import {NavigationBar} from "./components/NavigationBar";
 
 const initMaps = (g) => {
     (g => {
@@ -39,8 +42,11 @@ export const App = () => {
 
     return (
         <Provider store={store}>
-            <Form/>
+            <NavigationBar>
+                <Form/>
+            </NavigationBar>
             <Sort/>
+            <PagesSelect/>
             <Pagination/>
             <News/>
             {/*<StateList/>*/}
@@ -55,7 +61,6 @@ export const App = () => {
 //
 //
 //     useEffect(() => {
-//
 //     }, []);
 //
 //     return (
