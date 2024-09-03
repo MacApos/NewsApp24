@@ -20,7 +20,7 @@ public class ProcessDataService {
     private final Secrets secrets = Secrets.getSecrets();
 
     private final String CITY_HOST = "api.openweathermap.org";
-    private final String CITY_PATH = "/geo/1.0";
+    private final String CITY_PATH = "/geo/1.0/direct";
     private final String COUNTRY_CODE = "US";
     private final String CITY_API_KEY = secrets.CITY_API_KEY;
     private final ResponseStatusException CITY_NOT_FOUND =
@@ -31,9 +31,8 @@ public class ProcessDataService {
     }
 
     public Mono<City> fetchCity(String query) {
-        String path = CITY_PATH + "/direct";
         Map<String, String> cityApiUriParams = Map.of("appid", CITY_API_KEY, "q", query);
-        return fetchDataService.prepareResponse(CITY_HOST, path, cityApiUriParams, null);
+        return fetchDataService.prepareResponse(CITY_HOST, CITY_PATH, cityApiUriParams, null);
     }
 
     public Mono<City> validateCity(City city) {
@@ -52,7 +51,7 @@ public class ProcessDataService {
                 // Fetching
                 .flatMap(validCity -> {
                     // Data passed validation but city wasn't found
-                    if (validCity.getName() == null || validCity.getState() == null) {
+                    if (validCity.getName() == null) {
                         return Mono.error(CITY_NOT_FOUND);
                     } else {
                         return Mono.just(validCity);

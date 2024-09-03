@@ -15,12 +15,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-
 public class Handler implements RequestStreamHandler {
     private static final DynamoDBService dynamoDBService = new DynamoDBService();
     private static final FetchDataService fetchDataService = new FetchDataService();
     public static final ObjectMapper objectMapper = new ObjectMapper();
-    public static final List<City> initialCities = List.of(new City("New York", "New York"),
+    public static final List<City> initialCities = List.of(
+            new City("New York", "New York"),
             new City("Ashburn", "Virginia"),
             new City("Hemingford", "Nebraska"));
 
