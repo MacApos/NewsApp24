@@ -57,8 +57,7 @@ public class FetchDataService {
         if (headers != null) {
             headers.forEach(httpRequestBuilder::header);
         }
-        HttpRequest build = httpRequestBuilder.build();
-        return build;
+        return httpRequestBuilder.build();
     }
 
     public Mono<City> prepareResponse(String host, String path, Map<String, String> params,
@@ -78,17 +77,17 @@ public class FetchDataService {
                     return Mono.just(city);
                 });
 
-        String statesPath = "/home/zalman/Documents/JavaProjects/NewsRequests/";
-        CompletableFuture<String> stringCompletableFuture = response.thenApply(httpResponse -> {
-            String body = httpResponse.body();
-            try {
-                Files.writeString(Paths.get(statesPath, "headers.txt"), httpResponse.headers().toString().replaceAll("],", "].\n"));
-                Files.writeString(Paths.get(statesPath, "news.json"), body);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            return body;
-        });
+//        String statesPath = "/home/zalman/Documents/JavaProjects/NewsRequests/";
+//        CompletableFuture<String> stringCompletableFuture = response.thenApply(httpResponse -> {
+//            String body = httpResponse.body();
+//            try {
+//                Files.writeString(Paths.get(statesPath, "headers.txt"), httpResponse.headers().toString().replaceAll("],", "].\n"));
+//                Files.writeString(Paths.get(statesPath, "news.json"), body);
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//            return body;
+//        });
 
         return cityMono;
     }

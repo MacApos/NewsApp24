@@ -1,6 +1,11 @@
 import * as React from 'react';
-import {PENDING, REJECTED, selectNews, selectStatus, SUCCEEDED} from "../features/reducers/newsSlice";
-import {useSelector} from "react-redux";
+import {
+    fetchNews, selectNews, selectSort, selectStatus,
+    PENDING, REJECTED, SUCCEEDED, compareFn, selectArticlesOnPage, selectPage
+} from "../features/reducers/newsSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {TRENDING} from "../features/reducers/newsAPI";
+import {useEffect} from "react";
 
 
 const AnchorWrapper = (props) => {
@@ -25,57 +30,70 @@ const formatDate = (date) => {
 export const News = () => {
     const news = useSelector(selectNews);
     const status = useSelector(selectStatus);
-    let content = status;
+    const sort = useSelector(selectSort);
+    const page = useSelector(selectPage);
+    const articlesOnPage = useSelector(selectArticlesOnPage);
+    const dispatch = useDispatch();
 
-    let articles = JSON.parse(JSON.stringify(news)).articles;
-    const articlesExists = typeof articles !== "undefined";
-    if (articlesExists) {
-        articles=articles.map(article => {
-                return {
-                    ...article,
-                    random: Math.floor(Math.random() * 100)
-                };
-            }
-        );
-    }
+    let content;
+    useEffect(() => {
+        const item = sessionStorage.getItem("cityName");
+        if (item === null) {
+            dispatch(fetchNews(TRENDING));
+        } else {
+            dispatch(fetchNews(item));
+        }
+    }, []);
+
 
     if (status === PENDING) {
         content = "...";
     } else if (status === SUCCEEDED) {
+        let articles = news.articles;
+
+        articles = articles.map(article => {
+            return {
+                ...article,
+                datePublished: new Date(Date.parse(article.datePublished)),
+                random: Math.floor(Math.random() * 100)
+            };
+        });
+
+        const start = (page - 1) * articlesOnPage;
+        const stop = page * Math.min(articlesOnPage, articles.length);
+        console.log(start, stop);
+
         content =
             <ul>{`${news.name}, ${news.state}`}
-                {articlesExists && articles.map((article, index) => {
-                    console.log(article);
-                    const image = article.image;
-                    const datePublished = new Date(Date.parse(article.datePublished));
-                    return (
-                        <li>
-                            <div>
-                                <h4>
-                                    <AnchorWrapper href={article.url}>
-                                        {article.name}
-                                    </AnchorWrapper>
-                                </h4>
-                                <p>
-                                    {article.random}
-                                </p>
-                                <p>
-                                    {formatDate(datePublished)}
-                                </p>
+                {articles.slice(start, stop).sort(compareFn(sort)).map((article, index) => {
+                            const image = article.image;
+                            return (
+                                <li>
+                                    <div>
+                                        <h4>
+                                            <AnchorWrapper href={article.url}>
+                                                {`${index + 1}. ${article.name}`}
+                                            </AnchorWrapper>
+                                        </h4>
+                                        {/*<p>*/}
+                                        {/*    {article.random}*/}
+                                        {/*</p>*/}
+                                        {/*<p>*/}
+                                        {/*    {formatDate(article.datePublished)}*/}
+                                        {/*</p>*/}
 
-                                <p>{article.description}</p>
-                                {image !== null &&
-                                    <AnchorWrapper href={article.url}>
-                                        <img src={image} alt={article.name} width={300} height={"auto"}/>
-                                    </AnchorWrapper>}
-                            </div>
+                                        {/*<p>{article.description}</p>*/}
+                                        {/*{image !== null &&*/}
+                                        {/*    <AnchorWrapper href={article.url}>*/}
+                                        {/*        <img src={image} alt={article.name} width={300} height={"auto"}/>*/}
+                                        {/*    </AnchorWrapper>}*/}
+                                    </div>
 
-                        </li>
-                    );
-                })
-                }
+                                </li>
+                            );
+                        }
+                    )}
             </ul>;
-        // console.log(articles);
     } else if (status === REJECTED) {
         content = "ERROR!";
     }

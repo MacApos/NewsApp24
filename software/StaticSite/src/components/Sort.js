@@ -1,39 +1,62 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {selectSort, ASC, DESC, selectNews, setSort, setNews, selectArticles} from "../features/reducers/newsSlice";
-
-const getObjectKeyName = (object, keyName) => {
-    const s = Object.keys(object).find(key=>key===keyName);
-    console.log(s);
-    return s;
-}
+import {
+    ASC,
+    DESC, selectArticles,
+    selectArticlesOnPage,
+    selectSort,
+    setArticlesOnPage,
+    setNews,
+    setSort,
+    sortNews
+} from "../features/reducers/newsSlice";
 
 export const Sort = () => {
-    const dispatch = useDispatch;
-
+    const dispatch = useDispatch();
     const sort = useSelector(selectSort);
+    const articlesOnPage = useSelector(selectArticlesOnPage);
     const articles = useSelector(selectArticles);
+    const {category, order} = sort;
+    const datePublished = "datePublished";
+    const random = "random";
 
-    // const datePublished = getObjectKeyName(articles,"datePublished");
-    // console.log(datePublished);
-    // const random = getObjectKeyName(articles, "random");
-    // const initialSort = [datePublished, DESC];
-    // const [articlesSort, setArticlesSort] = useState([sort.category, sort.order]);
-    //
-    // const handleSortChange = (e) => {
-    //     setArticlesSort(e.target.value);
-    //     const [category, order]=articlesSort
-    //     dispatch(setSort({category, order}));
-    // };
+    const handleSortChange = (e) => {
+        const [category, order] = e.target.value.split(",");
+        dispatch(setSort({category, order}));
+    };
 
+    const handleArticlesOnPage = (e) => {
+        dispatch(setArticlesOnPage(e.target.value));
+    };
+
+
+    const style = {display: "inline"};
     return (
         <>
-            {/*<select value={articlesSort} onChange={handleSortChange}>*/}
-            {/*    <option value={initialSort}>Latest</option>*/}
-            {/*    <option value={[datePublished, DESC]}>Oldest</option>*/}
-            {/*    <option value={[random, ASC]}>Random ASC</option>*/}
-            {/*    <option value={[random, DESC]}>Random DESC</option>*/}
+            <div style={style}>{"Sort "}</div>
+            <select value={joinWithComa(category, order)} onChange={handleSortChange}>
+                <option value={joinWithComa(datePublished, DESC)}>Latest</option>
+                <option value={joinWithComa(datePublished, ASC)}>Oldest</option>
+                <option value={joinWithComa(random, DESC)}>Random DESC</option>
+                <option value={joinWithComa(random, ASC)}>Random ASC</option>
+            </select>
+            <div style={style}>{"Articles on page "}
+                <form style={style}>
+                    <input type={"number"} onChange={e =>
+                        dispatch(setArticlesOnPage(e.target.value))}/>
+                </form>
+            </div>
+
+            {/*<select  onChange={handleSortChange}>*/}
+            {/*<option value={joinWithComa(datePublished, DESC)}>Latest</option>*/}
+            {/*<option value={joinWithComa(datePublished, ASC)}>Oldest</option>*/}
+            {/*<option value={joinWithComa(random, DESC)}>Random DESC</option>*/}
+            {/*<option value={joinWithComa(random, ASC)}>Random ASC</option>*/}
             {/*</select>*/}
         </>
     );
 };
+
+function joinWithComa() {
+    return [...arguments].join(",");
+}

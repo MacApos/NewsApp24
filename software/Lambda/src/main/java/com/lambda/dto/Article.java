@@ -69,7 +69,7 @@ public class Article implements Comparable<Article> {
 
     @Override
     public int compareTo(Article article) {
-        return parseDate(datePublished).compareTo(parseDate(article.getDatePublished()));
+        return parseDate(article.getDatePublished()).compareTo(parseDate(datePublished));
     }
 }
 

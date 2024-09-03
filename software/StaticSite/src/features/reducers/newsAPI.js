@@ -1,10 +1,18 @@
+const TRENDING = "TRENDING";
+
 export class newsAPI {
     static async fetchNews(city) {
         try {
-            let pathVariable = city;
-            if (city !== "") {
+            if (city === "") {
+                return;
+            }
+            let pathVariable;
+            if (city === TRENDING) {
+                pathVariable = TRENDING.toLowerCase();
+            } else {
                 const split = city.split(",").map(s => s.trim());
-                pathVariable = split.slice(0,2).join("/");
+                pathVariable = split.slice(0, 2).join("/");
+                sessionStorage.setItem("cityName", pathVariable);
             }
 
             const response = await fetch(`http://localhost:5000/${pathVariable}`);
@@ -16,3 +24,5 @@ export class newsAPI {
         }
     }
 }
+
+export {TRENDING};

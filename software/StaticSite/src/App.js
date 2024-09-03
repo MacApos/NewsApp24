@@ -1,8 +1,13 @@
-import {Provider} from "react-redux";
+import {Provider, useDispatch} from "react-redux";
 import {Form} from "./components/Form";
 import {store} from "./app/store";
 import {News} from "./components/News";
 import {Sort} from "./components/Sort";
+import {StateList} from "./components/StateList";
+import {useEffect} from "react";
+import {fetchNews} from "./features/reducers/newsSlice";
+import {TRENDING} from "./features/reducers/newsAPI";
+import {Pagination} from "./components/Pagination";
 
 const initMaps = (g) => {
     (g => {
@@ -32,13 +37,12 @@ const initMaps = (g) => {
 export const App = () => {
     initMaps();
 
-
     return (
         <Provider store={store}>
             <Form/>
             <Sort/>
+            <Pagination/>
             <News/>
-            {/*<News/>*/}
             {/*<StateList/>*/}
         </Provider>
     );
