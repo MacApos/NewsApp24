@@ -1,7 +1,4 @@
 import React from 'react';
-import {Sort} from "./Sort";
-import {PagesSelect} from "./PagesSelect";
-import {Form} from "./Form";
 
 export const NavigationBar = (props) => {
     return (
@@ -17,7 +14,7 @@ export const NavigationBar = (props) => {
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <button type="button" className="btn btn-outline-light">Trending</button>
+                                    {props.children[0]}
                                 </div>
                             </div>
                         </div>
@@ -29,20 +26,20 @@ export const NavigationBar = (props) => {
                                             Sort
                                         </div>
                                         <div className="col-auto">
-                                            {props.children[0]}
+                                            {props.children[1]}
                                         </div>
                                         <div className="col navbar-div text-end">
                                             Articles on page
                                         </div>
                                         <div className="col">
-                                            {props.children[1]}
+                                            {props.children[2]}
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                 </div>
                                 <div className="col-auto">
-                                    {props.children[2]}
+                                    {props.children[3]}
                                 </div>
                             </div>
                         </div>

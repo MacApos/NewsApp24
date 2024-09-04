@@ -1,28 +1,22 @@
 import React from 'react';
-import {setArticlesOnPage, setPage} from "../features/reducers/newsSlice";
-import {useDispatch} from "react-redux";
+import {selectArticlesOnPage, setArticlesOnPage} from "../reducers/newsSlice";
+import {useDispatch, useSelector} from "react-redux";
 
 export const PagesSelect = () => {
     const dispatch = useDispatch();
-    const style = {display: "inline"};
+    const articlesOnPage = useSelector(selectArticlesOnPage);
+
+    const handleSelectChange = (e) => {
+            dispatch(setArticlesOnPage(Number(e.target.value)));
+    };
 
     return (
         <>
-            <select className="btn btn-outline-light">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
+            <select className="btn btn-outline-light"
+                    value={articlesOnPage} onChange={handleSelectChange}>
+                {[5, 10, 20].map(number => <option key={"pages" + number}
+                                                   value={number}>{number}</option>)}
             </select>
-            {/*<input type={"number"} onChange={e => {*/}
-            {/*    dispatch(setArticlesOnPage(e.target.value));*/}
-            {/*    dispatch(setPage(1));*/}
-            {/*}}/>*/}
-            {/*<select  onChange={handleSortChange}>*/}
-            {/*<option value={joinWithComa(datePublished, DESC)}>Latest</option>*/}
-            {/*<option value={joinWithComa(datePublished, ASC)}>Oldest</option>*/}
-            {/*<option value={joinWithComa(random, DESC)}>Random DESC</option>*/}
-            {/*<option value={joinWithComa(random, ASC)}>Random ASC</option>*/}
-            {/*</select>*/}
         </>
     );
 };

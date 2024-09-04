@@ -1,11 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {newsAPI} from "./newsAPI";
-
-const PENDING = "pending";
-const SUCCEEDED = "succeeded";
-const REJECTED = "rejected";
-const ASC = "ascending";
-const DESC = "descending";
+import {newsAPI} from "../utils/newsAPI";
+import {DESC, PENDING, REJECTED, SUCCEEDED} from "../constants/constants";
 
 const initialState = {
     response: {
@@ -29,21 +24,10 @@ export const fetchNews = createAsyncThunk(
     },
 );
 
-export const compareFn = (sort) => (a, b) => {
-    const {category, order} = sort
-    const aCat = a[category];
-    const bCat = b[category];
-    const orderMultiplier = order === ASC ? 1 : -1;
-    return (aCat < bCat ? -1 : aCat > bCat ? 1 : 0) * orderMultiplier;
-};
-
 const newsSlice = createSlice({
         name: "news",
         initialState,
         reducers: {
-            setNews: (state, action) => {
-                state.response.news = action.payload;
-            },
             setSort: (state, action) => {
                 state.sort = action.payload;
             },
@@ -82,12 +66,13 @@ const newsSlice = createSlice({
     }
 );
 
-export {PENDING, SUCCEEDED, REJECTED, ASC, DESC};
 export const {
-    selectNews,selectArticles, selectStatus,
-    selectError, selectSort,
+    selectNews, selectArticles,
+    selectStatus, selectSort,
     selectPage, selectArticlesOnPage
 } = newsSlice.selectors;
-export const {sortNews, setNews, setSort,
-    setArticlesOnPage, setPage} = newsSlice.actions;
+export const {
+    setSort, setArticlesOnPage,
+    setPage
+} = newsSlice.actions;
 export default newsSlice.reducer;

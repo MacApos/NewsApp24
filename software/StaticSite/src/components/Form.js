@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchNews} from "../features/reducers/newsSlice";
+import {fetchNews} from "../reducers/newsSlice";
 
 const autocomplete = async (input) => {
     const google = window.google;
@@ -52,7 +52,8 @@ export const Form = () => {
                        list="propositions"
                        onChange={e => setQuery(e.target.value)}/>
                 <datalist id="propositions">
-                    {propositions.map(proposition => <option>{proposition}</option>)}
+                    {propositions.map((proposition, index) => <option key={`proposition${index}`}>
+                        {proposition}</option>)}
                 </datalist>
                 <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
             </form>

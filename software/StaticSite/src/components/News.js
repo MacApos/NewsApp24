@@ -1,31 +1,15 @@
 import * as React from 'react';
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import {
     fetchNews, selectNews, selectSort, selectStatus,
-    PENDING, REJECTED, SUCCEEDED, compareFn, selectArticlesOnPage, selectPage
-} from "../features/reducers/newsSlice";
-import {useDispatch, useSelector} from "react-redux";
-import {TRENDING} from "../features/reducers/newsAPI";
-import {useEffect} from "react";
+    selectArticlesOnPage, selectPage
+} from "../reducers/newsSlice";
+import {ASC, PENDING, PLACEHOLDER, REJECTED, SUCCEEDED, TRENDING} from "../constants/constants";
+import statesJson from "../states.json";
+import {Article} from "./Article";
+import {Pagination} from "./Pagination";
 
-
-const AnchorWrapper = (props) => {
-    return (
-        <a href={props.href} target="_blank">
-            {props.children}
-        </a>
-    );
-};
-
-const addLeadingZeroToDate = (number) => {
-    return number <= 9 ? `0${number}` : number;
-};
-
-const formatDate = (date) => {
-    return `${date.getFullYear()}.` +
-        [date.getMonth() + 1, date.getDate()].map(date => addLeadingZeroToDate(date)).join(".") +
-        " " + [date.getHours(), date.getMinutes()]
-            .map(date => addLeadingZeroToDate(date)).join(":");
-};
 
 export const News = () => {
     const news = useSelector(selectNews);
@@ -45,7 +29,6 @@ export const News = () => {
         }
     }, []);
 
-
     if (status === PENDING) {
         content = "...";
     } else if (status === SUCCEEDED) {
@@ -54,45 +37,26 @@ export const News = () => {
             return {
                 ...article,
                 datePublished: new Date(Date.parse(article.datePublished)),
-                random: Math.floor(Math.random() * 100)
             };
         });
 
+        let name = news.name;
+        const find = statesJson.find(countryState => countryState.name === news.state);
+        name = name === TRENDING ? "Trending news" : find === undefined ? name : name + ", " + find.id;
+
         const start = (page - 1) * articlesOnPage;
         const stop = page * Math.min(articlesOnPage, articles.length);
-        console.log(start, stop);
 
         content =
-            <ul>{`${news.name}, ${news.state}`}
+            <>
+                <p className="h2 text-start">{name}</p>
                 {articles.slice(start, stop).sort(compareFn(sort)).map((article, index) => {
-                            const image = article.image;
-                            return (
-                                <li>
-                                    <div>
-                                        <h4>
-                                            <AnchorWrapper href={article.url}>
-                                                {`${index + 1}. ${article.name}`}
-                                            </AnchorWrapper>
-                                        </h4>
-                                        {/*<p>*/}
-                                        {/*    {article.random}*/}
-                                        {/*</p>*/}
-                                        {/*<p>*/}
-                                        {/*    {formatDate(article.datePublished)}*/}
-                                        {/*</p>*/}
-
-                                        {/*<p>{article.description}</p>*/}
-                                        {/*{image !== null &&*/}
-                                        {/*    <AnchorWrapper href={article.url}>*/}
-                                        {/*        <img src={image} alt={article.name} width={300} height={"auto"}/>*/}
-                                        {/*    </AnchorWrapper>}*/}
-                                    </div>
-
-                                </li>
-                            );
-                        }
-                    )}
-            </ul>;
+                        return (
+                            <Article key={news.name + index} article={article}/>
+                        );
+                    }
+                )}
+            </>;
     } else if (status === REJECTED) {
         content = "ERROR!";
     }
@@ -101,4 +65,12 @@ export const News = () => {
             {content}
         </>
     );
+};
+
+const compareFn = (sort) => (a, b) => {
+    const {category, order} = sort;
+    const aCat = a[category];
+    const bCat = b[category];
+    const orderMultiplier = order === ASC ? 1 : -1;
+    return (aCat < bCat ? -1 : aCat > bCat ? 1 : 0) * orderMultiplier;
 };

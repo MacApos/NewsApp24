@@ -10,7 +10,7 @@ export const NewsContainer = (props) => {
                         <div className="col-2 px-0">
                             {props.children[0]}
                         </div>
-                        <div className="col bg-success">
+                        <div className="col py-2">
                             {props.children[1]}
                         </div>
                     </div>

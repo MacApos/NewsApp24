@@ -1,4 +1,4 @@
-const TRENDING = "TRENDING";
+import {TRENDING} from "../constants/constants";
 
 export class newsAPI {
     static async fetchNews(city) {
@@ -14,7 +14,6 @@ export class newsAPI {
                 pathVariable = split.slice(0, 2).join("/");
                 sessionStorage.setItem("cityName", pathVariable);
             }
-
             const response = await fetch(`http://localhost:5000/${pathVariable}`);
             if (response.ok) {
                 return response;
@@ -24,5 +23,3 @@ export class newsAPI {
         }
     }
 }
-
-export {TRENDING};

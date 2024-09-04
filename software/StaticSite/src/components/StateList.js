@@ -1,5 +1,5 @@
-import statesJson from "../states.json";
 import React, {useState} from "react";
+import statesJson from "../states.json";
 
 export const StateList = () => {
     statesJson = statesJson.map(s => {
@@ -24,10 +24,11 @@ export const StateList = () => {
     return (
         <>
             {states.map((state) =>
-                <div className="row">
+                <div key={state.name} className="row">
                     <div className="btn-group dropend">
                         <button type="button"
-                                className="btn btn-outline-dark dropdown-toggle"
+                                className="btn btn-outline-dark dropdown-toggle text-wrap
+                                border-top-0"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false">
                             {state.name}
