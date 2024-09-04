@@ -50,7 +50,6 @@ export const News = () => {
         content = "...";
     } else if (status === SUCCEEDED) {
         let articles = news.articles;
-
         articles = articles.map(article => {
             return {
                 ...article,

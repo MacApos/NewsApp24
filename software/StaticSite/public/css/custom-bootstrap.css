@@ -1,35 +1,64 @@
 @import 'bootstrap.css';
+/*@import 'bootstrap-original.css';*/
 
-.container-fluid {
-    --bs-gutter-x: 2.5rem;
-    width: 90%;
+:root {
+    --bs-border-color: #ffffff;
 }
 
-.navbar {
-    --bs-navbar-padding-x: 0;
-    --bs-navbar-padding-y: 1.5rem;
-    --bs-navbar-color: rgba(0, 0, 0, 0.3);
-    --bs-navbar-hover-color: #1a1a1a;
-    --bs-navbar-disabled-color: rgba(var(--bs-emphasis-color-rgb), 0.3);
-    --bs-navbar-active-color: #1a1a1a;
-    --bs-navbar-brand-padding-y: 0.3125rem;
-    --bs-navbar-brand-margin-end: 1rem;
-    --bs-navbar-brand-font-size: 1.25rem;
-    --bs-navbar-brand-color: #1a1a1a;
-    --bs-navbar-brand-hover-color: #1a1a1a;
-    --bs-navbar-nav-link-padding-x: 0.5rem;
-    --bs-navbar-toggler-padding-y: 0.25rem;
-    --bs-navbar-toggler-padding-x: 0.75rem;
-    --bs-navbar-toggler-font-size: 1.25rem;
-    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2885, 89, 92, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    --bs-navbar-toggler-border-color: rgba(var(--bs-emphasis-color-rgb), 0.15);
-    --bs-navbar-toggler-border-radius: var(--bs-border-radius);
-    --bs-navbar-toggler-focus-width: 0.25rem;
-    --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
+.w-90 {
+    width: 90% !important;
 }
+
+/*.container-fluid {*/
+/*    --bs-gutter-x: 2.5rem;*/
+/*}*/
+
+/*.navbar > .container,*/
+/*.navbar > .container-fluid {*/
+/*    display: inline;*/
+/*}*/
+
+/*.navbar-row {*/
+/*    margin-bottom: 1rem;*/
+/*}*/
+
+.navbar-brand {
+    margin-right: 0;
+}
+
+.navbar-div {
+    color: var(--bs-body-color);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+select.btn {
+    padding-left: 0.5rem;
+}
+
+.list-group-item {
+    color: var(--bs-body-color);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/*.dropdown:hover .dropdown-menu {*/
+/*    display: block;*/
+/*    margin-top: 0;*/
+/*}*/
+
+/*.dropdown .dropdown-menu {*/
+/*    display: none;*/
+/*}*/
+
+/*.dropdown:hover .dropdown-toggle::after {*/
+/*    border-top: 0;*/
+/*    border-bottom: 0.3em solid;*/
+/*}*/
+
+/*.dropdown-toggle.show::after {*/
+/*    border-top: 0;*/
+/*    border-bottom: 0.3em solid;*/
+/*}*/

@@ -17,13 +17,14 @@ export const Sort = () => {
     const style = {display: "inline"};
     return (
         <>
-            <div style={style}>{"Sort "}</div>
-            <select value={joinWithComa(category, order)} onChange={handleSortChange}>
+            <select className="btn btn-outline-light" value={joinWithComa(category, order)} onChange={handleSortChange}>
                 <option value={joinWithComa(datePublished, DESC)}>Latest</option>
                 <option value={joinWithComa(datePublished, ASC)}>Oldest</option>
-                <option value={joinWithComa(random, DESC)}>Random DESC</option>
-                <option value={joinWithComa(random, ASC)}>Random ASC</option>
+                <option value={joinWithComa(random, DESC)}>RDESC</option>
+                <option value={joinWithComa(random, ASC)}>RASC</option>
             </select>
+
+
         </>
     );
 };
