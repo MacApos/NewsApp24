@@ -17,6 +17,5 @@ export const Pagination = () => {
                 onClick={() => dispatch(setPage(pageIdx))}>{pageIdx}</li>)}
             </ul>;
     }
-
     return list;
 };

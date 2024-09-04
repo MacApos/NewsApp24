@@ -40,7 +40,6 @@ export const Article = ({article}) => {
     );
 };
 
-
 const addLeadingZeroToDate = (number) => {
     return number <= 9 ? `0${number}` : number;
 };

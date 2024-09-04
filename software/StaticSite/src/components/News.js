@@ -11,7 +11,7 @@ import {Article} from "./Article";
 import {Pagination} from "./Pagination";
 
 
-export const News = () => {
+export const News = (props) => {
     const news = useSelector(selectNews);
     const status = useSelector(selectStatus);
     const sort = useSelector(selectSort);
@@ -53,6 +53,7 @@ export const News = () => {
                 {articles.slice(start, stop).sort(compareFn(sort)).map((article, index) => {
                         return (
                             <Article key={news.name + index} article={article}/>
+
                         );
                     }
                 )}

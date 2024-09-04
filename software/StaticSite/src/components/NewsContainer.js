@@ -1,17 +1,26 @@
 import React from 'react';
-import {Sort} from "./Sort";
+import {Pagination} from "./Pagination";
 
-export const NewsContainer = (props) => {
+export const NewsContainer = ({children}) => {
     return (
         <div className="row text-center pb-3" data-bs-theme="dark">
             <div className="col">
                 <div className="container-fluid w-90">
                     <div className="row">
                         <div className="col-2 px-0">
-                            {props.children[0]}
+                            {children[0]}
                         </div>
                         <div className="col py-2">
-                            {props.children[1]}
+                            <div className="row">
+                                <div className="col">
+                                    {children[1]}
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col">
+                                    {children[2]}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

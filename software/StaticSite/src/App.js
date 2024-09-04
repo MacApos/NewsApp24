@@ -10,6 +10,7 @@ import {NavigationBar} from "./components/NavigationBar";
 import {NewsContainer} from "./components/NewsContainer";
 import {initMaps} from "./utils/initMaps";
 import {TrendingButton} from "./components/TrendingButton";
+import {Pagination} from "./components/Pagination";
 
 export const App = () => {
     initMaps();
@@ -25,6 +26,7 @@ export const App = () => {
                 <NewsContainer>
                     <StateList/>
                     <News/>
+                    <Pagination/>
                 </NewsContainer>
 
             </Provider>

@@ -1,6 +1,7 @@
 import React from 'react';
 
-export const NavigationBar = (props) => {
+export const NavigationBar = ({children}) => {
+    console.log(children);
     return (
         <div className="row text-center pb-3 bg-primary" data-bs-theme="dark">
             <div className="col">
@@ -14,7 +15,7 @@ export const NavigationBar = (props) => {
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    {props.children[0]}
+                                    {children[0]}
                                 </div>
                             </div>
                         </div>
@@ -26,20 +27,20 @@ export const NavigationBar = (props) => {
                                             Sort
                                         </div>
                                         <div className="col-auto">
-                                            {props.children[1]}
+                                            {children[1]}
                                         </div>
                                         <div className="col navbar-div text-end">
                                             Articles on page
                                         </div>
                                         <div className="col">
-                                            {props.children[2]}
+                                            {children[2]}
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                 </div>
                                 <div className="col-auto">
-                                    {props.children[3]}
+                                    {children[3]}
                                 </div>
                             </div>
                         </div>
