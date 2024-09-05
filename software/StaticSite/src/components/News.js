@@ -49,14 +49,39 @@ export const News = (props) => {
 
         content =
             <>
-                <p className="h2 text-start">{name}</p>
-                {articles.slice(start, stop).sort(compareFn(sort)).map((article, index) => {
-                        return (
-                            <Article key={news.name + index} article={article}/>
+                <div className="row ">
+                    <div className="col">
+                        <div className="row justify-content-between">
+                            <div className="col-auto">
+                                <p className="h2 text-start">{name}</p>
+                            </div>
+                            <div className="col-3">
 
-                        );
-                    }
-                )}
+                            </div>
+                            <div className="col-3">
+                                <Pagination/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        {articles.slice(start, stop).sort(compareFn(sort)).map((article, index) => {
+                                return (
+                                    <>
+                                        <Article key={news.name + index} article={article}/>
+                                    </>
+                                );
+                            }
+                        )}
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-2">
+                        <Pagination/>
+                    </div>
+                </div>
             </>;
     } else if (status === REJECTED) {
         content = "ERROR!";

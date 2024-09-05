@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const NavigationBar = ({children}) => {
-    console.log(children);
     return (
         <div className="row text-center pb-3 bg-primary" data-bs-theme="dark">
             <div className="col">

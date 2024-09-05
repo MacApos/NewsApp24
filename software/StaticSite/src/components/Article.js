@@ -11,28 +11,26 @@ const AnchorWrapper = (props) => {
 
 export const Article = ({article}) => {
     const image = article.image;
+
     return (
-        <div className="row mb-3">
-            <div className="col">
-                <div className="card text-bg-success">
-                    <div className="row">
-                        <div className="col-auto">
-                            <img className="rounded-start" src={image === null ? PLACEHOLDER : image}
-                                 alt="" width={300} height={"auto"}/>
-                        </div>
-                        <div className="col">
-                            <div className="card-body text-start">
-                                <AnchorWrapper href={article.url}>
-                                    <h5 className="card-title">
-                                        {article.name}
-                                    </h5>
-                                </AnchorWrapper>
-                                <p className="card-text text-body-secondary">
-                                    {formatDate(article.datePublished)}
-                                </p>
-                                <p className="card-text">{article.description}</p>
-                            </div>
-                        </div>
+        <div className="card text-bg-success mb-3 rounded-3">
+            <div className="row align-items-center">
+                <div className="col-auto">
+                    <img className="rounded-start-3" src={image === null ? PLACEHOLDER : image}
+                         alt={article.name} width={350} height={"auto"}
+                    />
+                </div>
+                <div className="col align-self-start">
+                    <div className="card-body text-start">
+                        <AnchorWrapper href={article.url}>
+                            <h5 className="card-title">
+                                {article.name}
+                            </h5>
+                        </AnchorWrapper>
+                        <p className="card-text text-body-secondary">
+                            {formatDate(article.datePublished)}
+                        </p>
+                        <p className="card-text">{article.description}</p>
                     </div>
                 </div>
             </div>

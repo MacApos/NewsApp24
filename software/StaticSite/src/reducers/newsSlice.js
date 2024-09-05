@@ -13,7 +13,7 @@ const initialState = {
         order: DESC
     },
     page: 1,
-    articlesOnPage: 20
+    articlesOnPage: 10
 };
 
 export const fetchNews = createAsyncThunk(
