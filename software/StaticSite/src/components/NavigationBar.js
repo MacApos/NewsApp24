@@ -1,4 +1,5 @@
 import React from 'react';
+import {WHITE_LOGO} from "../constants/constants";
 
 export const NavigationBar = ({children}) => {
     return (
@@ -7,9 +8,13 @@ export const NavigationBar = ({children}) => {
                 <div className="container-fluid w-90">
                     <div className="row align-items-end">
                         <div className="col-2">
-                            <div className="row navbar py-3 m-auto" data-bs-theme="dark">
+                            <div className="row navbar py-3" data-bs-theme="dark">
                                 <div className="col">
-                                    <a className="navbar-brand" href="#">Navbar</a>
+                                    <span className="navbar-brand text-capitalize fw-bolder fs-3 fon">
+                                        <img src={WHITE_LOGO} alt="Logo" width="35"
+                                             height="auto" className="d-inline-block align-text-top"/>
+                                        &nbsp;NewsApp24
+                                    </span>
                                 </div>
                             </div>
                             <div className="row">
@@ -35,8 +40,6 @@ export const NavigationBar = ({children}) => {
                                             {children[2]}
                                         </div>
                                     </div>
-                                </div>
-                                <div className="col-3">
                                 </div>
                                 <div className="col-auto">
                                     {children[3]}

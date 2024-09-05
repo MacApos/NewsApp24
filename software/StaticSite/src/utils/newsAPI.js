@@ -12,8 +12,8 @@ export class newsAPI {
             } else {
                 const split = city.split(",").map(s => s.trim());
                 pathVariable = split.slice(0, 2).join("/");
-                sessionStorage.setItem("cityName", pathVariable);
             }
+            sessionStorage.setItem("cityName", city);
             const response = await fetch(`http://localhost:5000/${pathVariable}`);
             if (response.ok) {
                 return response;

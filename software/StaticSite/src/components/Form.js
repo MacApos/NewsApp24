@@ -52,7 +52,7 @@ export const Form = () => {
                        list="propositions"
                        onChange={e => setQuery(e.target.value)}/>
                 <datalist id="propositions">
-                    {propositions.map((proposition, index) => <option key={`proposition${index}`}>
+                    {propositions.map((proposition, index) => <option key={"proposition" + index}>
                         {proposition}</option>)}
                 </datalist>
                 <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>

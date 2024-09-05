@@ -22,7 +22,7 @@ export const News = (props) => {
     let content;
     useEffect(() => {
         const item = sessionStorage.getItem("cityName");
-        if (item === null) {
+        if (item === null || item === TRENDING) {
             dispatch(fetchNews(TRENDING));
         } else {
             dispatch(fetchNews(item));
@@ -49,36 +49,28 @@ export const News = (props) => {
 
         content =
             <>
-                <div className="row ">
+                <div className="row my-3">
                     <div className="col">
-                        <div className="row justify-content-between">
+                        <div className="row justify-content-between align-items-center"
+                        style={{height:"55px"}}>
                             <div className="col-auto">
-                                <p className="h2 text-start">{name}</p>
+                                <p className="h2 text-start my-0">{name}</p>
                             </div>
-                            <div className="col-3">
-
-                            </div>
-                            <div className="col-3">
+                            <div className="col-auto">
                                 <Pagination/>
                             </div>
 
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col">
-                        {articles.slice(start, stop).sort(compareFn(sort)).map((article, index) => {
+                {articles.sort(compareFn(sort)).slice(start, stop).map((article, index) => {
                                 return (
-                                    <>
-                                        <Article key={news.name + index} article={article}/>
-                                    </>
+                                    <Article key={name + "article" + index} article={article}/>
                                 );
                             }
                         )}
-                    </div>
-                </div>
                 <div className="row">
-                    <div className="col-2">
+                    <div className="col">
                         <Pagination/>
                     </div>
                 </div>

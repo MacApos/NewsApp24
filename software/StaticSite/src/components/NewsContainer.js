@@ -10,15 +10,10 @@ export const NewsContainer = ({children}) => {
                         <div className="col-2 px-0">
                             {children[0]}
                         </div>
-                        <div className="col py-2">
+                        <div className="col">
                             <div className="row">
                                 <div className="col">
                                     {children[1]}
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col">
-                                    {children[2]}
                                 </div>
                             </div>
                         </div>

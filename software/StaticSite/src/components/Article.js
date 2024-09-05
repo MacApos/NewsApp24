@@ -13,12 +13,14 @@ export const Article = ({article}) => {
     const image = article.image;
 
     return (
-        <div className="card text-bg-success mb-3 rounded-3">
+        <div className="card text-bg-success rounded-3 mb-3">
             <div className="row align-items-center">
                 <div className="col-auto">
-                    <img className="rounded-start-3" src={image === null ? PLACEHOLDER : image}
-                         alt={article.name} width={350} height={"auto"}
-                    />
+                    <AnchorWrapper href={article.url}>
+                        <img className="rounded-start-3" src={image === null ? PLACEHOLDER : image}
+                             alt={article.name} width={350} height={"auto"}
+                        />
+                    </AnchorWrapper>
                 </div>
                 <div className="col align-self-start">
                     <div className="card-body text-start">
