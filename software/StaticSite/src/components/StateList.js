@@ -27,8 +27,7 @@ export const StateList = () => {
                 <div key={state.name} className="row">
                     <div className="btn-group dropend">
                         <button type="button"
-                                className="btn btn-outline-dark dropdown-toggle text-wrap
-                                border-top-0"
+                                className="btn btn-outline-dark dropdown-toggle text-wrap border-top-0"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false">
                             {state.name}

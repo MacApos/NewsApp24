@@ -1,25 +1,25 @@
 @import 'bootstrap.css';
 
-:root {
-    --bs-border-color: #ffffff;
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: none;
 }
 
 .w-90 {
     width: 90% !important;
 }
 
-/*.container-fluid {*/
-/*    --bs-gutter-x: 2.5rem;*/
-/*}*/
-
-/*.navbar > .container,*/
-/*.navbar > .container-fluid {*/
-/*    display: inline;*/
-/*}*/
-
-/*.navbar-row {*/
-/*    margin-bottom: 1rem;*/
-/*}*/
+.btn {
+    font-size: 1rem;
+}
 
 .navbar-brand {
     margin-right: 0;
@@ -27,7 +27,7 @@
 
 .navbar-div {
     color: var(--bs-body-color);
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -36,28 +36,6 @@ select.btn {
     padding-left: 0.5rem;
 }
 
-.list-group-item {
-    color: var(--bs-body-color);
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
+.dropend:hover>.dropdown-menu {
+    display: block;
 }
-
-/*.dropdown:hover .dropdown-menu {*/
-/*    display: block;*/
-/*    margin-top: 0;*/
-/*}*/
-
-/*.dropdown .dropdown-menu {*/
-/*    display: none;*/
-/*}*/
-
-/*.dropdown:hover .dropdown-toggle::after {*/
-/*    border-top: 0;*/
-/*    border-bottom: 0.3em solid;*/
-/*}*/
-
-/*.dropdown-toggle.show::after {*/
-/*    border-top: 0;*/
-/*    border-bottom: 0.3em solid;*/
-/*}*/

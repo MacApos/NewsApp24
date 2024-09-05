@@ -52,7 +52,7 @@ export const News = (props) => {
                 <div className="row my-3">
                     <div className="col">
                         <div className="row justify-content-between align-items-center"
-                        style={{height:"55px"}}>
+                        style={{height:"60px"}}>
                             <div className="col-auto">
                                 <p className="h2 text-start my-0">{name}</p>
                             </div>

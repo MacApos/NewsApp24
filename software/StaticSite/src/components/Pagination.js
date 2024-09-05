@@ -16,14 +16,15 @@ export const Pagination = () => {
             const pages = Array.from({length: numberOfPages}, (_, i) => i + 1);
             list =
                 <div className="btn-group">
-                    <button className="btn btn-outline-primary"
+                    <button className="btn btn-outline-primary border-end-0"
                             onClick={() => page > 1 && dispatch(setPage(page - 1))}>
                         &lt;
                     </button>
                     {pages.map(pageIdx => {
                             return (
                                 <button key={"page" + pageIdx}
-                                        className={"btn btn-outline-primary " + (pageIdx === page ? "active" : "")}
+                                        className={"btn btn-outline-primary border-end-0" +
+                                            (pageIdx === page ? " active" : "")}
                                         onClick={() => dispatch(setPage(pageIdx))}>
                                     {pageIdx}
                                 </button>);

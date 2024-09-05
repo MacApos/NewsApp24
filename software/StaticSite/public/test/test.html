@@ -5,73 +5,43 @@
     <title>Test1</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body > div > div.dropdown{
-            /*position: absolute;*/
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+        .dropend:hover>.dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu{
+            left: 100%;
         }
 
-        #dropdownMenu1 {
-        }
+
     </style>
 </head>
 <body>
+<div class="btn-group dropend">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropend
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
+</div>
 
 
-<div style="width:150px; height:550px; overflow-x:scroll; overflow-y:scroll; background: #0a53be">
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown 1
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-    </div>
-    <br/><br/>
+<div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown link
+    </a>
 
-    <div class="dropdown">
-        test
-    </div>
-
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false" id="btn1">
-            Dropdown 2
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="dropdownMenu1">
-            <li>Action</li>
-            <li>Action</li>
-            <li>Action</li>
-        </ul>
-    </div>
-
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false" id="btn3">
-            Dropdown 3
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="dropdownMenu3">
-            <li>Action</li>
-            <li>Action</li>
-            <li>Action</li>
-        </ul>
-    </div>
-
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
 </div>
 <script src="../js/bootstrap.bundle.min.js"></script>
-<!--<script src="../js/bootstrap.bundle.min.js"></script>-->
-<!--<script>-->
-<!--    const button = document.querySelector("#btn1");-->
-<!--    const element = document.querySelector("#dropdownMenu1");-->
-
-<!--    button.addEventListener("click", function (){-->
-<!--        element.style.display="block"-->
-<!--        element.style.position="absolute"-->
-<!--    })-->
-
-<!--    button.addEventListener("blur", function (){-->
-<!--        element.style.display="none"-->
-<!--    })-->
-<!--</script>-->
 </body>
 </html>

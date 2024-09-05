@@ -10,12 +10,8 @@ export const NewsContainer = ({children}) => {
                         <div className="col-2 px-0">
                             {children[0]}
                         </div>
-                        <div className="col">
-                            <div className="row">
-                                <div className="col">
-                                    {children[1]}
-                                </div>
-                            </div>
+                        <div className="col ms-4 ps-0">
+                            {children[1]}
                         </div>
                     </div>
                 </div>
