@@ -12,30 +12,26 @@ const AnchorWrapper = (props) => {
 export const Article = ({article}) => {
     const image = article.image;
     return (
-        <div className="card rounded-3 mb-4 bg-light border-primary border-2">
-            <div className="row align-items-center text-primary">
-                <div className="col-auto">
-                    <AnchorWrapper href={article.url}>
-                        <img className="rounded-start-3" src={image === null ? PLACEHOLDER : image}
-                             alt={article.name} width={350} height={"auto"}
-                        />
-                    </AnchorWrapper>
-                </div>
-                <div className="col align-self-start">
-                    <div className="card-body text-start">
-                        <h5 className="card-title mb-3">
-                            <AnchorWrapper href={article.url}>
-                                {article.name}
-                            </AnchorWrapper>
+        <a href={article.url} target="_blank">
+            <div className="card mb-4 bg-light border-primary shadow"
+                 style={{borderWidth: "1px 2px 2px 1px"}}>
+                <div className="row align-items-end text-primary">
+                    <div className="col-auto align-self-start text-start">
+                        <img className="float-start me-3 mb-1" src={image === null ? PLACEHOLDER : image}
+                             alt={article.name} width={400} height={"auto"}/>
+                        <h5 className="card-title text-capitalize fs-3 text-primary my-3">
+                            {article.name}
                         </h5>
                         <p className="card-text fs-4">
                             {formatDate(article.datePublished)}
                         </p>
-                        <p className="card-text fs-4">{article.description}</p>
+                        <p className="card-text  mb-3 text-bottom fs-4">
+                            {article.description}
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
     );
 };
 

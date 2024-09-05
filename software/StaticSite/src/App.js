@@ -27,7 +27,6 @@ export const App = () => {
                     <StateList/>
                     <News/>
                 </NewsContainer>
-
             </Provider>
         </>
     );

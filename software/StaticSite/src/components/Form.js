@@ -46,18 +46,23 @@ export const Form = () => {
     };
 
     return (
-        <>
-            <form onSubmit={handleSubmit} className="d-flex">
-                <input className="form-control me-sm-2" type="search" placeholder="Search" value={query}
-                       list="propositions"
-                       onChange={e => setQuery(e.target.value)}/>
-                <datalist id="propositions">
-                    {propositions.map((proposition, index) => <option key={"proposition" + index}>
-                        {proposition}</option>)}
-                </datalist>
-                <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </>
-
+        <form onSubmit={handleSubmit}>
+            <div className="row">
+                <div className="col pe-0">
+                    <input className="form-control bg-secondary" type="search" placeholder="Search" value={query}
+                           list="propositions"
+                           onChange={e => setQuery(e.target.value)}/>
+                    <datalist id="propositions">
+                        {propositions.map((proposition, index) =>
+                            <option key={"proposition" + index}>
+                                {proposition}
+                            </option>)}
+                    </datalist>
+                </div>
+                <div className="col-auto">
+                    <button className="btn btn-secondary" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
     );
 };

@@ -3,14 +3,14 @@ import {Pagination} from "./Pagination";
 
 export const NewsContainer = ({children}) => {
     return (
-        <div className="row text-center pb-3" data-bs-theme="dark">
+        <div className="row text-center pb-4" data-bs-theme="dark">
             <div className="col">
-                <div className="container-fluid w-90">
-                    <div className="row">
-                        <div className="col-2 px-0">
+                <div className="container-fluid w-90 text-center">
+                    <div className="row shadow">
+                        <div className="col-auto col-w-275">
                             {children[0]}
                         </div>
-                        <div className="col ms-4 ps-0">
+                        <div className="col">
                             {children[1]}
                         </div>
                     </div>

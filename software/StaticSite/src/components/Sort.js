@@ -16,7 +16,9 @@ export const Sort = () => {
 
     return (
         <>
-            <select className="btn btn-outline-light" value={joinWithComa(category, order)} onChange={handleSelectChange}>
+
+            <select className="btn btn-outline-light" value={joinWithComa(category, order)}
+                    onChange={handleSelectChange}>
                 <option value={joinWithComa(datePublished, DESC)}>Latest</option>
                 <option value={joinWithComa(datePublished, ASC)}>Oldest</option>
             </select>

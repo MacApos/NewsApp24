@@ -25,27 +25,29 @@ export const StateList = () => {
         <>
             {states.map((state) =>
                 <div key={state.name} className="row">
-                    <div className="btn-group dropend">
-                        <button type="button"
-                                className="btn btn-outline-dark dropdown-toggle text-wrap border-top-0"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                            {state.name}
-                        </button>
-                        <ul className="dropdown-menu">
-                            <li className="dropdown-item">Action</li>
-                            <li>
-                                <hr className="dropdown-divider"/>
-                            </li>
-                            <li><a className="dropdown-item" href="#">Something else
-                                here</a></li>
-                        </ul>
+                    <div className="col">
+                        <div className="btn-group dropend px-0 w-100">
+                            <button type="button"
+                                    className="btn btn-outline-dark dropdown-toggle text-wrap border-start-0 border-end-0 border-top-0"
+                                    data-bs-toggle="dropdown">
+                                {state.name}
+                            </button>
+                            <ul className="dropdown-menu">
+                                <li className="dropdown-item">Action</li>
+                                <li>
+                                    <hr className="dropdown-divider"/>
+                                </li>
+                                <li><a className="dropdown-item" href="#">Something else
+                                    here</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             )}
         </>
     );
 };
+
 
 const StateItem = ({state, onMouseOver}) => {
     const handleMouseEvent = (selectionFlag = true) => {

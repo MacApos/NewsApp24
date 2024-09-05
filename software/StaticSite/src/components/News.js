@@ -29,8 +29,9 @@ export const News = (props) => {
         }
     }, []);
 
+
     if (status === PENDING) {
-        content = "...";
+        content = <div className="spinner-border m-5 text-primary" style={{width: "3rem", height: "3rem"}}/>;
     } else if (status === SUCCEEDED) {
         let articles = news.articles;
         articles = articles.map(article => {
@@ -52,7 +53,7 @@ export const News = (props) => {
                 <div className="row my-3">
                     <div className="col">
                         <div className="row justify-content-between align-items-center"
-                        style={{height:"60px"}}>
+                             style={{height: "60px"}}>
                             <div className="col-auto">
                                 <p className="h2 text-start my-0">{name}</p>
                             </div>
@@ -64,11 +65,11 @@ export const News = (props) => {
                     </div>
                 </div>
                 {articles.sort(compareFn(sort)).slice(start, stop).map((article, index) => {
-                                return (
-                                    <Article key={name + "article" + index} article={article}/>
-                                );
-                            }
-                        )}
+                        return (
+                            <Article key={name + "article" + index} article={article}/>
+                        );
+                    }
+                )}
                 <div className="row">
                     <div className="col">
                         <Pagination/>
@@ -76,7 +77,17 @@ export const News = (props) => {
                 </div>
             </>;
     } else if (status === REJECTED) {
-        content = "ERROR!";
+        content =
+            <div className="vh-100">
+                <div className="text-center">
+                    <h1 className="fw-bold">404</h1>
+                    <p className="fs-3"><span className="text-danger">Opps!</span> Page not found.</p>
+                    <p className="lead">
+                        The page you’re looking for doesn’t exist.
+                    </p>
+                    <a href="index.html" className="btn btn-primary">Go Home</a>
+                </div>
+            </div>;
     }
     return (
         <>
