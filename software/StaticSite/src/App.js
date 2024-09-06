@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Provider} from "react-redux";
 import {store} from "./store/store";
 import {Form} from "./components/Form";
@@ -8,9 +8,8 @@ import {StateList} from "./components/StateList";
 import {PagesSelect} from "./components/PagesSelect";
 import {NavigationBar} from "./components/NavigationBar";
 import {NewsContainer} from "./components/NewsContainer";
-import {initMaps} from "./utils/initMaps";
 import {TrendingButton} from "./components/TrendingButton";
-import {Pagination} from "./components/Pagination";
+import initMaps from "./utils/initPlaceAutocomplete";
 
 export const App = () => {
     initMaps();

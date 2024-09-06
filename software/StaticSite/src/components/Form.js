@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {fetchNews} from "../reducers/newsSlice";
 
 const autocomplete = async (input) => {
@@ -36,33 +36,31 @@ export const Form = () => {
         })();
     }, [query]);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        try {
-            await dispatch(fetchNews(query));
-        } catch (err) {
-            console.warn(err);
-        }
+        dispatch(fetchNews(query));
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="row">
-                <div className="col pe-0">
-                    <input className="form-control bg-secondary" type="search" placeholder="Search" value={query}
-                           list="propositions"
-                           onChange={e => setQuery(e.target.value)}/>
-                    <datalist id="propositions">
-                        {propositions.map((proposition, index) =>
-                            <option key={"proposition" + index}>
-                                {proposition}
-                            </option>)}
-                    </datalist>
+        <>
+            <form onSubmit={handleSubmit}>
+                <div className="row">
+                    <div className="col pe-0">
+                        <input className="form-control bg-secondary" type="search" placeholder="Search" value={query}
+                               list="propositions" required minLength={3}
+                               onChange={e => setQuery(e.target.value)}/>
+                        <datalist id="propositions">
+                            {propositions.length > 1 && propositions.map((proposition, index) =>
+                                <option key={"proposition" + index} onMouseOver={() => console.log("click")}>
+                                    {proposition}
+                                </option>)}
+                        </datalist>
+                    </div>
+                    <div className="col-auto">
+                        <button className="btn btn-secondary" type="submit">Search</button>
+                    </div>
                 </div>
-                <div className="col-auto">
-                    <button className="btn btn-secondary" type="submit">Search</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </>
     );
 };

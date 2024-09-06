@@ -5,13 +5,11 @@ import {
     fetchNews, selectNews, selectSort, selectStatus,
     selectArticlesOnPage, selectPage
 } from "../reducers/newsSlice";
-import {ASC, PENDING, PLACEHOLDER, REJECTED, SUCCEEDED, TRENDING} from "../constants/constants";
-import statesJson from "../states.json";
+import {ASC, PENDING, REJECTED, STATES, SUCCEEDED, TRENDING} from "../constants/constants";
 import {Article} from "./Article";
 import {Pagination} from "./Pagination";
 
-
-export const News = (props) => {
+export const News = () => {
     const news = useSelector(selectNews);
     const status = useSelector(selectStatus);
     const sort = useSelector(selectSort);
@@ -42,7 +40,7 @@ export const News = (props) => {
         });
 
         let name = news.name;
-        const find = statesJson.find(countryState => countryState.name === news.state);
+        const find = STATES.find(countryState => countryState.name === news.state);
         name = name === TRENDING ? "Trending news" : find === undefined ? name : name + ", " + find.id;
 
         const start = (page - 1) * articlesOnPage;
@@ -70,7 +68,7 @@ export const News = (props) => {
                         );
                     }
                 )}
-                <div className="row">
+                <div className="row mb-4">
                     <div className="col">
                         <Pagination/>
                     </div>

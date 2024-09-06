@@ -1,45 +1,22 @@
 import React, {useState} from "react";
 import statesJson from "../states.json";
+import {STATES} from "../constants/constants";
+import {useDispatch} from "react-redux";
+import {fetchNews} from "../reducers/newsSlice";
 
 export const StateList = () => {
-    statesJson = statesJson.map(s => {
-        return {...s, "selected": false};
-    });
-    const [states, setStates] = useState(statesJson);
-
-    const handleStateSelection = (id, selectionFlag) => {
-        setStates(prevStates =>
-            prevStates.map(state => {
-                if (state.id === id) {
-                    return {
-                        ...state,
-                        selected: selectionFlag
-                    };
-                }
-                return state;
-            })
-        );
-    };
-
     return (
         <>
-            {states.map((state) =>
+            {STATES.map((state) =>
                 <div key={state.name} className="row">
                     <div className="col">
-                        <div className="btn-group dropend px-0 w-100">
-                            <button type="button"
-                                    className="btn btn-outline-dark dropdown-toggle text-wrap border-start-0 border-end-0 border-top-0"
+                        <div className="btn-group dropend w-100">
+                            <button className="btn btn-outline-dark dropdown-toggle
+                            text-wrap border-start-0 border-end-0 border-top-0"
                                     data-bs-toggle="dropdown">
                                 {state.name}
                             </button>
-                            <ul className="dropdown-menu">
-                                <li className="dropdown-item">Action</li>
-                                <li>
-                                    <hr className="dropdown-divider"/>
-                                </li>
-                                <li><a className="dropdown-item" href="#">Something else
-                                    here</a></li>
-                            </ul>
+                            <StateItem state={state}/>
                         </div>
                     </div>
                 </div>
@@ -48,28 +25,30 @@ export const StateList = () => {
     );
 };
 
-
-const StateItem = ({state, onMouseOver}) => {
-    const handleMouseEvent = (selectionFlag = true) => {
-        if (typeof onMouseOver === "function") {
-            onMouseOver(state.id, selectionFlag);
-        }
-    };
-
+const StateItem = ({state}) => {
+    const dispatch = useDispatch();
+    const cities = state.cities;
     return (
-        <>{state.name}</>
+        <ul className="dropdown-menu">
+            {cities.sort((a, b) => a.capital > b.capital ? -1 : a.population < b.population ? 1 : 0)
+                .map(city => {
+                        const cityName = city.name;
+                        const cityKey = cityName + "," + state.id;
+                        return (
+                            <div key={cityKey}>
+                                <li className="dropdown-item"
+                                    onClick={() => dispatch(fetchNews(cityKey))}>
+                                    {cityName}
+                                </li>
+                                {cities.length > 1 && city.capital &&
+                                    <li>
+                                        <hr className="dropdown-divider"/>
+                                    </li>}
+                            </div>);
+                    }
+                )}
+        </ul>
+
+
     );
 };
-
-// <div onMouseOver={() => handleMouseEvent()}
-//      onMouseOut={() => handleMouseEvent(false)}>
-//     {state.name}
-//     {state.selected &&
-//         <ul>
-//             {state.cities.map((city, index) =>
-//                 <li key={`${city.name}-${index}`}>
-//                     {city.name}
-//                 </li>)}
-//         </ul>
-//     }
-// </div>

@@ -7,7 +7,7 @@ export const NavigationBar = ({children}) => {
             <div className="col">
                 <div className="container-fluid w-90">
                     <div className="row align-items-end" id="navbar-row">
-                        <div className="col-auto col-w-275 navbar-btn">
+                        <div className="col-auto w-250 navbar-btn">
                             <div className="row navbar py-3" data-bs-theme="dark">
                                 <div className="col">
                                     <span className="navbar-brand text-capitalize fw-bolder fs-3 fon">
@@ -25,7 +25,7 @@ export const NavigationBar = ({children}) => {
                         </div>
                         <div className="col">
                             <div className="row justify-content-between align-items-center" id="navbar-sub-row">
-                                <div className="col-auto navbar-btn col-w-500 order-1" id="col-order-1">
+                                <div className="col-auto navbar-btn w-500 order-1" id="col-order-1">
                                     <div className="row align-items-center">
                                         <div className="col-auto navbar-div text-end">
                                             Sort

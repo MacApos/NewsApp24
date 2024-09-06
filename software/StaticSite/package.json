@@ -2,7 +2,9 @@
   "name": "static-files",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.645.0",
     "@reduxjs/toolkit": "^2.2.7",
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",

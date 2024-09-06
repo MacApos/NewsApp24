@@ -17,6 +17,14 @@ a {
     width: 90% !important;
 }
 
+.w-250 {
+    width: 250px
+}
+
+.w-500 {
+    width: 500px
+}
+
 .navbar-div {
     color: var(--bs-body-color);
     font-size: 1rem;
@@ -26,6 +34,10 @@ a {
 
 .btn {
     font-size: 1rem;
+}
+.btn-outline-dark {
+    --bs-btn-hover-bg: var(--bs-primary);
+    --bs-btn-hover-border-color: var(--bs-primary);
 }
 
 .navbar-brand {
@@ -40,7 +52,14 @@ select.btn {
     display: block;
 }
 
+/*.dropdown-item:hover, .dropdown-item:focus {*/
+/*    color: red;*/
+/*    background-color:red;*/
+/*    border-color: red;*/
+/*}*/
+
 .dropdown-menu {
+    font-size: 1rem;
     left: 100%;
 }
 
@@ -55,13 +74,6 @@ select.btn {
     text-transform: uppercase;
 }
 
-.col-w-275 {
-    width: 275px
-}
-
-.col-w-500 {
-    width: 500px
-}
 
 @media screen and (max-width: 1300px) {
     div #navbar-sub-row {

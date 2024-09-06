@@ -35,7 +35,6 @@ public class StaticSiteStack extends Stack {
                                 .restrictPublicBuckets(false)
                                 .build()))
                 .websiteIndexDocument("index.html")
-                .websiteErrorDocument("error.html")
                 .build();
 
         Bucket subdomainBucket = Bucket.Builder.create(this, subdomainBucketId)
@@ -49,7 +48,7 @@ public class StaticSiteStack extends Stack {
                 .build();
 
         BucketDeployment.Builder.create(this, staticSiteBucketId + "Deployment")
-                .sources(List.of(Source.asset("../software/StaticSite")))
+                .sources(List.of(Source.asset("../software/StaticSite/build")))
                 .destinationBucket(staticSiteBucket)
                 .build();
 

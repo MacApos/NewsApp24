@@ -1,24 +1,19 @@
 import React from 'react';
 import {PLACEHOLDER} from "../constants/constants";
 
-const AnchorWrapper = (props) => {
-    return (
-        <a className="text-capitalize fs-3 text-primary" href={props.href} target="_blank">
-            {props.children}
-        </a>
-    );
-};
-
 export const Article = ({article}) => {
     const image = article.image;
     return (
         <a href={article.url} target="_blank">
             <div className="card mb-4 bg-light border-primary shadow"
                  style={{borderWidth: "1px 2px 2px 1px"}}>
-                <div className="row align-items-end text-primary">
-                    <div className="col-auto align-self-start text-start">
-                        <img className="float-start me-3 mb-1" src={image === null ? PLACEHOLDER : image}
+                <div className="row text-primary">
+                    <div className="col-auto">
+                        <img className="" src={image === null ? PLACEHOLDER : image}
                              alt={article.name} width={400} height={"auto"}/>
+                    </div>
+
+                    <div className="col text-start">
                         <h5 className="card-title text-capitalize fs-3 text-primary my-3">
                             {article.name}
                         </h5>

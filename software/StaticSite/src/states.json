@@ -686,7 +686,7 @@
       {
         "name": "New York",
         "population": 8097282,
-        "capital": false
+        "capital": true
       },
       {
         "name": "Buffalo",

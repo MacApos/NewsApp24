@@ -1,4 +1,29 @@
-export const initMaps = (g) => {
+import {SecretsManagerClient, GetSecretValueCommand} from "@aws-sdk/client-secrets-manager";
+
+const getSecrets = async (secretName) => {
+    const client = new SecretsManagerClient({
+        region: "eu-central-1",
+    });
+    new AWS.Credentials(options)
+    try {
+        const response = await client.send(
+            new GetSecretValueCommand({
+                SecretId: secretName,
+                VersionStage: "AWSCURRENT",
+            })
+        );
+        return response.SecretString;
+    } catch (error) {
+        throw error;
+    }
+};
+
+export default () => {
+    const secrets = getSecrets("com/staticSite");
+    if(secrets){
+        console.log(secrets);
+    }
+
     (g => {
         var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
             m = document, b = window;

@@ -21,9 +21,9 @@ public class InfrastructureApp {
                 .build();
 
         StackProps stackProps = StackProps.builder().build();
-        new ElasticBeanstalkStack(app, "ElasticBeanstalkStack", stackProps);
+//        new ElasticBeanstalkStack(app, "ElasticBeanstalkStack", stackProps);
 //        new LambdaStack(app, "LambdaStack", stackProps);
-//        new StaticSiteStack(app, "StaticSiteStack", StackProps.builder().env(environment).build());
+        new StaticSiteStack(app, "StaticSiteStack", StackProps.builder().env(environment).build());
 
         app.synth();
     }
