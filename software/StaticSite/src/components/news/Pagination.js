@@ -1,8 +1,8 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {selectArticles, selectArticlesOnPage, selectPage, setPage} from "../reducers/newsSlice";
+import {selectArticles, selectArticlesOnPage, selectPage, setPage} from "../../reducers/newsSlice";
 
-export const Pagination = () => {
+export const    Pagination = () => {
     const dispatch = useDispatch();
     const articlesOnPage = useSelector(selectArticlesOnPage);
     const page = useSelector(selectPage);

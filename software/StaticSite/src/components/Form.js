@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+    import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {fetchNews} from "../reducers/newsSlice";
 
@@ -22,7 +22,7 @@ const autocomplete = async (input) => {
 export const Form = () => {
     const dispatch = useDispatch();
 
-    const [query, setQuery] = useState("New York, NY, USA");
+    const [query, setQuery] = useState("");
     const [propositions, setPropositions] = useState([]);
 
     useEffect(() => {
@@ -46,12 +46,12 @@ export const Form = () => {
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col pe-0">
-                        <input className="form-control bg-secondary" type="search" placeholder="Search" value={query}
+                        <input id="cityInput" className="form-control bg-secondary text-primary" type="search" placeholder="Search" value={query}
                                list="propositions" required minLength={3}
                                onChange={e => setQuery(e.target.value)}/>
                         <datalist id="propositions">
                             {propositions.length > 1 && propositions.map((proposition, index) =>
-                                <option key={"proposition" + index} onMouseOver={() => console.log("click")}>
+                                <option key={"proposition" + index}>
                                     {proposition}
                                 </option>)}
                         </datalist>

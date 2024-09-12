@@ -7,8 +7,9 @@ export const TrendingButton = () => {
     const dispatch = useDispatch();
     return (
         <>
-            <button type="button" className="btn btn-outline-light"
-            onClick={()=>dispatch(fetchNews(TRENDING))}>Trending</button>
+            <button className="btn btn-outline-light" onClick={() => dispatch(fetchNews(TRENDING))}>
+                Trending
+            </button>
         </>
     );
 };

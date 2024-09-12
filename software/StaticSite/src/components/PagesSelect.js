@@ -1,23 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {selectArticlesOnPage, setArticlesOnPage, setPage} from "../reducers/newsSlice";
 import {useDispatch, useSelector} from "react-redux";
 
 export const PagesSelect = () => {
+    const numbers = [5, 10, 20];
     const dispatch = useDispatch();
-    const articlesOnPage = useSelector(selectArticlesOnPage);
+    const [number, setNumber] = useState(numbers[1]);
 
-    const handleSelectChange = (e) => {
-            dispatch(setArticlesOnPage(Number(e.target.value)));
-            dispatch(setPage(1));
+    const handleClick = (number) => {
+        setNumber(number);
+        dispatch(setArticlesOnPage(number));
+        dispatch(setPage(1));
     };
 
     return (
         <>
-            <select className="btn btn-outline-light"
-                    value={articlesOnPage} onChange={handleSelectChange}>
-                {[5, 10, 20].map(number => <option key={"numberOfPages" + number}
-                                                   value={number}>{number}</option>)}
-            </select>
+            <button type="button" className="btn btn-outline-light dropdown-toggle w-90-px" data-bs-toggle="dropdown">
+                {number}
+            </button>
+            <ul className="dropdown-menu w-90-px">
+                {numbers.map(number =>
+                    <li key={"numberOfPages" + number} className="dropdown-item">
+                        <button className="btn btn-outline-light"
+                                onClick={() => handleClick(number)}>
+                            {number}
+                        </button>
+                    </li>
+                )}
+            </ul>
         </>
     );
 };

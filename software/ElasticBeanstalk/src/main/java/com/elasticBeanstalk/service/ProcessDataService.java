@@ -17,7 +17,7 @@ import java.util.Map;
 public class ProcessDataService {
     private final Validator validator;
     private final FetchDataService fetchDataService = new FetchDataService();
-    private final Secrets secrets = Secrets.getSecrets();
+    private final Secrets secrets = Secrets.getSecrets("com/elasticBeanstalk");
 
     private final String CITY_HOST = "api.openweathermap.org";
     private final String CITY_PATH = "/geo/1.0/direct";

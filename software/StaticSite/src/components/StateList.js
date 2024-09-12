@@ -1,5 +1,4 @@
-import React, {useState} from "react";
-import statesJson from "../states.json";
+import React from "react";
 import {STATES} from "../constants/constants";
 import {useDispatch} from "react-redux";
 import {fetchNews} from "../reducers/newsSlice";
@@ -38,11 +37,13 @@ const StateItem = ({state}) => {
                             <div key={cityKey}>
                                 <li className="dropdown-item"
                                     onClick={() => dispatch(fetchNews(cityKey))}>
-                                    {cityName}
+                                    <button className="btn btn-outline-dark text-start">
+                                        {cityName}
+                                    </button>
                                 </li>
                                 {cities.length > 1 && city.capital &&
                                     <li>
-                                        <hr className="dropdown-divider"/>
+                                        <hr className="dropdown-divider my-0"/>
                                     </li>}
                             </div>);
                     }

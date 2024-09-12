@@ -11,8 +11,7 @@ public class Secrets {
     public String CITY_API_KEY;
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    public static Secrets getSecrets() {
-        String secretName = "com/lambda";
+    public static Secrets getSecrets( String secretName) {
         Region region = Region.EU_CENTRAL_1;
 
         try (SecretsManagerClient client = SecretsManagerClient.builder()

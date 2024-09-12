@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {DESC, PENDING, REJECTED, FULFILLED} from "../constants/constants";
 import {newsAPI} from "../utils/newsAPI";
-import {DESC, PENDING, REJECTED, SUCCEEDED} from "../constants/constants";
 
 const initialState = {
     response: {
@@ -44,7 +44,7 @@ const newsSlice = createSlice({
                     state.response.status = PENDING;
                 })
                 .addCase(fetchNews.fulfilled, (state, action) => {
-                    state.response.status = SUCCEEDED;
+                    state.response.status = FULFILLED;
                     state.response.news = action.payload;
                     state.sort = initialState.sort;
                 })

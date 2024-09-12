@@ -1,10 +1,10 @@
 const PENDING = "pending";
-const SUCCEEDED = "succeeded";
+const FULFILLED = "fulfilled";
 const REJECTED = "rejected";
 const ASC = "ascending";
 const DESC = "descending";
 const TRENDING = "TRENDING";
-const WHITE_LOGO = "/img/world-white.svg";
+const LOGO = "/img/world-white.svg";
 const PLACEHOLDER = "/img/article-image-placeholder.jpg";
 const API_URI = "http://newsapp24.eu-central-1.elasticbeanstalk.com/";
 const STATES = [
@@ -1071,4 +1071,4 @@ const STATES = [
     }
 ];
 
-export {PENDING, SUCCEEDED, REJECTED, ASC, DESC, TRENDING, WHITE_LOGO, PLACEHOLDER, API_URI,STATES};
+export {PENDING, FULFILLED, REJECTED, ASC, DESC, TRENDING, LOGO, PLACEHOLDER, API_URI,STATES};
