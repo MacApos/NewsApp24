@@ -22,30 +22,12 @@ class MainTest {
                 .map(cityPage -> cityPage.items().isEmpty() ? initialCities : cityPage.items())
                 .flatMap(Collection::stream)
                 .forEach(city -> {
-                    City fetch = fetchDataService.mockFetchNews(city).block();
+                    City fetch = fetchDataService.fetchNews(city).block();
                     if (fetch != null) {
                         fetch.addArticles(city.getArticles());
                         fetch.sortArticles();
                         dynamoDBService.table.putItem(fetch);
                     }
                 });
-    }
-
-    @Test
-    void putItemsAsyncTest() {
-        Mono.from(dynamoDBService.getAllNewsAsync())
-                .map(cityPage -> cityPage.items().isEmpty() ? initialCities : cityPage.items())
-                .flatMapMany(Flux::fromIterable)
-                .publishOn(Schedulers.boundedElastic())
-                .doOnNext(city -> {
-                    City fetch = fetchDataService.mockFetchNews(city).block();
-                    if (fetch != null) {
-                        fetch.addArticles(city.getArticles());
-                        fetch.sortArticles();
-                        dynamoDBService.table.putItem(fetch);
-                    }
-                })
-                .then()
-                .block();
     }
 }
