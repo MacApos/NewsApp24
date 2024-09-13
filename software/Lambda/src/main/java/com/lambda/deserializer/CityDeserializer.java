@@ -8,10 +8,6 @@ import com.lambda.dto.Article;
 import com.lambda.dto.City;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class CityDeserializer extends StdDeserializer<City> {
     public CityDeserializer() {
