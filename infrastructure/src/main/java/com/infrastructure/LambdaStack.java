@@ -33,13 +33,14 @@ public class LambdaStack extends Stack {
         IRole role = saveDataFunction.getRole();
         if (role != null) {
             role.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("AmazonDynamoDBFullAccess"));
+            role.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("SecretsManagerReadWrite"));
         }
 
         // Rule for the schedule that runs every day at 12:00 PM
         Rule rule = Rule.Builder.create(this, cronRuleName)
                 .ruleName(cronRuleName)
                 .description("Run every day at 12:00 PM UTC")
-                .schedule(Schedule.expression("cron(2 0 * * ? *)"))
+                .schedule(Schedule.expression("cron(0 12 * * ? *)"))
                 .build();
 
         rule.addTarget(new LambdaFunction(saveDataFunction));
