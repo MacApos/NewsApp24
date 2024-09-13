@@ -1,6 +1,6 @@
     import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
-import {fetchNews} from "../reducers/newsSlice";
+import {fetchNews, setPage} from "../../reducers/newsSlice";
 
 const autocomplete = async (input) => {
     const google = window.google;
@@ -38,6 +38,7 @@ export const Form = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        dispatch(setPage(1));
         dispatch(fetchNews(query));
     };
 

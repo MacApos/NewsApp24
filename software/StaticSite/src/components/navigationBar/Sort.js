@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useDispatch} from "react-redux";
-import {setSort} from "../reducers/newsSlice";
-import {ASC, DESC} from "../constants/constants";
+import {setSort} from "../../reducers/newsSlice";
+import {ASC, DESC} from "../../constants/constants";
 
 export const Sort = () => {
     const datePublished = "datePublished";

@@ -4,6 +4,7 @@ import {Article} from "./Article";
 import {useSelector} from "react-redux";
 import {selectArticlesOnPage, selectNews, selectPage, selectSort} from "../../reducers/newsSlice";
 import {ASC, STATES, TRENDING} from "../../constants/constants";
+import {Rejected} from "./Rejected";
 
 export const Fulfilled = () => {
     const news = useSelector(selectNews);
@@ -12,6 +13,11 @@ export const Fulfilled = () => {
     const articlesOnPage = useSelector(selectArticlesOnPage);
 
     let articles = news.articles;
+    const articlesLen = articles.length;
+    if(articlesLen<1){
+        return <Rejected/>
+    }
+
     articles = articles.map(article => {
         return {
             ...article,
@@ -24,7 +30,7 @@ export const Fulfilled = () => {
     name = name === TRENDING ? "Trending news" : find === undefined ? name : name + ", " + find.id;
 
     const start = (page - 1) * articlesOnPage;
-    const stop = page * Math.min(articlesOnPage, articles.length);
+    const stop = page * Math.min(articlesOnPage, articlesLen);
     return (
         <>
             <div className="row my-3">

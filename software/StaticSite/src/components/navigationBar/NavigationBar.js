@@ -1,5 +1,5 @@
 import React from 'react';
-import {LOGO} from "../constants/constants";
+import {LOGO} from "../../constants/constants";
 
 export const NavigationBar = ({children}) => {
     return (

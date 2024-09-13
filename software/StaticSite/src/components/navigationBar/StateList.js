@@ -1,7 +1,7 @@
 import React from "react";
-import {STATES} from "../constants/constants";
+import {STATES} from "../../constants/constants";
 import {useDispatch} from "react-redux";
-import {fetchNews} from "../reducers/newsSlice";
+import {fetchNews} from "../../reducers/newsSlice";
 
 export const StateList = () => {
     return (
