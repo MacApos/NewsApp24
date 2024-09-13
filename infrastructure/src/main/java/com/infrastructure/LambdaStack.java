@@ -29,6 +29,7 @@ public class LambdaStack extends Stack {
                 .memorySize(512)
                 .build();
 
+
         // Add appropriate permission policy to function role
         IRole role = saveDataFunction.getRole();
         if (role != null) {
