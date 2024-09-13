@@ -63,7 +63,7 @@ public class FetchDataService {
         CompletableFuture<HttpResponse<String>> response = httpClient.sendAsync(request,
                 HttpResponse.BodyHandlers.ofString());
 
-        Mono<City> cityMono = Mono.fromFuture(response)
+        return Mono.fromFuture(response)
                 .map(HttpResponse::body).flatMap(body -> {
                     City city;
                     try {
@@ -73,20 +73,6 @@ public class FetchDataService {
                     }
                     return Mono.just(city);
                 });
-
-//        String statesPath = "/home/zalman/Documents/JavaProjects/NewsRequests/";
-//        CompletableFuture<String> stringCompletableFuture = response.thenApply(httpResponse -> {
-//            String body = httpResponse.body();
-//            try {
-//                Files.writeString(Paths.get(statesPath, "headers.txt"), httpResponse.headers().toString().replaceAll("],", "].\n"));
-//                Files.writeString(Paths.get(statesPath, "news.json"), body);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//            return body;
-//        });
-
-        return cityMono;
     }
 
     public Mono<City> fetchNews(City city) {

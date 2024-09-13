@@ -17,7 +17,7 @@ class MainTest {
     private static final FetchDataService fetchDataService = new FetchDataService();
 
     @Test
-    void syncTest() {
+    void putItemsSyncTest() {
         dynamoDBService.getAllNews().stream()
                 .map(cityPage -> cityPage.items().isEmpty() ? initialCities : cityPage.items())
                 .flatMap(Collection::stream)
@@ -32,7 +32,7 @@ class MainTest {
     }
 
     @Test
-    void asyncTest() {
+    void putItemsAsyncTest() {
         Mono.from(dynamoDBService.getAllNewsAsync())
                 .map(cityPage -> cityPage.items().isEmpty() ? initialCities : cityPage.items())
                 .flatMapMany(Flux::fromIterable)

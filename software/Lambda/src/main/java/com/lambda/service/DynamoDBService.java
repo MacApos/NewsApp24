@@ -28,7 +28,6 @@ public class DynamoDBService {
                 .partitionValue(city.getName())
                 .sortValue(city.getState())
                 .build();
-
         return asyncTable.getItem(key);
     }
 
@@ -43,15 +42,6 @@ public class DynamoDBService {
     public void putNews(City news) {
         asyncTable.putItem(news);
     }
-
-    public void deleteNews(String cityName) {
-
-    }
-
-    public void updateNews(City city) {
-        asyncTable.updateItem(city);
-    }
-
 }
 
 
