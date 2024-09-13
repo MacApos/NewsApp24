@@ -9,10 +9,10 @@ import {NavigationBar} from "./components/navigationBar/NavigationBar";
 import {TrendingButton} from "./components/navigationBar/TrendingButton";
 import {Fetch} from "./components/news/Fetch";
 import {Container} from "./components/news/Container";
-import initMaps from "./utils/initPlaceAutocomplete";
+import {initPlaceAutocomplete} from "./utils/initPlaceAutocomplete";
 
 export const App = () => {
-    initMaps();
+    initPlaceAutocomplete();
     return (
         <>
             <Provider store={store}>

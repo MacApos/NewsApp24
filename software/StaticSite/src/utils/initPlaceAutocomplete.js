@@ -1,9 +1,9 @@
-export default () => {
+export const initPlaceAutocomplete=() => {
     (g => {
         let h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
             m = document, b = window;
         b = b[c] || (b[c] = {});
-        const d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+        const d = b.maps || (b.maps = {}), r = new Set(), e = new URLSearchParams(),
             u = () => h || (h = new Promise(async (f, n) => {
                 await (a = m.createElement("script"));
                 e.set("libraries", [...r] + "");

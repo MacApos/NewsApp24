@@ -39,7 +39,7 @@ public class LambdaStack extends Stack {
         Rule rule = Rule.Builder.create(this, cronRuleName)
                 .ruleName(cronRuleName)
                 .description("Run every day at 12:00 PM UTC")
-                .schedule(Schedule.expression("cron(0 12 * * ? *)"))
+                .schedule(Schedule.expression("cron(2 0 * * ? *)"))
                 .build();
 
         rule.addTarget(new LambdaFunction(saveDataFunction));

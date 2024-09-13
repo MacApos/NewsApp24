@@ -18,10 +18,13 @@ public class StaticSiteStack extends Stack {
     public StaticSiteStack(final Construct scope, final String id, final StackProps props) {
         super(scope, id, props);
 
+        String ROOT_DOMAIN = "newsapp24.com";
+        String HOSTED_ZONE_ID = "Z0954086RSQN4LCK08H6";
         String staticSiteBucketId = APP_NAME + "Static";
-        String subdomainName = "www." + ROOT_DOMAIN;
         String subdomainBucketId = APP_NAME + "Subdomain";
+        String subdomainName = "www." + ROOT_DOMAIN;
 
+        // Create bucket for static files
         Bucket staticSiteBucket = Bucket.Builder.create(this, staticSiteBucketId)
                 .autoDeleteObjects(true)
                 .publicReadAccess(true)
@@ -37,6 +40,7 @@ public class StaticSiteStack extends Stack {
                 .websiteIndexDocument("index.html")
                 .build();
 
+        // Create bucket for redirection to root domain
         Bucket subdomainBucket = Bucket.Builder.create(this, subdomainBucketId)
                 .autoDeleteObjects(true)
                 .removalPolicy(RemovalPolicy.DESTROY)
@@ -47,6 +51,7 @@ public class StaticSiteStack extends Stack {
                         .build())
                 .build();
 
+        // Deploy static files
         BucketDeployment.Builder.create(this, staticSiteBucketId + "Deployment")
                 .sources(List.of(Source.asset("../software/StaticSite/build")))
                 .destinationBucket(staticSiteBucket)

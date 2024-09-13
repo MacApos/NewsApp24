@@ -71,16 +71,6 @@ public class City {
         }
     }
 
-    public void updateCity(City city) {
-        List<Article> newArticles = city.getArticles();
-        if (!newArticles.isEmpty()) {
-            TreeSet<Article> currentArticles = new TreeSet<>(articles);
-            currentArticles.addAll(newArticles);
-            articles = new ArrayList<>(currentArticles);
-        }
-        articles.subList(0, Math.min(20, articles.size()));
-    }
-
     public void setUpdateDateToNow() {
         updateDate = LocalDateTime.now();
     }

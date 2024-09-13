@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {selectArticlesOnPage, setArticlesOnPage, setPage} from "../../reducers/newsSlice";
-import {useDispatch, useSelector} from "react-redux";
+import { setArticlesOnPage, setPage} from "../../reducers/newsSlice";
+import {useDispatch} from "react-redux";
 
 export const PagesSelect = () => {
     const numbers = [5, 10, 20];
