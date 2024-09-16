@@ -43,8 +43,6 @@ public class FetchDataService {
                     .collect(Collectors.joining("&"));
         }
 
-
-
         URI uri;
         try {
             uri = new URI("https", null, host, -1, path, query, null);
