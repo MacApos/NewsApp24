@@ -12,7 +12,6 @@ import java.util.Collection;
 import static com.lambda.Handler.initialCities;
 
 class HandlerTest {
-    private static final Logger log = LoggerFactory.getLogger(HandlerTest.class);
     private final DynamoDBService dynamoDBService = new DynamoDBService();
     private static final FetchDataService fetchDataService = new FetchDataService();
 
