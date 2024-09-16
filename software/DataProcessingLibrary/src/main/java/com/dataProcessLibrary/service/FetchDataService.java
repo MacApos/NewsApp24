@@ -1,9 +1,9 @@
-package com.lambda.service;
+package com.dataProcessLibrary.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lambda.Secrets;
-import com.lambda.dto.City;
+import com.dataProcessLibrary.Secrets;
+import com.dataProcessLibrary.dto.City;
 import reactor.core.publisher.Mono;
 
 import java.net.URI;

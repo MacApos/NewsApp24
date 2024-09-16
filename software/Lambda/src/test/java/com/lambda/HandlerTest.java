@@ -1,18 +1,18 @@
 package com.lambda;
 
-import com.lambda.dto.City;
-import com.lambda.service.DynamoDBService;
-import com.lambda.service.FetchDataService;
+import com.dataProcessLibrary.dto.City;
+import com.dataProcessLibrary.service.DynamoDBService;
+import com.dataProcessLibrary.service.FetchDataService;
 import org.junit.jupiter.api.Test;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Schedulers;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.Collection;
 
 import static com.lambda.Handler.initialCities;
 
-class MainTest {
+class HandlerTest {
+    private static final Logger log = LoggerFactory.getLogger(HandlerTest.class);
     private final DynamoDBService dynamoDBService = new DynamoDBService();
     private static final FetchDataService fetchDataService = new FetchDataService();
 

@@ -11,6 +11,7 @@
     <modules>
         <module>ElasticBeanstalk</module>
         <module>Lambda</module>
+        <module>DataProcessingLibrary</module>
     </modules>
 
 

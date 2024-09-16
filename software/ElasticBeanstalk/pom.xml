@@ -48,8 +48,8 @@
             <artifactId>hibernate-validator</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.lambda</groupId>
-            <artifactId>Lambda</artifactId>
+            <groupId>com.dataProcessingLibrary</groupId>
+            <artifactId>DataProcessingLibrary</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

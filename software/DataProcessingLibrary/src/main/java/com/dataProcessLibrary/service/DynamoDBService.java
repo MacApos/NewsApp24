@@ -1,6 +1,6 @@
-package com.lambda.service;
+package com.dataProcessLibrary.service;
 
-import com.lambda.dto.City;
+import com.dataProcessLibrary.dto.City;
 import software.amazon.awssdk.enhanced.dynamodb.*;
 import software.amazon.awssdk.enhanced.dynamodb.model.PageIterable;
 import software.amazon.awssdk.enhanced.dynamodb.model.PagePublisher;

@@ -1,8 +1,8 @@
-package com.lambda.dto;
+package com.dataProcessLibrary.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.lambda.deserializer.CityDeserializer;
+import com.dataProcessLibrary.deserializer.CityDeserializer;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;

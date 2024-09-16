@@ -1,8 +1,8 @@
 package com.elasticBeanstalk.service;
 
-import com.lambda.Secrets;
-import com.lambda.dto.City;
-import com.lambda.service.FetchDataService;
+import com.dataProcessLibrary.Secrets;
+import com.dataProcessLibrary.dto.City;
+import com.dataProcessLibrary.service.FetchDataService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BeanPropertyBindingResult;

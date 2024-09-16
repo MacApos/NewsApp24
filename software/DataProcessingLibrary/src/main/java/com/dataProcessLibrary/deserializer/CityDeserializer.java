@@ -1,11 +1,11 @@
-package com.lambda.deserializer;
+package com.dataProcessLibrary.deserializer;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import com.lambda.dto.Article;
-import com.lambda.dto.City;
+import com.dataProcessLibrary.dto.Article;
+import com.dataProcessLibrary.dto.City;
 
 import java.io.IOException;
 

@@ -1,12 +1,12 @@
 package com.elasticBeanstalk.service;
 
-import com.lambda.dto.City;
-import com.lambda.service.FetchDataService;
-import com.lambda.service.DynamoDBService;
+import com.dataProcessLibrary.dto.City;
+import com.dataProcessLibrary.service.FetchDataService;
+import com.dataProcessLibrary.service.DynamoDBService;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import static com.lambda.service.FetchDataService.TRENDING;
+import static com.dataProcessLibrary.service.FetchDataService.TRENDING;
 
 @Service
 public class NewsService {

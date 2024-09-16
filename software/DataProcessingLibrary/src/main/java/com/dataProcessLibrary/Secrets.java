@@ -1,4 +1,4 @@
-package com.lambda;
+package com.dataProcessLibrary;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import software.amazon.awssdk.regions.Region;
