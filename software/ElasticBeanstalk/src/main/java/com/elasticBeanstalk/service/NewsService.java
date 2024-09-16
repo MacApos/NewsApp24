@@ -21,7 +21,7 @@ public class NewsService {
     private Mono<City> getOrFetchNews(City city) {
         return Mono.fromFuture(dynamoDbService.getNews(city))
                 .switchIfEmpty(fetchDataService
-                .mockFetchNews(city)
+                .fetchNews(city)
                 .doOnNext(dynamoDbService::putNews)
         );
     }

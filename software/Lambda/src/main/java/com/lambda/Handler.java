@@ -24,7 +24,7 @@ public class Handler implements RequestStreamHandler {
                 .map(cityPage -> cityPage.items().isEmpty() ? initialCities : cityPage.items())
                 .flatMap(Collection::stream)
                 .forEach(city -> {
-                    City fetch = fetchDataService.mockFetchNews(city).block();
+                    City fetch = fetchDataService.fetchNews(city).block();
                     if (fetch != null) {
                         fetch.addArticles(city.getArticles());
                         fetch.sortArticles();
