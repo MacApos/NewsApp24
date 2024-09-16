@@ -63,6 +63,8 @@ public class FetchDataService {
         CompletableFuture<HttpResponse<String>> response = httpClient.sendAsync(request,
                 HttpResponse.BodyHandlers.ofString());
 
+//        save data locally
+
         return Mono.fromFuture(response)
                 .map(HttpResponse::body).flatMap(body -> {
                     City city;
