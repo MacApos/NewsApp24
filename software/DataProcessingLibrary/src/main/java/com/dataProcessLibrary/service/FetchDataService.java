@@ -23,6 +23,7 @@ public class FetchDataService {
     public static final ObjectMapper objectMapper = new ObjectMapper();
     public static final Secrets secrets = Secrets.getSecrets("com/lambda");
 
+
     public static final String NEWS_HOST = "api.bing.microsoft.com";
     public static final String NEWS_PATH = "/v7.0/news/search";
     public static final String NEWS_API_KEY = secrets.NEWS_API_KEY;
