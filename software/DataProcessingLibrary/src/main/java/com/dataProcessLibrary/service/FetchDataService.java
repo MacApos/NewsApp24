@@ -2,7 +2,6 @@ package com.dataProcessLibrary.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dataProcessLibrary.Secrets;
 import com.dataProcessLibrary.dto.City;
 import reactor.core.publisher.Mono;
 
@@ -18,11 +17,11 @@ import java.util.stream.Collectors;
 public class FetchDataService {
     public static final HttpClient httpClient = HttpClient.newBuilder().build();
     public static final ObjectMapper objectMapper = new ObjectMapper();
-    public static final Secrets secrets = Secrets.getSecrets("com/lambda");
+    public static final SecretsService SECRETS_SERVICE = SecretsService.getSecrets("com/lambda");
 
     public static final String NEWS_HOST = "api.bing.microsoft.com";
     public static final String NEWS_PATH = "/v7.0/news/search";
-    public static final String NEWS_API_KEY = secrets.NEWS_API_KEY;
+    public static final String NEWS_API_KEY = SECRETS_SERVICE.NEWS_API_KEY;
     public static final HashMap<String, String> NEWS_API_URI_PARAMS = new HashMap<>(Map.of(
             "count", "25",
             "mkt", "en-US",
@@ -62,8 +61,6 @@ public class FetchDataService {
         HttpRequest request = prepareRequest(host, path, params, headers);
         CompletableFuture<HttpResponse<String>> response = httpClient.sendAsync(request,
                 HttpResponse.BodyHandlers.ofString());
-
-//        save data locally
 
         return Mono.fromFuture(response)
                 .map(HttpResponse::body).flatMap(body -> {

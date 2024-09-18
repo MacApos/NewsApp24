@@ -1,6 +1,6 @@
 package com.elasticBeanstalk.service;
 
-import com.dataProcessLibrary.Secrets;
+import com.dataProcessLibrary.service.SecretsService;
 import com.dataProcessLibrary.dto.City;
 import com.dataProcessLibrary.service.FetchDataService;
 import org.springframework.http.HttpStatus;
@@ -17,12 +17,12 @@ import java.util.Map;
 public class ProcessDataService {
     private final Validator validator;
     private final FetchDataService fetchDataService = new FetchDataService();
-    private final Secrets secrets = Secrets.getSecrets("com/elasticBeanstalk");
+    private final SecretsService secretsService = SecretsService.getSecrets("com/elasticBeanstalk");
 
     private final String CITY_HOST = "api.openweathermap.org";
     private final String CITY_PATH = "/geo/1.0/direct";
     private final String COUNTRY_CODE = "US";
-    private final String CITY_API_KEY = secrets.CITY_API_KEY;
+    private final String CITY_API_KEY = secretsService.CITY_API_KEY;
     private final ResponseStatusException CITY_NOT_FOUND =
             new ResponseStatusException(HttpStatus.BAD_REQUEST, "City not found");
 

@@ -13,11 +13,11 @@ aws configure sso
 #git commit -m "$commitMessage"
 #git push
 
-#cd software/ || exit
+cd software/ || exit
 #mvn clean install --quiet
-#cd StaticSite/ || exit
-#npm run --silent build
-#cd ../../
+cd StaticSite/ || exit
+npm run --silent build
+cd ../../
 
 cd infrastructure/ || exit
 cdk synth
