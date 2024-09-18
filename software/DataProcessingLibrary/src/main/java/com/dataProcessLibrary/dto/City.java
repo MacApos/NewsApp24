@@ -27,7 +27,7 @@ public class City {
     @Size(min = 2)
     private String state;
 
-    private ArrayList<Article> articles  = new ArrayList<>();
+    private ArrayList<Article> articles = new ArrayList<>();
     private LocalDateTime updateDate;
 
     public City() {

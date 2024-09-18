@@ -76,11 +76,11 @@ public class FetchDataService {
 
     public Mono<City> fetchNews(City city) {
         String query;
-        if(city.getName().equals(TRENDING)){
+        if (city.getName().equals(TRENDING)) {
             NEWS_API_URI_PARAMS.put("category", "us");
             query = "usa news";
         } else {
-            query=city.prepareQuery();
+            query = city.prepareQuery();
         }
         NEWS_API_URI_PARAMS.put("q", query);
         return prepareResponse(NEWS_HOST, NEWS_PATH, NEWS_API_URI_PARAMS, NEWS_API_URI_HEADERS)

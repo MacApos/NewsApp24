@@ -1,6 +1,6 @@
-    import React, {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
-import {fetchNews, setPage} from "../../reducers/newsSlice";
+import {fetchNews} from "../../reducers/newsSlice";
 
 const autocomplete = async (input) => {
     const google = window.google;
@@ -46,7 +46,8 @@ export const Form = () => {
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col pe-0">
-                        <input id="cityInput" className="form-control bg-secondary text-primary" type="search" placeholder="Search" value={query}
+                        <input id="cityInput" className="form-control bg-secondary text-primary" type="search"
+                               placeholder="Search" value={query}
                                list="propositions" required minLength={3}
                                onChange={e => setQuery(e.target.value)}/>
                         <datalist id="propositions">

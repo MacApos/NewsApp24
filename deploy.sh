@@ -14,7 +14,7 @@ aws configure sso
 #git push
 
 cd software/ || exit
-#mvn clean install --quiet
+mvn clean install --quiet
 cd StaticSite/ || exit
 npm run --silent build
 cd ../../

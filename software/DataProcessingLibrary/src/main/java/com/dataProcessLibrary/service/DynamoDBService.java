@@ -35,10 +35,6 @@ public class DynamoDBService {
         return table.scan();
     }
 
-    public PagePublisher<City> getAllNewsAsync() {
-        return asyncTable.scan();
-    }
-
     public void putNews(City news) {
         asyncTable.putItem(news);
     }

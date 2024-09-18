@@ -27,7 +27,6 @@ export const Pagination = () => {
                                             (pageIdx === page ? " active" : "")}
                                         onClick={() => {
                                             dispatch(setPage(pageIdx));
-                                            scrollTop();
                                         }}>
                                     {pageIdx}
                                 </button>);
@@ -41,8 +40,4 @@ export const Pagination = () => {
         }
     }
     return list;
-};
-
-const scrollTop = () => {
-    window.scrollTo(0, 0);
 };

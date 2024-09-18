@@ -2,13 +2,14 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {DESC, PENDING, REJECTED, FULFILLED} from "../constants/constants";
 import {newsAPI} from "../utils/newsAPI";
 
-const initialState = {
+export const initialState = {
     response: {
         news: {},
         status: "idle",
         error: null,
     },
     sort: {
+        name:"Latest",
         category: "datePublished",
         order: DESC
     },
@@ -19,16 +20,23 @@ const initialState = {
 export const fetchNews = createAsyncThunk(
     'news/fetchNews',
     async (city) => {
+
         const response = await newsAPI.fetchNews(city);
         return await response.json();
     },
 );
+
+
+const scrollTop = () => {
+    window.scrollTo(0, 0);
+};
 
 const newsSlice = createSlice({
         name: "news",
         initialState,
         reducers: {
             setSort: (state, action) => {
+                state.page = 1;
                 state.sort = action.payload;
             },
             setArticlesOnPage: (state, action) => {
@@ -36,6 +44,7 @@ const newsSlice = createSlice({
             },
             setPage: (state, action) => {
                 state.page = action.payload;
+                scrollTop();
             }
         },
         extraReducers: (builder) => {
@@ -48,7 +57,7 @@ const newsSlice = createSlice({
                     state.response.news = action.payload;
                     state.page = 1;
                     state.sort = initialState.sort;
-                    window.scrollTo(0, 0);
+                    scrollTop();
                 })
                 .addCase(fetchNews.rejected, (state) => {
                     state.response.status = REJECTED;

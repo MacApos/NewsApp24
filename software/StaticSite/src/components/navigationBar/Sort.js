@@ -1,37 +1,34 @@
-import React, {useState} from 'react';
-import {useDispatch} from "react-redux";
-import {setSort} from "../../reducers/newsSlice";
-import {ASC, DESC} from "../../constants/constants";
+import React from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {initialState, selectSort, setSort} from "../../reducers/newsSlice";
+import {ASC} from "../../constants/constants";
 
 export const Sort = () => {
-    const datePublished = "datePublished";
-    const categories = {
-        Latest: {category: datePublished, order: DESC},
-        Oldest: {category: datePublished, order: ASC}
-    };
-
-    const entries = Object.entries(categories);
     const dispatch = useDispatch();
-    const [key, setKey] = useState(entries[0][0]);
+    const sort = useSelector(selectSort);
+    const datePublished = "datePublished";
+    const categories = [
+        initialState.sort,
+        {name: "Oldest", category: datePublished, order: ASC}
+    ];
 
-    const handleClick = ([key, value]) => {
-        setKey(() => key);
+    const handleClick = (value) => {
         dispatch(setSort(value));
     };
 
     return (
         <>
             <button type="button" className="btn btn-outline-light dropdown-toggle w-130-px" data-bs-toggle="dropdown">
-                {key}
+                {sort.name}
             </button>
             <ul className="dropdown-menu w-130-px">
-                {entries.map(entry => {
-                    const [key] = entry
+                {categories.map(category => {
+                    const {name} = category;
                     return (
-                        <li key={"sortBy" + key} className="dropdown-item">
+                        <li key={"sortBy" + name} className="dropdown-item">
                             <button className="btn btn-outline-light"
-                                    onClick={() => handleClick(entry)}>
-                                {key}
+                                    onClick={() => handleClick(category)}>
+                                {name}
                             </button>
                         </li>
                     );
