@@ -2,7 +2,7 @@ import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {selectArticles, selectArticlesOnPage, selectPage, setPage} from "../../reducers/newsSlice";
 
-export const    Pagination = () => {
+export const Pagination = () => {
     const dispatch = useDispatch();
     const articlesOnPage = useSelector(selectArticlesOnPage);
     const page = useSelector(selectPage);
@@ -25,7 +25,10 @@ export const    Pagination = () => {
                                 <button key={"page" + pageIdx}
                                         className={"btn btn-outline-primary border-end-0" +
                                             (pageIdx === page ? " active" : "")}
-                                        onClick={() => dispatch(setPage(pageIdx))}>
+                                        onClick={() => {
+                                            dispatch(setPage(pageIdx));
+                                            scrollTop();
+                                        }}>
                                     {pageIdx}
                                 </button>);
                         }
@@ -38,4 +41,8 @@ export const    Pagination = () => {
         }
     }
     return list;
+};
+
+const scrollTop = () => {
+    window.scrollTo(0, 0);
 };

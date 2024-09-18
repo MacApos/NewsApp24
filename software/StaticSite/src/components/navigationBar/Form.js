@@ -38,7 +38,6 @@ export const Form = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(setPage(1));
         dispatch(fetchNews(query));
     };
 

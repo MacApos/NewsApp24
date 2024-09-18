@@ -14,9 +14,10 @@ public class Handler implements RequestStreamHandler {
     private static final DynamoDBService dynamoDBService = new DynamoDBService();
     private static final FetchDataService fetchDataService = new FetchDataService();
     public static final List<City> initialCities = List.of(
-            new City("New York", "New York"),
-            new City("Ashburn", "Virginia"),
-            new City("Hemingford", "Nebraska"));
+            new City("New York", "New York")
+//            new City("Ashburn", "Virginia"),
+//            new City("Hemingford", "Nebraska")
+    );
 
     @Override
     public void handleRequest(InputStream inputStream, OutputStream outputStream, Context context) {

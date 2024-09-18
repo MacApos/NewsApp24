@@ -21,9 +21,10 @@ public class NewsService {
     private Mono<City> getOrFetchNews(City city) {
         return Mono.fromFuture(dynamoDbService.getNews(city))
                 .switchIfEmpty(fetchDataService
-                .fetchNews(city)
-                .doOnNext(dynamoDbService::putNews)
-        );
+                        .fetchNews(city)
+                        .filter(fetchedCity -> !fetchedCity.getArticles().isEmpty())
+                        .doOnNext(dynamoDbService::putNews)
+                );
     }
 
     public Mono<City> getTrending() {

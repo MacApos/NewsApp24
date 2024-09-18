@@ -10,7 +10,7 @@ export const Article = ({article}) => {
                 <div className="row mw-100 mx-0">
                     <div className="col-auto px-0">
                         <img src={image === null ? PLACEHOLDER : image}
-                             alt={article.name} width={400} height={"auto"}/>
+                             alt={""} width={400} height={"auto"}/>
                     </div>
 
                     <div className="col card-text text-start text-primary p-2_5 fs-4">

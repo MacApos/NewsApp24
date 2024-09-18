@@ -46,7 +46,9 @@ const newsSlice = createSlice({
                 .addCase(fetchNews.fulfilled, (state, action) => {
                     state.response.status = FULFILLED;
                     state.response.news = action.payload;
+                    state.page = 1;
                     state.sort = initialState.sort;
+                    window.scrollTo(0, 0);
                 })
                 .addCase(fetchNews.rejected, (state) => {
                     state.response.status = REJECTED;
