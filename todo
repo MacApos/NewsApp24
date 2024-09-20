@@ -1,0 +1,4 @@
+- create Spring project in DataProcessingLibrary
+- create persistence layer
+- replace hardcoded deployment with Terraform
+- switch to Gradle
