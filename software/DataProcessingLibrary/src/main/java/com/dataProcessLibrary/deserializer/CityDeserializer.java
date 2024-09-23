@@ -4,8 +4,8 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import com.dataProcessLibrary.dto.Article;
-import com.dataProcessLibrary.dto.City;
+import com.dataProcessLibrary.dao.Article;
+import com.dataProcessLibrary.dao.City;
 
 import java.io.IOException;
 

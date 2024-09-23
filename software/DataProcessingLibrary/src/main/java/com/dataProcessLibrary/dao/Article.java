@@ -1,26 +1,33 @@
-package com.dataProcessLibrary.dto;
+package com.dataProcessLibrary.dao;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @DynamoDbBean
 public class Article implements Comparable<Article> {
     private String name;
     private String url;
-    private String image;
+    private String contentUrl;
     private String description;
     private String datePublished;
 
     public Article() {
     }
 
-    public Article(String name, String url, String image, String description, String datePublished) {
+    public Article(String name, String url, String contentUrl, String description, String datePublished) {
         this.name = name;
         this.url = url;
-        this.image = image;
+        this.contentUrl = contentUrl;
         this.description = description;
         this.datePublished = datePublished;
+    }
+
+    @JsonProperty("image")
+    private void unpackNested(Map<String,Object> image) {
+        contentUrl = (String) image.get("contentUrl");
     }
 
     public String getName() {
@@ -39,12 +46,12 @@ public class Article implements Comparable<Article> {
         this.url = url;
     }
 
-    public String getImage() {
-        return image;
+    public String getContentUrl() {
+        return contentUrl;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setContentUrl(String contentUrl) {
+        this.contentUrl = contentUrl;
     }
 
     public String getDescription() {

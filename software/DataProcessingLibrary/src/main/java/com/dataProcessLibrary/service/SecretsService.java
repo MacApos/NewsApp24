@@ -11,7 +11,7 @@ public class SecretsService {
     public String CITY_API_KEY;
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    public static SecretsService getSecrets(String secretName) {
+    public static SecretsService getSecrets() {
         Region region = Region.EU_CENTRAL_1;
 
         try (SecretsManagerClient client = SecretsManagerClient.builder()
@@ -19,7 +19,7 @@ public class SecretsService {
                 .build()) {
 
             GetSecretValueRequest getSecretValueRequest = GetSecretValueRequest.builder()
-                    .secretId(secretName)
+                    .secretId("com/dataProcessingLibrary")
                     .build();
 
             GetSecretValueResponse getSecretValueResponse;

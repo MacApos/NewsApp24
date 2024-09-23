@@ -1,6 +1,7 @@
-package com.dataProcessLibrary.dto;
+package com.dataProcessLibrary.dao;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.dataProcessLibrary.deserializer.CityDeserializer;
 import jakarta.validation.constraints.NotNull;
@@ -18,7 +19,7 @@ import java.util.stream.Collectors;
 
 @DynamoDbBean
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonDeserialize(using = CityDeserializer.class)
+//@JsonDeserialize(using = CityDeserializer.class)
 public class City {
     @NotNull
     @Size(min = 3)
@@ -27,6 +28,7 @@ public class City {
     @Size(min = 2)
     private String state;
 
+    @JsonProperty("value")
     private ArrayList<Article> articles = new ArrayList<>();
     private LocalDateTime updateDate;
 

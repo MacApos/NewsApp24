@@ -1,6 +1,6 @@
 package com.elasticBeanstalk.service;
 
-import com.dataProcessLibrary.dto.City;
+import com.dataProcessLibrary.dao.City;
 import com.dataProcessLibrary.service.FetchDataService;
 import com.dataProcessLibrary.service.DynamoDBService;
 import org.springframework.stereotype.Service;
@@ -10,11 +10,12 @@ import static com.dataProcessLibrary.service.FetchDataService.TRENDING;
 
 @Service
 public class NewsService {
-    private final FetchDataService fetchDataService = new FetchDataService();
+    private final FetchDataService fetchDataService;
     private final DynamoDBService dynamoDbService = new DynamoDBService();
     private final ProcessDataService processDataService;
 
-    public NewsService(ProcessDataService processDataService) {
+    public NewsService(FetchDataService fetchDataService, ProcessDataService processDataService) {
+        this.fetchDataService = fetchDataService;
         this.processDataService = processDataService;
     }
 

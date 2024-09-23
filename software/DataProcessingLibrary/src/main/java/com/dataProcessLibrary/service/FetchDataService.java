@@ -2,7 +2,11 @@ package com.dataProcessLibrary.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dataProcessLibrary.dto.City;
+import com.dataProcessLibrary.dao.City;
+import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.util.UriBuilder;
+import org.springframework.web.util.UriComponentsBuilder;
 import reactor.core.publisher.Mono;
 
 import java.net.URI;
@@ -14,10 +18,11 @@ import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
+@Service
 public class FetchDataService {
     public static final HttpClient httpClient = HttpClient.newBuilder().build();
     public static final ObjectMapper objectMapper = new ObjectMapper();
-    public static final SecretsService SECRETS_SERVICE = SecretsService.getSecrets("com/lambda");
+    public static final SecretsService SECRETS_SERVICE = SecretsService.getSecrets();
 
     public static final String NEWS_HOST = "api.bing.microsoft.com";
     public static final String NEWS_PATH = "/v7.0/news/search";
@@ -33,14 +38,26 @@ public class FetchDataService {
     public static final HashMap<String, String> NEWS_API_URI_HEADERS = new HashMap<>(Map.of("Ocp-Apim-Subscription-Key", NEWS_API_KEY));
     public static final String TRENDING = "TRENDING";
 
+    private final WebClient webClient;
+
+    public FetchDataService(WebClient webClient) {
+        this.webClient = webClient;
+    }
+
     public HttpRequest prepareRequest(String host, String path, Map<String, String> params,
                                       Map<String, String> headers) {
+        UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.newInstance()
+                .scheme("https")
+                .host(host)
+                .path(path);
+
         String query = "";
         if (params != null) {
-            query = params.entrySet().stream()
-                    .map(e -> String.format("%s=%s", e.getKey(), e.getValue()))
-                    .collect(Collectors.joining("&"));
+            params.forEach(uriComponentsBuilder::queryParam);
         }
+
+        URI uri1 = uriComponentsBuilder.build().toUri();
+        WebClient.RequestHeadersSpec<?> requestHeadersSpec = webClient.get().uri(uri1);
 
         URI uri;
         try {
@@ -52,7 +69,9 @@ public class FetchDataService {
         HttpRequest.Builder httpRequestBuilder = HttpRequest.newBuilder().uri(uri);
         if (headers != null) {
             headers.forEach(httpRequestBuilder::header);
+            headers.forEach(requestHeadersSpec::header);
         }
+        Mono<City> objectMono = requestHeadersSpec.retrieve().bodyToMono(City.class);
         return httpRequestBuilder.build();
     }
 
