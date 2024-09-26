@@ -1,12 +1,12 @@
-package com.dataProcessLibrary.service;
+package com.dataProcessingLibrary.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.dataProcessLibrary.dao.City;
+import com.dataProcessingLibrary.dao.City;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.util.UriBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.net.URI;
@@ -16,7 +16,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
 
 @Service
 public class FetchDataService {
@@ -71,7 +70,8 @@ public class FetchDataService {
             headers.forEach(httpRequestBuilder::header);
             headers.forEach(requestHeadersSpec::header);
         }
-        Mono<City> objectMono = requestHeadersSpec.retrieve().bodyToMono(City.class);
+        requestHeadersSpec.retrieve().bodyToFlux(Object.class).next().block();
+        Mono<City> cityMono = requestHeadersSpec.retrieve().bodyToFlux(City.class).next();
         return httpRequestBuilder.build();
     }
 

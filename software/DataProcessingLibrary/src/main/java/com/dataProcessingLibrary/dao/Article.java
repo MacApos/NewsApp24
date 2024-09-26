@@ -1,28 +1,40 @@
-package com.dataProcessLibrary.dao;
+package com.dataProcessingLibrary.dao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.beans.factory.annotation.Value;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
 import java.time.LocalDateTime;
 import java.util.Map;
 
-@DynamoDbBean
-public class Article implements Comparable<Article> {
+@Entity
+@Table(name="articles")
+public class Article {
+    @Id
     private String name;
+
+    @NotNull
     private String url;
+
     private String contentUrl;
     private String description;
-    private String datePublished;
+
+    @Column(columnDefinition="datetime default now()")
+    private LocalDateTime datePublished = LocalDateTime.now();
 
     public Article() {
     }
 
-    public Article(String name, String url, String contentUrl, String description, String datePublished) {
+    public Article(String name, String url, String contentUrl, String description) {
         this.name = name;
         this.url = url;
         this.contentUrl = contentUrl;
         this.description = description;
-        this.datePublished = datePublished;
     }
 
     @JsonProperty("image")
@@ -62,11 +74,11 @@ public class Article implements Comparable<Article> {
         this.description = description;
     }
 
-    public String getDatePublished() {
+    public LocalDateTime getDatePublished() {
         return datePublished;
     }
 
-    public void setDatePublished(String datePublished) {
+    public void setDatePublished(LocalDateTime datePublished) {
         this.datePublished = datePublished;
     }
 
@@ -74,9 +86,9 @@ public class Article implements Comparable<Article> {
         return LocalDateTime.parse(date.replaceAll("\\.\\d+Z$", ""));
     }
 
-    @Override
-    public int compareTo(Article article) {
-        return parseDate(article.getDatePublished()).compareTo(parseDate(datePublished));
-    }
+//    @Override
+//    public int compareTo(Article article) {
+//        return parseDate(article.getDatePublished()).compareTo(parseDate(datePublished));
+//    }
 }
 

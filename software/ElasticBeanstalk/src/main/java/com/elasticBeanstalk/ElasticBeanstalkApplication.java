@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
-@SpringBootApplication(scanBasePackages = {"com.elasticBeanstalk", "com.dataProcessLibrary"})
+@SpringBootApplication(scanBasePackages = {"com.elasticBeanstalk", "com.dataProcessingLibrary"})
 public class ElasticBeanstalkApplication implements WebMvcConfigurer {
     public static void main(String[] args) {
         SpringApplication.run(ElasticBeanstalkApplication.class, args);

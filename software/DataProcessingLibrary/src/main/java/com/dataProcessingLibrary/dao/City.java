@@ -1,9 +1,7 @@
-package com.dataProcessLibrary.dao;
+package com.dataProcessingLibrary.dao;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.dataProcessLibrary.deserializer.CityDeserializer;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
@@ -19,7 +17,6 @@ import java.util.stream.Collectors;
 
 @DynamoDbBean
 @JsonIgnoreProperties(ignoreUnknown = true)
-//@JsonDeserialize(using = CityDeserializer.class)
 public class City {
     @NotNull
     @Size(min = 3)
@@ -31,6 +28,11 @@ public class City {
     @JsonProperty("value")
     private ArrayList<Article> articles = new ArrayList<>();
     private LocalDateTime updateDate;
+
+    @JsonProperty("local_names")
+    private void unpackNested(Map<String,Object> localNamesJson) {
+        name = (String) localNamesJson.get("en");
+    }
 
     public City() {
     }

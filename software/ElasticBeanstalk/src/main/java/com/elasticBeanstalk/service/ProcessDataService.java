@@ -1,8 +1,8 @@
 package com.elasticBeanstalk.service;
 
-import com.dataProcessLibrary.service.SecretsService;
-import com.dataProcessLibrary.dao.City;
-import com.dataProcessLibrary.service.FetchDataService;
+import com.dataProcessingLibrary.service.SecretsService;
+import com.dataProcessingLibrary.dao.City;
+import com.dataProcessingLibrary.service.FetchDataService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BeanPropertyBindingResult;
@@ -33,7 +33,8 @@ public class ProcessDataService {
 
     public Mono<City> fetchCity(String query) {
         Map<String, String> cityApiUriParams = Map.of("appid", CITY_API_KEY, "q", query);
-        return fetchDataService.prepareResponse(CITY_HOST, CITY_PATH, cityApiUriParams, null);
+        Mono<City> cityMono = fetchDataService.prepareResponse(CITY_HOST, CITY_PATH, cityApiUriParams, null);
+        return cityMono;
     }
 
     public Mono<City> validateCity(City city) {

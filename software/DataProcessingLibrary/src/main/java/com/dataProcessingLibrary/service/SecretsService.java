@@ -1,4 +1,4 @@
-package com.dataProcessLibrary.service;
+package com.dataProcessingLibrary.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import software.amazon.awssdk.regions.Region;

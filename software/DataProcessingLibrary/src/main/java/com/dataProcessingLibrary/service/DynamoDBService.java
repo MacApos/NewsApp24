@@ -1,6 +1,6 @@
-package com.dataProcessLibrary.service;
+package com.dataProcessingLibrary.service;
 
-import com.dataProcessLibrary.dao.City;
+import com.dataProcessingLibrary.dao.City;
 import software.amazon.awssdk.enhanced.dynamodb.*;
 import software.amazon.awssdk.enhanced.dynamodb.model.PageIterable;
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;

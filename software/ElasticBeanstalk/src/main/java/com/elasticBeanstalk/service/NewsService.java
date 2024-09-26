@@ -1,12 +1,12 @@
 package com.elasticBeanstalk.service;
 
-import com.dataProcessLibrary.dao.City;
-import com.dataProcessLibrary.service.FetchDataService;
-import com.dataProcessLibrary.service.DynamoDBService;
+import com.dataProcessingLibrary.dao.City;
+import com.dataProcessingLibrary.service.FetchDataService;
+import com.dataProcessingLibrary.service.DynamoDBService;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import static com.dataProcessLibrary.service.FetchDataService.TRENDING;
+import static com.dataProcessingLibrary.service.FetchDataService.TRENDING;
 
 @Service
 public class NewsService {
@@ -21,8 +21,7 @@ public class NewsService {
 
     private Mono<City> getOrFetchNews(City city) {
         return Mono.fromFuture(dynamoDbService.getNews(city))
-                .switchIfEmpty(fetchDataService
-                        .fetchNews(city)
+                .switchIfEmpty(fetchDataService.fetchNews(city)
                         .filter(fetchedCity -> !fetchedCity.getArticles().isEmpty())
                         .doOnNext(dynamoDbService::putNews)
                 );
@@ -34,7 +33,9 @@ public class NewsService {
     }
 
     public Mono<City> getNewsByCity(City city) {
-        return processDataService.validateCity(city).flatMap(this::getOrFetchNews);
+        return processDataService.validateCity(city);
+//        return processDataService.validateCity(city)
+//                .flatMap(this::getOrFetchNews);
     }
 
 }
