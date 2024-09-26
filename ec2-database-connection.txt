@@ -1,0 +1,8 @@
+news-database-1: SoS7HGMY9n63yjgSInlt
+
+ssh -i ec2-database-connect-key-pair.pem ec2-user@ec2-3-66-84-167.eu-central-1.compute.amazonaws.com
+mysql -h news-database-1.cjcuymicy1rd.eu-central-1.rds.amazonaws.com -P 3306 -u admin -p
+
+basic-db: password
+ssh -i basic-key-pair.pem ec2-user@ec2-18-193-208-51.eu-central-1.compute.amazonaws.com
+mysql -h basic-db.cjcuymicy1rd.eu-central-1.rds.amazonaws.com -P 3306 -u admin -p
