@@ -6,11 +6,13 @@ create database if not exists news
 
 use news;
 
-create table articles
+create table if not exists articles
 (
-    name          varchar(500) not null primary key,
-    url           varchar(500) not null,
-    contentUrl    varchar(500) null,
-    description   varchar(500) null,
+    name          varchar(500) primary key not null,
+    url           varchar(500)             not null,
+    contentUrl    varchar(500),
+    description   varchar(500),
     datePublished datetime default now()
 );
+
+delete from articles
