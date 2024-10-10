@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
-import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
-import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSortKey;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -15,7 +12,6 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-@DynamoDbBean
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class City {
     @NotNull
@@ -79,7 +75,6 @@ public class City {
         updateDate = LocalDateTime.now();
     }
 
-    @DynamoDbPartitionKey
     public String getName() {
         return name;
     }
@@ -88,7 +83,6 @@ public class City {
         this.name = name;
     }
 
-    @DynamoDbSortKey
     public String getState() {
         return state;
     }
