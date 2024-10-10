@@ -1,7 +1,7 @@
-package com.lambda.service;
+package com.libtest.service;
 
-import com.lambda.dao.Article;
-import com.lambda.repository.ArticleRepository;
+import com.libtest.dao.Article;
+import com.libtest.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,6 +26,7 @@ public class ArticleService {
         article.setDescription(article.getDescription() + count);
         articleRepository.save(article);
     }
+
 
     public void deleteArticle(){
         articleRepository.deleteAll();

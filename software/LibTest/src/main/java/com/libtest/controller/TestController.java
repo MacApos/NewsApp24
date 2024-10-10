@@ -1,10 +1,7 @@
 package com.libtest.controller;
 
-//import com.dataProcessingLibrary.dao.Article;
-//import com.dataProcessingLibrary.service.ArticleService;
-
-import com.dataProcessingLibrary.dao.Article;
-import com.dataProcessingLibrary.service.ArticleService;
+import com.libtest.dao.Article;
+import com.libtest.service.ArticleService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +17,13 @@ public class TestController {
         this.articleService = articleService;
     }
 
-    @GetMapping("all")
+    @RequestMapping("/")
+    @ResponseBody
+    public String home() {
+        return "ok";
+    }
+
+    @GetMapping("/all")
     @ResponseBody
     public String findAllArticles() {
         List<Article> all = articleService.findAll();
@@ -30,8 +33,7 @@ public class TestController {
     @RequestMapping("/delete-all")
     @ResponseBody
     public String purge() {
-        Article article = new Article("name0", "url0", "contentUrl0", "description0");
-        articleService.deleteArticle(article);
+        articleService.deleteArticle();
         return "all deleted";
     }
 
