@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Controller
+@RestController
 public class TestController {
 
     private final ArticleService articleService;
@@ -18,29 +18,26 @@ public class TestController {
     }
 
     @RequestMapping("/")
-    @ResponseBody
     public String home() {
         return "ok";
     }
 
-    @GetMapping("/all")
-    @ResponseBody
+    @RequestMapping("/all")
     public String findAllArticles() {
         List<Article> all = articleService.findAll();
         return all.stream().map(Article::getName).collect(Collectors.joining(", "));
     }
 
     @RequestMapping("/delete-all")
-    @ResponseBody
     public String purge() {
         articleService.deleteArticle();
         return "all deleted";
     }
 
-    @GetMapping("/add")
+    @RequestMapping("/add")
     public String addArticle() {
         Article article = new Article("name", "url", "contentUrl", "description");
         articleService.saveArticle(article);
-        return "redirect:/all";
+        return article.getName()+"added";
     }
 }
