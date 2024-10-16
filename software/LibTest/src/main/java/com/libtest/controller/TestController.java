@@ -2,9 +2,14 @@ package com.libtest.controller;
 
 import com.libtest.dao.Article;
 import com.libtest.service.ArticleService;
+import com.libtest.service.SqsService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import software.amazon.awssdk.services.sqs.model.Message;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,9 +17,12 @@ import java.util.stream.Collectors;
 public class TestController {
 
     private final ArticleService articleService;
+    private final SqsService sqsService;
+    private final Logger logger = LoggerFactory.getLogger(TestController.class);
 
-    public TestController(ArticleService articleService) {
+    public TestController(ArticleService articleService, SqsService sqsService) {
         this.articleService = articleService;
+        this.sqsService = sqsService;
     }
 
     @RequestMapping("/")
@@ -40,4 +48,22 @@ public class TestController {
         articleService.saveArticle(article);
         return article.getName()+"added";
     }
+
+    @GetMapping("/update")
+    public String updateLastArticle() {
+        List<Article> all = articleService.findAll();
+        Article last = all.get(all.size() - 1);
+        last.setDatePublished(LocalDateTime.now());
+        articleService.updateArticle(last);
+        logger.info("updated");
+        return "updated";
+    }
+
+//    @RequestMapping("/sqs")
+//    public String getSqsMessage() {
+//        return sqsService.receiveMessages()
+//                .stream()
+//                .map(Message::body)
+//                .collect(Collectors.joining(", "));
+//    }
 }

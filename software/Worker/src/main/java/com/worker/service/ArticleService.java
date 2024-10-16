@@ -1,7 +1,7 @@
-package com.libtest.service;
+package com.worker.service;
 
-import com.libtest.dao.Article;
-import com.libtest.repository.ArticleRepository;
+import com.worker.dao.Article;
+import com.worker.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,10 +30,6 @@ public class ArticleService {
 
     public void deleteArticle(){
         articleRepository.deleteAll();
-    }
-
-    public void updateArticle(Article article){
-        articleRepository.save(article);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.libtest.dao;
+package com.worker.dao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Column;
