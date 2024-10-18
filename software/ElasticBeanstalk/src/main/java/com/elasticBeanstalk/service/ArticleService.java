@@ -1,7 +1,7 @@
-package com.libtest.service;
+package com.elasticBeanstalk.service;
 
-import com.libtest.dao.Article;
-import com.libtest.repository.ArticleRepository;
+import com.elasticBeanstalk.dao.Article;
+import com.elasticBeanstalk.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

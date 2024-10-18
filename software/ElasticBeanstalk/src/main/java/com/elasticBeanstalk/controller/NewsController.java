@@ -1,7 +1,7 @@
 package com.elasticBeanstalk.controller;
 
+import com.elasticBeanstalk.dao.News;
 import com.elasticBeanstalk.service.NewsService;
-import com.dataProcessingLibrary.dao.City;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,14 +15,14 @@ public class NewsController {
         this.newsService = newsService;
     }
 
-    @RequestMapping(value = {"/{name}", "/{name}/{state}"})
-    public Mono<City> getNewsByCity(@PathVariable String name,
-                                    @PathVariable(required = false) String state) {
-        return newsService.getNewsByCity(new City(name, state));
+    @RequestMapping(value = {"/{cityName}", "/{cityName}/{state}"})
+    public Mono<News> fetchNewsByCityName(@PathVariable String cityName,
+                                          @PathVariable(required = false) String state) {
+        return newsService.getNewsByCity(new News(cityName, state));
     }
 
-    @RequestMapping(value = {"/trending"})
-    public Mono<City> getTrending() {
-        return newsService.getTrending();
-    }
+//    @RequestMapping(value = {"/trending"})
+//    public Mono<News> getTrending() {
+//        return newsService.getTrending();
+//    }
 }

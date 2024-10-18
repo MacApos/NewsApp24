@@ -1,10 +1,12 @@
-package com.libtest.controller;
+package com.elasticBeanstalk.controller;
 
-import com.libtest.dao.Article;
-import com.libtest.service.ArticleService;
+import com.elasticBeanstalk.dao.Article;
+import com.elasticBeanstalk.service.ArticleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -44,21 +46,9 @@ public class TestController {
         return article.getName()+"added";
     }
 
-    @PostMapping("/update")
-    public String updateLastArticle() {
-        List<Article> all = articleService.findAll();
-        Article last = all.get(all.size() - 1);
-        last.setDatePublished(LocalDateTime.now());
-        articleService.updateArticle(last);
-        logger.info("updated");
-        return "updated";
-    }
-
-//    @RequestMapping("/sqs")
-//    public String getSqsMessage() {
-//        return sqsService.receiveMessages()
-//                .stream()
-//                .map(Message::body)
-//                .collect(Collectors.joining(", "));
+//    @RequestMapping("/city")
+//    public String findCity() {
+//
 //    }
+
 }

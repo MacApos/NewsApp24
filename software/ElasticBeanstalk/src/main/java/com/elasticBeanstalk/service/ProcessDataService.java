@@ -1,8 +1,6 @@
 package com.elasticBeanstalk.service;
 
-import com.dataProcessingLibrary.service.SecretsService;
-import com.dataProcessingLibrary.dao.City;
-import com.dataProcessingLibrary.service.FetchDataService;
+import com.elasticBeanstalk.dao.News;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BeanPropertyBindingResult;
@@ -26,39 +24,36 @@ public class ProcessDataService {
     private final ResponseStatusException CITY_NOT_FOUND =
             new ResponseStatusException(HttpStatus.BAD_REQUEST, "City not found");
 
-    public ProcessDataService(FetchDataService fetchDataService,Validator validator) {
+    public ProcessDataService(FetchDataService fetchDataService, Validator validator) {
         this.fetchDataService = fetchDataService;
         this.validator = validator;
     }
 
-    public Mono<City> fetchCity(String query) {
+    public Mono<News> fetchCity(String query) {
         Map<String, String> cityApiUriParams = Map.of("appid", CITY_API_KEY, "q", query);
-        Mono<City> cityMono = fetchDataService.prepareResponse(CITY_HOST, CITY_PATH, cityApiUriParams, null);
+        Mono<News> cityMono = fetchDataService.prepareResponse(CITY_HOST, CITY_PATH, cityApiUriParams, null, false);
         return cityMono;
     }
 
-    public Mono<City> validateCity(City city) {
-        return Mono.just(city)
+    public Mono<News> validateCity(News news) {
+        return Mono.just(news)
                 // Validation
                 .flatMap(initialCity -> {
                     Errors errors = new BeanPropertyBindingResult(initialCity,
-                            City.class.getName());
+                            News.class.getName());
                     validator.validate(initialCity, errors);
                     if (errors.getAllErrors().isEmpty()) {
                         return fetchCity(initialCity.prepareQuery(COUNTRY_CODE));
-                    } else {
-                        return Mono.error(CITY_NOT_FOUND);
                     }
+                    return Mono.error(CITY_NOT_FOUND);
                 })
                 // Fetching
                 .flatMap(validCity -> {
                     // Data passed validation but city wasn't found
-                    if (validCity.getName() == null) {
+                    if (validCity.getCityName() == null) {
                         return Mono.error(CITY_NOT_FOUND);
-                    } else {
-                        return Mono.just(validCity);
                     }
+                    return Mono.just(validCity);
                 });
     }
-
 }
