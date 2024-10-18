@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>ElasticBeanstalk</module>
+<!--        <module>ElasticBeanstalk</module>-->
         <module>Lambda</module>
         <module>DataProcessingLibrary</module>
         <module>LibTest</module>

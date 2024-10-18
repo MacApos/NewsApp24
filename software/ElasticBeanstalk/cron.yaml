@@ -1,5 +1,5 @@
 version: 1
 cron:
   - name: "UpdateDatabase"
-    url: "/add"
+    url: "/update"
     schedule: "* * * * *"

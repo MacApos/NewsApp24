@@ -17,6 +17,7 @@ import java.util.Map;
 @Table(name = "articles")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Article {
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,10 +31,16 @@ public class Article {
 //    @ManyToOne
 //    private News news;
 
+    @Setter
+    @Getter
     private String contentUrl;
 
+    @Setter
+    @Getter
     private String description;
 
+    @Setter
+    @Getter
     private LocalDateTime datePublished;
 
     public Article() {

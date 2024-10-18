@@ -91,5 +91,4 @@ public class News {
 //    public void setUpdateDateToNow() {
 //        updateDate = LocalDateTime.now();
 //    }
-
 }
