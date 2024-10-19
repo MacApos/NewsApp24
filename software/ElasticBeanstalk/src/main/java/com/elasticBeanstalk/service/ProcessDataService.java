@@ -16,15 +16,12 @@ import static com.elasticBeanstalk.service.FetchDataService.TRENDING;
 public class ProcessDataService {
     private final FetchDataService fetchDataService;
     private final NewsService newsService;
-    private final ArticleService articleService;
     private final Validator validator;
     private final String COUNTRY_CODE = "US";
     private final ResponseStatusException CITY_NOT_FOUND =
             new ResponseStatusException(HttpStatus.BAD_REQUEST, "City not found");
 
-    public ProcessDataService(ArticleService articleService, FetchDataService fetchDataService,
-                              NewsService newsService, Validator validator) {
-        this.articleService = articleService;
+    public ProcessDataService(FetchDataService fetchDataService, NewsService newsService, Validator validator) {
         this.fetchDataService = fetchDataService;
         this.newsService = newsService;
         this.validator = validator;
@@ -38,7 +35,8 @@ public class ProcessDataService {
                             News.class.getName());
                     validator.validate(initialCity, errors);
                     if (errors.getAllErrors().isEmpty()) {
-                        Mono<News> newsMono = fetchDataService.fetchCity(initialCity.prepareQuery(COUNTRY_CODE));
+                        Mono<News> newsMono = fetchDataService.fetchCity(
+                                initialCity.prepareQuery() + "," + COUNTRY_CODE);
                         return newsMono;
                     }
                     return Mono.error(CITY_NOT_FOUND);
@@ -58,7 +56,10 @@ public class ProcessDataService {
         if (newsByCityName == null) {
             Mono<News> newsMono = fetchDataService.fetchNews(news)
                     .filter(fetchedNews -> !fetchedNews.getArticles().isEmpty())
-                    .doOnNext(newsService::saveNews);
+                    .doOnNext(n -> {
+                        n.setArticles(n.getArticles().stream().sorted().toList());
+                        newsService.saveNews(n);
+                    });
             return newsMono;
         }
         Mono<News> just = Mono.just(newsByCityName);

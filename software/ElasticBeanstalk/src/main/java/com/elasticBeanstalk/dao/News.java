@@ -8,10 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @Setter
@@ -50,17 +47,11 @@ public class News {
         this.state = state;
     }
 
-    public String prepareQuery(String... params) {
-        int paramsLen = params.length;
-        if (state == null && paramsLen == 0) {
+    public String prepareQuery() {
+        if (state == null) {
             return cityName;
         }
-        ArrayList<String> queryParams = new ArrayList<>(List.of(cityName));
-        if (state != null) {
-            queryParams.add(state);
-        }
-        Collections.addAll(queryParams, params);
-        return String.join(",", queryParams);
+        return String.join(",", List.of(cityName, state));
     }
 
 //    public void addArticle(Article article) {
