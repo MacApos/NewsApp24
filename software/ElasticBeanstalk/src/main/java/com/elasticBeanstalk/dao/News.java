@@ -31,7 +31,7 @@ public class News {
     private String state;
 
     @JsonProperty("value")
-    @Transient
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Article> articles;
 
     @Column(columnDefinition = "datetime default now()")

@@ -18,18 +18,15 @@ public class NewsService {
     }
 
     public News findNews(News news) {
-        News byCityNameAndState = newsRepository.findByCityNameAndState(news.getCityName(), news.getCityName());
-        if (byCityNameAndState == null) {
-            return null;
-        }
-        List<Article> all = articleService.findAll();
-        all.forEach(System.out::println);
-        byCityNameAndState.setArticles(all);
-        return byCityNameAndState;
+        return newsRepository.findByCityNameAndState(news.getCityName(), news.getCityName());
+    }
+
+    public News saveAndFlushNews(News news) {
+        return newsRepository.saveAndFlush(news);
     }
 
     public News saveNews(News news) {
-        return newsRepository.saveAndFlush(news);
+        return newsRepository.save(news);
     }
 
 }

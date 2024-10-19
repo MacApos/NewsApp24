@@ -1,6 +1,5 @@
 package com.elasticBeanstalk.service;
 
-import com.elasticBeanstalk.dao.Article;
 import com.elasticBeanstalk.dao.News;
 
 import org.springframework.http.HttpStatus;
@@ -10,8 +9,6 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
-
-import java.util.List;
 
 import static com.elasticBeanstalk.service.FetchDataService.TRENDING;
 
@@ -61,13 +58,7 @@ public class ProcessDataService {
         if (newsByCityName == null) {
             Mono<News> newsMono = fetchDataService.fetchNews(news)
                     .filter(fetchedNews -> !fetchedNews.getArticles().isEmpty())
-                    .doOnNext(fetchedNews -> {
-                        News savedNews = newsService.saveNews(news);
-                        fetchedNews.getArticles().forEach(article -> {
-                            article.setNews(savedNews);
-                            articleService.saveArticle(article);
-                        });
-                    });
+                    .doOnNext(newsService::saveNews);
             return newsMono;
         }
         Mono<News> just = Mono.just(newsByCityName);

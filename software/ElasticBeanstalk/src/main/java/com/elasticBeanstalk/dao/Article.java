@@ -27,19 +27,10 @@ public class Article {
     @NotNull
     private String url;
 
-    @ManyToOne
-    private News news;
-
-    @Setter
-    @Getter
     private String contentUrl;
 
-    @Setter
-    @Getter
     private String description;
 
-    @Setter
-    @Getter
     private LocalDateTime datePublished;
 
     public Article() {

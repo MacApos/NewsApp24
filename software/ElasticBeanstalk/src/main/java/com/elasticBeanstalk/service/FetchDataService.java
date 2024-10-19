@@ -75,8 +75,8 @@ public class FetchDataService {
         return httpRequestBuilder.build();
     }
 
-    public Mono<News> prepareResponse(String host, String path, Map<String, String> params,
-                                      Map<String, String> headers, boolean fakeData) {
+    public Mono<News> fetch(String host, String path, Map<String, String> params,
+                            Map<String, String> headers, boolean fakeData) {
         UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.newInstance()
                 .scheme("https")
                 .host(host)
@@ -111,7 +111,7 @@ public class FetchDataService {
 
     public Mono<News> fetchCity(String query) {
         Map<String, String> cityApiUriParams = Map.of("appid", CITY_API_KEY, "q", query);
-        Mono<News> cityMono = prepareResponse(CITY_HOST, CITY_PATH, cityApiUriParams, null, false);
+        Mono<News> cityMono = fetch(CITY_HOST, CITY_PATH, cityApiUriParams, null, false);
         return cityMono;
     }
 
@@ -124,7 +124,7 @@ public class FetchDataService {
             query = news.prepareQuery();
         }
         NEWS_API_URI_PARAMS.put("q", query);
-        Mono<News> map = prepareResponse(NEWS_HOST, NEWS_PATH, NEWS_API_URI_PARAMS, NEWS_API_URI_HEADERS, true)
+        Mono<News> map = fetch(NEWS_HOST, NEWS_PATH, NEWS_API_URI_PARAMS, NEWS_API_URI_HEADERS, true)
                 .map(fetchedNews -> {
                     fetchedNews.setCityName(news.getCityName());
                     fetchedNews.setState(news.getState());
