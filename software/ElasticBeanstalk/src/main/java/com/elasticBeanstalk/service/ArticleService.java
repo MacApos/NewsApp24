@@ -19,19 +19,14 @@ public class ArticleService {
     }
 
     public void saveArticle(Article article) {
-        long count = articleRepository.count();
-        article.setName(article.getName() + count);
-        article.setUrl(article.getUrl() + count);
-        article.setContentUrl(article.getContentUrl() + count);
-        article.setDescription(article.getDescription() + count);
         articleRepository.save(article);
     }
 
-    public void deleteArticle(){
+    public void deleteArticle() {
         articleRepository.deleteAll();
     }
 
-    public void updateArticle(Article article){
+    public void updateArticle(Article article) {
         articleRepository.save(article);
     }
 

@@ -24,19 +24,14 @@ public class News {
     private Long id;
 
     @Size(min = 3)
+    @JsonProperty("name")
     private String cityName;
 
     @Size(min = 2)
     private String state;
 
-    @JsonProperty("lat")
-    private double longitude;
-
-    @JsonProperty("lat")
-    private double latitude;
-
     @JsonProperty("value")
-    @OneToMany
+    @Transient
     private List<Article> articles;
 
     @Column(columnDefinition = "datetime default now()")
