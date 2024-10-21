@@ -2,9 +2,8 @@ package com.elasticBeanstalk.controller;
 
 import com.elasticBeanstalk.dao.News;
 import com.elasticBeanstalk.service.ProcessDataService;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -15,14 +14,31 @@ public class NewsController {
         this.processDataService = processDataService;
     }
 
+    @RequestMapping("/")
+    public HttpStatus home() {
+        return HttpStatus.OK;
+    }
+
     @RequestMapping(value = {"/{cityName}", "/{cityName}/{state}"})
     public Mono<News> fetchNewsByCityName(@PathVariable String cityName,
                                           @PathVariable(required = false) String state) {
-        return processDataService.getNewsByCity(new News(cityName, state));
+        return processDataService.getNewsByCityName(new News(cityName, state));
     }
 
-//    @RequestMapping(value = {"/trending"})
-//    public Mono<News> getTrending() {
-//        return newsService.getTrending();
+    @RequestMapping(value = {"/trending"})
+    public Mono<News> getTrending() {
+        return processDataService.getTrending();
+    }
+
+//    @PostMapping("/update")
+//    public String update() {
+//        processDataService.fetchAndUpdateNews();
+//        return "updated";
 //    }
+
+    @GetMapping("/test-update")
+    public String testUpdate() {
+        processDataService.fetchAndUpdateNews();
+        return "updated";
+    }
 }

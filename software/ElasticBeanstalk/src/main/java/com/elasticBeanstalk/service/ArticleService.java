@@ -1,6 +1,7 @@
 package com.elasticBeanstalk.service;
 
 import com.elasticBeanstalk.dao.Article;
+import com.elasticBeanstalk.dao.News;
 import com.elasticBeanstalk.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,20 +15,12 @@ public class ArticleService {
         this.articleRepository = articleRepository;
     }
 
-    public List<Article> findAll() {
-        return articleRepository.findAll();
+    public List<Article> findAllByNews (News news){
+        return articleRepository.findAllByNewsId(news.getId());
     }
 
-    public void saveArticle(Article article) {
-        articleRepository.save(article);
-    }
-
-    public void deleteArticle() {
-        articleRepository.deleteAll();
-    }
-
-    public void updateArticle(Article article) {
-        articleRepository.save(article);
+    public List<Article> deleteAllByNews (News news){
+        return articleRepository.findAllByNewsId(news.getId());
     }
 
 }

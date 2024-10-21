@@ -9,6 +9,9 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 @Getter
 @Setter
@@ -54,27 +57,18 @@ public class News {
         return String.join(",", List.of(cityName, state));
     }
 
-//    public void addArticle(Article article) {
-//        articles.add(article);
-//    }
-//
-//    public void addArticles(List<Article> articles) {
-//        this.articles.addAll(articles);
-//    }
-//
-//    private <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
-//        Map<Object, Boolean> seen = new ConcurrentHashMap<>();
-//        return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
-//    }
-//
-//    public void sortArticles() {
-//        if (!articles.isEmpty()) {
-//            articles = articles.stream().filter(distinctByKey(Article::getName)).sorted()
-//                    .limit(Math.min(20, articles.size())).collect(Collectors.toCollection(ArrayList::new));
-//        }
-//    }
-//
-//    public void setUpdateDateToNow() {
-//        updateDate = LocalDateTime.now();
-//    }
+    public  <T> Predicate<T> distinctByProperty(Function<? super T, ?> propertyExtractor) {
+        Set<Object> seen = ConcurrentHashMap.newKeySet();
+        return t -> seen.add(propertyExtractor.apply(t));
+    }
+
+    public void sortArticles() {
+        if (!articles.isEmpty()) {
+            articles = articles.stream()
+                    .filter(distinctByProperty(Article::getName))
+                    .limit(10)
+                    .sorted()
+                    .toList();
+        }
+    }
 }

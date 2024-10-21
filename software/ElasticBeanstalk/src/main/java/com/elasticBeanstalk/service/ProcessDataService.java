@@ -1,5 +1,6 @@
 package com.elasticBeanstalk.service;
 
+import com.elasticBeanstalk.dao.Article;
 import com.elasticBeanstalk.dao.News;
 
 import org.springframework.http.HttpStatus;
@@ -8,76 +9,90 @@ import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import org.springframework.web.server.ResponseStatusException;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import static com.elasticBeanstalk.service.FetchDataService.TRENDING;
+import java.util.List;
+
+import static com.elasticBeanstalk.service.FetchDataService.countryCode;
+import static com.elasticBeanstalk.service.FetchDataService.trending;
 
 @Service
 public class ProcessDataService {
+    private final ResponseStatusException cityNotFound =
+            new ResponseStatusException(HttpStatus.BAD_REQUEST, "City not found");
+
     private final FetchDataService fetchDataService;
     private final NewsService newsService;
     private final Validator validator;
-    private final String COUNTRY_CODE = "US";
-    private final ResponseStatusException CITY_NOT_FOUND =
-            new ResponseStatusException(HttpStatus.BAD_REQUEST, "City not found");
+    private final ArticleService articleService;
 
-    public ProcessDataService(FetchDataService fetchDataService, NewsService newsService, Validator validator) {
+    public ProcessDataService(FetchDataService fetchDataService, NewsService newsService, Validator validator, ArticleService articleService) {
         this.fetchDataService = fetchDataService;
         this.newsService = newsService;
         this.validator = validator;
+        this.articleService = articleService;
     }
 
     private Mono<News> validateCity(News news) {
-        return Mono.just(news)
-                // Validation
-                .flatMap(initialCity -> {
-                    Errors errors = new BeanPropertyBindingResult(initialCity,
-                            News.class.getName());
-                    validator.validate(initialCity, errors);
-                    if (errors.getAllErrors().isEmpty()) {
-                        Mono<News> newsMono = fetchDataService.fetchCity(
-                                initialCity.prepareQuery() + "," + COUNTRY_CODE);
-                        return newsMono;
-                    }
-                    return Mono.error(CITY_NOT_FOUND);
-                })
-                // Fetching
-                .flatMap(validCity -> {
-                    // Data passed validation but city wasn't found
-                    if (validCity.getCityName() == null) {
-                        return Mono.error(CITY_NOT_FOUND);
-                    }
-                    return Mono.just(validCity);
-                });
+        // Mono.defer() ensures the whole block is lazily executed when the subscription happens
+        return Mono.defer(() -> {
+            Errors errors = new BeanPropertyBindingResult(news,
+                    News.class.getName());
+            validator.validate(news, errors);
+            if (!errors.getAllErrors().isEmpty()) {
+                return Mono.error(cityNotFound);
+            }
+            return fetchDataService.fetchCity(news.prepareQuery() + "," + countryCode)
+                    .flatMap(validCity -> {
+                        // Data passed validation but city wasn't found
+                        if (validCity.getCityName() == null) {
+                            return Mono.error(cityNotFound);
+                        }
+                        return Mono.just(validCity);
+                    });
+        });
     }
 
     private Mono<News> getOrFetchNews(News news) {
-        News newsByCityName = newsService.findNews(news);
-        if (newsByCityName == null) {
-            Mono<News> newsMono = fetchDataService.fetchNews(news)
-                    .filter(fetchedNews -> !fetchedNews.getArticles().isEmpty())
-                    .doOnNext(n -> {
-                        n.setArticles(n.getArticles().stream().sorted().toList());
-                        newsService.saveNews(n);
-                    });
-            return newsMono;
-        }
-        Mono<News> just = Mono.just(newsByCityName);
-        return just;
+        return newsService.findMonoNews(news)
+                .switchIfEmpty(fetchDataService.fetchNews(news)
+                        .doOnNext(n -> {
+                            n.sortArticles();
+                            newsService.saveNews(n);
+                        }));
     }
 
-    public Mono<News> getNewsByCity(News news) {
-        Mono<News> newsMono = validateCity(news)
-                .flatMap((n) -> {
-                    Mono<News> orFetchNews = getOrFetchNews(n);
-                    return orFetchNews;
-                });
-        return newsMono;
+    public Mono<News> getNewsByCityName(News news) {
+        return validateCity(news)
+                .flatMap(this::getOrFetchNews);
     }
 
     public Mono<News> getTrending() {
-        News city = new News(TRENDING, "-");
+        News city = new News(trending, "-");
         return getOrFetchNews(city);
+    }
+
+    public void fetchAndUpdateNews() {
+        List<News> all = newsService.findAll();
+        Flux.fromIterable(all)
+                .flatMap(news -> fetchDataService.fetchNews(news)
+                        .doOnNext(fetchedNews -> {
+                            List<Article> newArticles = fetchedNews.getArticles();
+                            List<Article> existingArticles = articleService.findAllByNews(news)
+                                    .stream()
+                                    .peek(article -> article.setId(null))
+                                    .toList();
+
+                            newArticles.addAll(existingArticles);
+                            fetchedNews.setArticles(newArticles);
+                            fetchedNews.sortArticles();
+
+                            newsService.deleteNews(news);
+                            newsService.saveNews(fetchedNews);
+                        })
+                )
+                .subscribe();
     }
 
 }

@@ -4,29 +4,39 @@ import com.elasticBeanstalk.dao.Article;
 import com.elasticBeanstalk.dao.News;
 import com.elasticBeanstalk.repository.NewsRepository;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 import java.util.List;
 
 @Service
 public class NewsService {
     private final NewsRepository newsRepository;
-    private final ArticleService articleService;
 
-    public NewsService(NewsRepository newsRepository, ArticleService articleService) {
+    public NewsService(NewsRepository newsRepository) {
         this.newsRepository = newsRepository;
-        this.articleService = articleService;
+    }
+
+    public List<News> findAll() {
+        return newsRepository.findAll();
     }
 
     public News findNews(News news) {
         return newsRepository.findByCityNameAndState(news.getCityName(), news.getCityName());
     }
 
-    public News saveAndFlushNews(News news) {
-        return newsRepository.saveAndFlush(news);
+    public Mono<News> findMonoNews(News news) {
+        return Mono.fromCallable(() -> newsRepository.findByCityNameAndState(news.getCityName(), news.getState()))
+                .subscribeOn(Schedulers.boundedElastic());
     }
 
-    public News saveNews(News news) {
-        return newsRepository.save(news);
+
+    public void saveNews(News news) {
+        newsRepository.save(news);
     }
 
+    public void deleteNews(News news) {
+        newsRepository.delete(news);
+    }
 }
