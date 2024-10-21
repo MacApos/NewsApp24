@@ -1,10 +1,8 @@
 package com.elasticBeanstalk.service;
 
-import com.elasticBeanstalk.dao.Article;
 import com.elasticBeanstalk.dao.News;
 import com.elasticBeanstalk.repository.NewsRepository;
 import org.springframework.stereotype.Service;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 

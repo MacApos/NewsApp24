@@ -21,7 +21,7 @@ public class Article implements Comparable<Article> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column(unique = true)
+    @Column(unique = true)
     private String name;
 
     @NotNull
@@ -36,13 +36,6 @@ public class Article implements Comparable<Article> {
     public Article() {
     }
 
-    public Article(String name, String url, String contentUrl, String description) {
-        this.name = name;
-        this.url = url;
-        this.contentUrl = contentUrl;
-        this.description = description;
-    }
-
     @JsonProperty("image")
     private void unpackNested(Map<String, Object> image) {
         contentUrl = (String) image.get("contentUrl");
@@ -50,7 +43,7 @@ public class Article implements Comparable<Article> {
 
     @JsonProperty("datePublished")
     private void formatDate(String date) {
-        datePublished = LocalDateTime.parse(date.replaceAll("[A-Z]|\\.0*", " ").trim(),
+        datePublished = LocalDateTime.parse(date.replaceAll("[T,Z]|\\.0*", " ").trim(),
                 DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 

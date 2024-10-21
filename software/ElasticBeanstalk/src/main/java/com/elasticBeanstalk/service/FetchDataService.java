@@ -11,8 +11,7 @@ import reactor.core.publisher.Mono;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class FetchDataService {
@@ -50,8 +49,8 @@ public class FetchDataService {
         this.webClient = webClient;
     }
 
-    public Mono<News> fetchData(String host, String path, Map<String, String> params,
-                                Map<String, String> headers, boolean fakeData) {
+    public WebClient.ResponseSpec getResponse(String host, String path, Map<String, String> params,
+                                              Map<String, String> headers) {
         UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.newInstance()
                 .scheme("https")
                 .host(host)
@@ -67,35 +66,13 @@ public class FetchDataService {
         if (headers != null) {
             headers.forEach(requestHeadersSpec::header);
         }
-
-        String fakeNews;
-        Mono<News> newsMono;
-        if (fakeData) {
-//            newsMono = requestHeadersSpec.retrieve().bodyToMono(News.class);
-            String jsonPath = "/home/zalman/Documents/JavaProjects/NewsApp24/software/ElasticBeanstalk/src/test/java/com/elasticBeanstalk";
-            try {
-//                fakeNews = new String(Files.readAllBytes(Paths.get(jsonPath + "/news-existing.json")));
-                fakeNews = new String(Files.readAllBytes(Paths.get(jsonPath+ "/news-incoming.json")));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            try {
-                News news = objectMapper.readValue(fakeNews, News.class);
-                newsMono = Mono.just(news);
-            } catch (JsonProcessingException e) {
-                throw new RuntimeException(e);
-            }
-        } else {
-            newsMono = requestHeadersSpec.retrieve().bodyToFlux(News.class).single();
-        }
-        return newsMono;
+        return requestHeadersSpec.retrieve();
     }
 
     public Mono<News> fetchCity(String query) {
         cityApiUriParams.put("q", query);
-        Mono<News> cityMono = fetchData(cityHost, cityPath, cityApiUriParams, null, false);
-        return cityMono;
+        return getResponse(cityHost, cityPath, cityApiUriParams, null)
+                .bodyToFlux(News.class).single();
     }
 
     public Mono<News> fetchNews(News news) {
@@ -104,15 +81,36 @@ public class FetchDataService {
             newsApiUriParams.put("category", countryCode);
             query = "usa news";
         } else {
-            query = news.prepareQuery();
+            query = news.getQuery();
         }
         newsApiUriParams.put("q", query);
-        return fetchData(newsHost, newsPath, newsApiUriParams, newsApiUriHeaders, true)
-                .map(fetchedNews -> {
-                    fetchedNews.setCityName(news.getCityName());
-                    fetchedNews.setState(news.getState());
-                    return fetchedNews;
-                })
-                .filter(fetchedNews -> !fetchedNews.getArticles().isEmpty());
+
+
+        String fakeNews;
+        Mono<News> newsMono;
+        String jsonPath = "/home/zalman/Documents/JavaProjects/NewsApp24/software/ElasticBeanstalk/src/test/java/com/elasticBeanstalk";
+        try {
+//          fakeNews = new String(Files.readAllBytes(Paths.get(jsonPath + "/news-existing.json")));
+            fakeNews = new String(Files.readAllBytes(Paths.get(jsonPath + "/news-incoming.json")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            newsMono = Mono.just(objectMapper.readValue(fakeNews, News.class));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        return
+//                getResponse(newsHost, newsPath, newsApiUriParams, newsApiUriHeaders)
+//                .bodyToMono(News.class)
+                newsMono
+                        .map(fetchedNews -> {
+                            fetchedNews.setCityName(news.getCityName());
+                            fetchedNews.setState(news.getState());
+                            return fetchedNews;
+                        })
+                        .filter(fetchedNews -> !fetchedNews.getArticles().isEmpty());
     }
 }

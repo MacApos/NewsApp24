@@ -34,8 +34,8 @@ public class ProcessDataService {
         this.articleService = articleService;
     }
 
+    // Mono.defer() ensures the whole block is lazily executed when the subscription happens
     private Mono<News> validateCity(News news) {
-        // Mono.defer() ensures the whole block is lazily executed when the subscription happens
         return Mono.defer(() -> {
             Errors errors = new BeanPropertyBindingResult(news,
                     News.class.getName());
@@ -43,7 +43,7 @@ public class ProcessDataService {
             if (!errors.getAllErrors().isEmpty()) {
                 return Mono.error(cityNotFound);
             }
-            return fetchDataService.fetchCity(news.prepareQuery() + "," + countryCode)
+            return fetchDataService.fetchCity(news.getQuery() + "," + countryCode)
                     .flatMap(validCity -> {
                         // Data passed validation but city wasn't found
                         if (validCity.getCityName() == null) {
@@ -54,13 +54,19 @@ public class ProcessDataService {
         });
     }
 
+    /*
+    Mono.defer - ensures that fetchDataService.fetchNews(news) is invoked only when findMonoNews(news) is empty.
+    Mono.defer delays the creation of the Mono until it's actually needed, thereby preventing eager execution.
+     */
     private Mono<News> getOrFetchNews(News news) {
         return newsService.findMonoNews(news)
-                .switchIfEmpty(fetchDataService.fetchNews(news)
-                        .doOnNext(n -> {
-                            n.sortArticles();
-                            newsService.saveNews(n);
-                        }));
+                .switchIfEmpty(Mono.defer(() ->
+                        fetchDataService.fetchNews(news)
+                                .doOnNext(fetchedNews -> {
+                                    fetchedNews.sortArticles();
+                                    newsService.saveNews(fetchedNews);
+                                })
+                ));
     }
 
     public Mono<News> getNewsByCityName(News news) {

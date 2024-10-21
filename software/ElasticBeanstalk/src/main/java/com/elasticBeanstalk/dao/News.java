@@ -50,7 +50,7 @@ public class News {
         this.state = state;
     }
 
-    public String prepareQuery() {
+    public String getQuery() {
         if (state == null) {
             return cityName;
         }
