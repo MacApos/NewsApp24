@@ -30,11 +30,11 @@ public class NewsController {
         return processDataService.getTrending();
     }
 
-//    @PostMapping("/update")
-//    public String update() {
-//        processDataService.fetchAndUpdateNews();
-//        return "updated";
-//    }
+    @PostMapping("/update")
+    public String update() {
+        processDataService.fetchAndUpdateNews();
+        return "updated";
+    }
 
     @GetMapping("/test-update")
     public String testUpdate() {

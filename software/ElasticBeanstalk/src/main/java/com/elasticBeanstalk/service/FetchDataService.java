@@ -88,7 +88,7 @@ public class FetchDataService {
 
         String fakeNews;
         Mono<News> newsMono;
-        String jsonPath = "/home/zalman/Documents/JavaProjects/NewsApp24/software/ElasticBeanstalk/src/test/java/com/elasticBeanstalk";
+        String jsonPath = "/home/zalman/Documents/JavaProjects/NewsApp24/software/ElasticBeanstalk/src";
         try {
 //          fakeNews = new String(Files.readAllBytes(Paths.get(jsonPath + "/news-existing.json")));
             fakeNews = new String(Files.readAllBytes(Paths.get(jsonPath + "/news-incoming.json")));

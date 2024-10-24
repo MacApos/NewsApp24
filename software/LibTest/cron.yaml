@@ -1,5 +1,0 @@
-version: 1
-cron:
-  - name: "UpdateDatabase"
-    url: "/update"
-    schedule: "*/2 * * * *"
