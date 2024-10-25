@@ -20,15 +20,10 @@ public class NewsService {
         return newsRepository.findAll();
     }
 
-    public News findNews(News news) {
-        return newsRepository.findByCityNameAndState(news.getCityName(), news.getCityName());
-    }
-
-    public Mono<News> findMonoNews(News news) {
+    public Mono<News> findNews(News news) {
         return Mono.fromCallable(() -> newsRepository.findByCityNameAndState(news.getCityName(), news.getState()))
                 .subscribeOn(Schedulers.boundedElastic());
     }
-
 
     public void saveNews(News news) {
         newsRepository.save(news);

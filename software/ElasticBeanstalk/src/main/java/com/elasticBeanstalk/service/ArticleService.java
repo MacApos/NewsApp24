@@ -18,9 +18,4 @@ public class ArticleService {
     public List<Article> findAllByNews (News news){
         return articleRepository.findAllByNewsId(news.getId());
     }
-
-    public List<Article> deleteAllByNews (News news){
-        return articleRepository.findAllByNewsId(news.getId());
-    }
-
 }

@@ -7,13 +7,15 @@ export class newsAPI {
                 return;
             }
             sessionStorage.setItem("cityName", city);
-            const pathVariable = city === TRENDING ? TRENDING.toLowerCase():
+            const pathVariable = city === TRENDING ? TRENDING.toLowerCase() :
                 city.split(",")
-                .map(s => s.trim())
-                .slice(0, 2)
-                .join("/");
+                    .map(s => s.trim())
+                    .slice(0, 2)
+                    .join("/");
 
             const response = await fetch(API_URI + pathVariable);
+            console.log(response, response.ok);
+
             if (response.ok) {
                 return response;
             }

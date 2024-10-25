@@ -3,6 +3,8 @@ package com.elasticBeanstalk.service;
 import com.elasticBeanstalk.dao.News;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -16,6 +18,7 @@ import java.util.*;
 @Service
 public class FetchDataService {
     public static final ObjectMapper objectMapper = new ObjectMapper();
+    private static final Logger log = LoggerFactory.getLogger(FetchDataService.class);
     public final SecretsService secretsService = SecretsService.getSecrets();
 
     private final String cityHost = "api.openweathermap.org";
@@ -41,7 +44,7 @@ public class FetchDataService {
             "Ocp-Apim-Subscription-Key", newsApiKey));
 
     public static final String countryCode = "US";
-    public static final String trending = "TRENDING";
+    public static final String trending = "trending";
 
     private final WebClient webClient;
 
@@ -59,6 +62,7 @@ public class FetchDataService {
         if (params != null) {
             params.forEach(uriComponentsBuilder::queryParam);
         }
+
         WebClient.RequestHeadersSpec<?> requestHeadersSpec = webClient.get()
                 .uri(uriComponentsBuilder
                         .build()
@@ -81,17 +85,16 @@ public class FetchDataService {
             newsApiUriParams.put("category", countryCode);
             query = "usa news";
         } else {
-            query = news.getQuery();
+            query = String.join(",", List.of(news.getCityName(), news.getState()));
         }
         newsApiUriParams.put("q", query);
-
 
         String fakeNews;
         Mono<News> newsMono;
         String jsonPath = "/home/zalman/Documents/JavaProjects/NewsApp24/software/ElasticBeanstalk/src";
         try {
 //          fakeNews = new String(Files.readAllBytes(Paths.get(jsonPath + "/news-existing.json")));
-            fakeNews = new String(Files.readAllBytes(Paths.get(jsonPath + "/news-incoming.json")));
+            fakeNews = new String(Files.readAllBytes(Paths.get(jsonPath + "/news-complete.json")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -103,9 +106,8 @@ public class FetchDataService {
         }
 
         return
-//                getResponse(newsHost, newsPath, newsApiUriParams, newsApiUriHeaders)
-//                .bodyToMono(News.class)
-                newsMono
+                getResponse(newsHost, newsPath, newsApiUriParams, newsApiUriHeaders)
+                        .bodyToMono(News.class)
                         .map(fetchedNews -> {
                             fetchedNews.setCityName(news.getCityName());
                             fetchedNews.setState(news.getState());

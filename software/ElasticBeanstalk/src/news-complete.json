@@ -1,280 +1,333 @@
 {
   "_type": "News",
-  "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/news\/search?q=New-York%2cNew-York",
+  "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/news\/search?q=New+York%2cNew+York",
   "queryContext": {
-    "originalQuery": "New-York,New-York",
+    "originalQuery": "New York,New York",
     "adultIntent": false
   },
-  "totalEstimatedMatches": 1320,
+  "totalEstimatedMatches": 225,
   "sort": [
     {
       "name": "Najlepsze dopasowanie",
       "id": "relevance",
       "isSelected": true,
-      "url": "https:\/\/api.bing.microsoft.com\/api\/v7\/news\/search?q=New-York%2cNew-York"
+      "url": "https:\/\/api.bing.microsoft.com\/api\/v7\/news\/search?q=New+York%2cNew+York"
     },
     {
       "name": "Najnowsze",
       "id": "date",
       "isSelected": false,
-      "url": "https:\/\/api.bing.microsoft.com\/api\/v7\/news\/search?q=New-York%2cNew-York&sortby=date"
+      "url": "https:\/\/api.bing.microsoft.com\/api\/v7\/news\/search?q=New+York%2cNew+York&sortby=date"
     }
   ],
   "value": [
     {
-      "name": "What Harris or Trump Would Mean for New York’s Housing and Transit",
-      "url": "https:\/\/www.msn.com\/en-us\/news\/politics\/what-harris-or-trump-would-mean-for-new-york-s-housing-and-transit\/ar-AA1ssim1",
+      "name": "Environmentalists sue New York, New Jersey and Delaware over endangered sturgeon",
+      "url": "https:\/\/www.msn.com\/en-us\/news\/us\/environmentalists-sue-new-york-new-jersey-and-delaware-over-endangered-sturgeon\/ar-AA1sSiHZ",
       "image": {
         "thumbnail": {
-          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.ReBfO0taJT6iCWrN6AEqEC&pid=News",
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.DXDotcvY1Xc4lfwg9UmDwi&pid=News",
           "width": 700,
-          "height": 466
+          "height": 393
         }
       },
-      "description": "Help to buy and build housing are core planks for the Democratic nominee, while the Republican has vowed to kill driver congestion fees the MTA is counting on.",
+      "description": "Environmentalists accuse New York, New Jersey and Delaware in federal lawsuits of improperly allowing Atlantic sturgeon to be killed by commercial fishing operations even as the prehistoric fish is on",
       "about": [
         {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/db72b52a-588b-5610-9583-7a7fd86e087e",
-          "name": "New York"
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/8ad617cc-3d7a-4b3c-a787-098de959ccc4",
+          "name": "Delaware"
         },
         {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/1a466af2-ed23-25bd-794d-1ca925e4681b",
-          "name": "Donald Trump"
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/d47a5015-5824-6a7d-9e40-4048533a1367",
+          "name": "Atlantic sturgeon"
         },
         {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/ef5cf66f-32b7-7271-286a-8e8313eda5c5",
-          "name": "Kamala Harris"
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/e4f1dce6-f95e-4ff7-4913-e7c5f95eee27",
+          "name": "Riverkeeper"
         },
         {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/60d5dc2b-c915-460b-b722-c9e3485499ca",
-          "name": "New York City"
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/51ac4d76-043d-2176-67d8-6f69a050f5b6",
+          "name": "Endangered Species Act of 1973"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/c76bbb1c-cb45-c4b4-8c38-77083f052009",
+          "name": "Striped bass"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/9f5d3161-2e45-38fb-8943-29330bfc6274",
+          "name": "Summer flounder"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/0e269c76-1d10-8841-2119-34365277ee2e",
+          "name": "Bycatch"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/cf87492a-482e-415d-77f9-1e5ee56652b8",
+          "name": "Delaware River"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/73e4a796-7638-4256-6ed7-4ebaf9ce3429",
+          "name": "Hudson River"
         }
       ],
       "provider": [
         {
           "_type": "Organization",
-          "name": "THE CITY on MSN.com",
+          "name": "The Associated Press on MSN.com",
           "image": {
             "thumbnail": {
-              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.D5rSRbxxtGc7S-F66IlfEg&pid=news"
+              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.AlMAEy7MoWNz0OI_xSWQiw&pid=news"
             }
           }
         }
       ],
-      "datePublished": "2024-10-17T18:47:00.0000000Z"
+      "datePublished": "2024-10-24T21:26:00.0000000Z"
     },
     {
-      "name": "This East Meadow Bagel Shop Among Top 100 In NY, New Ranking Says",
-      "url": "https:\/\/www.msn.com\/en-us\/news\/us\/these-bagel-shops-among-top-100-in-ny-new-ranking-says\/ar-AA1snoQM",
+      "name": "New York",
+      "url": "https:\/\/www.nytimes.com\/section\/nyregion",
+      "description": "Demetrius Crichlow, who had been serving as the interim president of New York City Transit since the summer, has been given the job permanently. A new accusation against Harvey Weinstein will be ...",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "The New York Times"
+        }
+      ],
+      "datePublished": "2024-10-24T18:40:00.0000000Z"
+    },
+    {
+      "name": "Big offshore wind project proposed for New York as other sites are evaluated in 3 states",
+      "url": "https:\/\/www.msn.com\/en-us\/money\/markets\/big-offshore-wind-project-proposed-for-new-york-as-other-sites-are-evaluated-in-3-states\/ar-AA1sJz0H",
       "image": {
         "thumbnail": {
-          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.J_Fcx5jluJNV3XWZIYejfC&pid=News",
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.XMlJkEBSkBZvftyXKqzxWy&pid=News",
           "width": 700,
-          "height": 350
+          "height": 393
         }
       },
-      "description": "Whether for breakfast, lunch, or dinner, these bagels are the cream (cheese?) of the crop.Nearly three dozen businesses outside of New York City made the “Top 100 Bagel Shops in New York 2024” ranking by Yelp.",
+      "description": "Offshore wind energy projects in New York, New Jersey and Maryland are moving forward, as federal regulators examine the proposals and opponents increase their legal challenges to the work",
       "about": [
         {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/41257565-485b-7852-4700-1981c31f3f74",
-          "name": "East Meadow, New York"
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/caeb7b9a-f5d7-4686-8fb5-cf7628296b13",
+          "name": "New York"
         },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/17b15d9d-90b2-39b2-b067-96a8a00a3c65",
+          "name": "Brigantine, New Jersey"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/dc6615f4-c0bd-ac50-d392-231cd2f33439",
+          "name": "Offshore wind power"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/4c472f4d-06a8-4d90-8bb8-da4d168c73fe",
+          "name": "Maryland"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/0a65e266-216e-d486-2abf-89371970dbea",
+          "name": "Essen"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/4e94627f-f1ce-79dc-72d9-d1f472f6d3c5",
+          "name": "RWE"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/06c21b74-4424-3dbe-bce5-8bd44e6c2b00",
+          "name": "National Grid plc"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/05277898-b62b-4878-8632-09d29756a2ff",
+          "name": "New Jersey"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/9432f5ad-eb4d-372f-19c7-0999f7a19cb2",
+          "name": "Long Beach Island"
+        }
+      ],
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "The Associated Press - Business News on MSN.com",
+          "image": {
+            "thumbnail": {
+              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.AlMAEy7MoWNz0OI_xSWQiw&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2024-10-22T20:04:00.0000000Z",
+      "video": {
+        "name": "Big offshore wind project proposed for New York as other sites are evaluated in 3 states",
+        "thumbnailUrl": "https:\/\/www.bing.com\/th?id=OVF.NpdTKNBe1oBkfoPyvt%2BnTw&pid=News",
+        "thumbnail": {
+          "width": 520,
+          "height": 292
+        }
+      }
+    },
+    {
+      "name": "Albany man arrested for distributing fake license plates across states",
+      "url": "https:\/\/www.msn.com\/en-us\/news\/crime\/albany-man-arrested-for-distributing-fake-license-plates-across-states\/ar-AA1sRFW2",
+      "image": {
+        "thumbnail": {
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.0BjX-Gun9Qyg4YqAEa1yIi&pid=News",
+          "width": 648,
+          "height": 365
+        }
+      },
+      "description": "The Albany County Sheriff's department has reported the arrest of 63-year-old Albany man Wayne F. Holmes for possessing and distributing fraudulent license plates. The arrest followed a month long investigation that began after a traffic stop in Albany.",
+      "about": [
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/62ca8245-972e-448d-af38-345d4a958798",
+          "name": "Albany, New York"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/c83ccaad-49e9-2a90-d764-e8341903ba41",
+          "name": "New York State Department of Motor Vehicles"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/00a23ccd-3344-461c-8b9f-c2bb55be5815",
+          "name": "Texas"
+        }
+      ],
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "WRGB Albany on MSN.com",
+          "image": {
+            "thumbnail": {
+              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.vZgFZKnLnmdPmYzqOFyAZQ&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2024-10-24T18:19:00.0000000Z"
+    },
+    {
+      "name": "Pets Are Part of the Family, and Part of New York City’s Fabric",
+      "url": "https:\/\/www.nytimes.com\/2024\/10\/24\/arts\/pets-new-york-historical-society.html",
+      "image": {
+        "thumbnail": {
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.soCjjt6DRAfFamC5nDIWoC&pid=News",
+          "width": 700,
+          "height": 366
+        }
+      },
+      "description": "As New Yorkers have watched the city transform, so have their animal companions. “Pets on the Street” features images of pets and explores how society has adjusted to support their domesticity, including dog walkers and dog runs, canine relief stations and “curb your dog” signs.",
+      "about": [
         {
           "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/60d5dc2b-c915-460b-b722-c9e3485499ca",
           "name": "New York City"
         },
         {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/59f181ac-51aa-7a01-f2b7-dc46121798bf",
-          "name": "Bagel and cream cheese"
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/6522a053-eabf-9518-7559-a6b69b49e663",
+          "name": "New-York Historical Society"
+        }
+      ],
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "The New York Times",
+          "image": {
+            "thumbnail": {
+              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.GzcmUDr41J6Qc1JEQyNTCA&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2024-10-24T09:00:00.0000000Z"
+    },
+    {
+      "name": "Albany man accused of distributing fake license plates",
+      "url": "https:\/\/wnyt.com\/top-stories\/albany-man-accused-of-distributing-fake-license-plates\/",
+      "image": {
+        "thumbnail": {
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.nE5UY_EkvnGhJjWiClxKxi&pid=News",
+          "width": 700,
+          "height": 393
+        }
+      },
+      "description": "A 63-year-old Albany man for allegedly distributing fake license plates. Wayne F. Holmes was arrested after a monthlong investigation that stemmed from a traffic stop in the city of Albany. A search of Holme’s residence on Krumkill Road found fictitious New York,",
+      "about": [
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/62ca8245-972e-448d-af38-345d4a958798",
+          "name": "Albany, New York"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/00a23ccd-3344-461c-8b9f-c2bb55be5815",
+          "name": "Texas"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/a3061797-713e-5786-6c4e-9e48da278578",
+          "name": "Albany County, New York"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/c83ccaad-49e9-2a90-d764-e8341903ba41",
+          "name": "New York State Department of Motor Vehicles"
+        }
+      ],
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "WNYT NewsChannel 13",
+          "image": {
+            "thumbnail": {
+              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.b7SjM8nll2VgzcVTeApVCg&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2024-10-24T22:55:00.0000000Z",
+      "video": {
+        "name": "Albany man accused of distributing fake license plates",
+        "thumbnailUrl": "https:\/\/www.bing.com\/th?id=OVF.wVmtiZnqnW3gbkCp8aJA4w&pid=News",
+        "thumbnail": {
+          "width": 520,
+          "height": 292
+        }
+      }
+    },
+    {
+      "name": "The NFL Has a New York, New York Problem",
+      "url": "https:\/\/www.msn.com\/en-us\/sports\/nfl\/the-nfl-has-a-new-york-new-york-problem\/ar-AA1sF1jB",
+      "image": {
+        "thumbnail": {
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.izDfT-BnbOT9KpSJuz9Lty&pid=News",
+          "width": 700,
+          "height": 393
+        }
+      },
+      "description": "The NFL, and the networks that air the NFL, love to jam the New York teams down everyone’s throats because New York is the biggest television market in the country. But when it comes to performing on primetime, the Jets and Giants are nothing but an embarrassment.",
+      "about": [
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/6ff32734-2ab0-2636-a1b0-1e2f5e94a701",
+          "name": "National Football League"
         },
         {
           "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/caeb7b9a-f5d7-4686-8fb5-cf7628296b13",
           "name": "New York"
         },
         {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/22085aea-f5d7-91fc-2c9f-76299629eef7",
-          "name": "Yelp"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/48013d35-ec8f-6422-c32c-604424ddba99",
-          "name": "Pandemic: Covid-19"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/065e0a42-5ed0-8916-583e-08112979d729",
-          "name": "Sesame"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/07c38b41-e377-7534-dacb-74f22d5ec911",
-          "name": "Bulgogi"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/6681da68-8d93-a00c-6f48-a32fafc38e21",
-          "name": "Kimchi"
-        }
-      ],
-      "provider": [
-        {
-          "_type": "Organization",
-          "name": "Daily Voice Westchester County NY on MSN.com",
-          "image": {
-            "thumbnail": {
-              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.CoDeul8pmU1Uw2EQvtIcFA&pid=news"
-            }
-          }
-        }
-      ],
-      "datePublished": "2024-10-17T14:30:00.0000000Z"
-    },
-    {
-      "name": "Upstate New York set for stunning peak fall foliage this weekend",
-      "url": "https:\/\/www.fingerlakes1.com\/2024\/10\/17\/upstate-new-york-set-for-stunning-peak-fall-foliage-this-weekend\/",
-      "image": {
-        "thumbnail": {
-          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.6O5Ev5s0XJYfR_OM4Sg28i&pid=News",
-          "width": 700,
-          "height": 446
-        }
-      },
-      "description": "Upstate New York is primed for a spectacular weekend of peak fall foliage, with vibrant colors expected across all regions. According to the latest I LOVE NY Fall Foliage Report, peak conditions will be visible from October 16 to 22,",
-      "about": [
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/6dff6f82-a90f-b48d-01fd-0020828d8fbe",
-          "name": "Upstate New York"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/df86621b-a0a3-c379-f34d-e5e62e6d23da",
-          "name": "Cayuga County, New York"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/04830e08-777c-1281-ac37-f798858f5daa",
-          "name": "Auburn, New York"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/e264ecc5-e173-0c85-4f2e-e5295ec829c7",
-          "name": "Cortland County, New York"
-        }
-      ],
-      "provider": [
-        {
-          "_type": "Organization",
-          "name": "fingerlakes1",
-          "image": {
-            "thumbnail": {
-              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.6Mf5UTpa6QHMwL8MqS54Vw&pid=news"
-            }
-          }
-        }
-      ],
-      "datePublished": "2024-10-17T14:05:00.0000000Z"
-    },
-    {
-      "name": "New York Fed’s Latest Tool Shows Bank Reserves Still Abundant",
-      "url": "https:\/\/www.bloomberg.com\/news\/articles\/2024-10-17\/new-york-fed-s-latest-tool-shows-bank-reserves-still-abundant",
-      "image": {
-        "thumbnail": {
-          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT._bcLQKNAFrRCRbrSi9VdWS&pid=News",
-          "width": 700,
-          "height": 466
-        }
-      },
-      "description": "The amount of reserves underlying the US banking system remains plentiful, according to a Federal Reserve Bank of New York gauge that will be published monthly.",
-      "about": [
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/c5ad466d-fd68-f389-4727-7f3b9daaebf6",
-          "name": "Bloomberg L.P."
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/50667142-16cc-4ff3-8749-e04c18be437c",
-          "name": "Federal Reserve Bank of New York"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/8c59a0ba-0021-cfdd-b696-d3192600ac6c",
-          "name": "Wall Street"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/8d504280-8e5f-99e5-4688-5e3b38e4c30d",
-          "name": "Federal Reserve"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/e462b1a6-0644-0686-3192-eb1772fb9b9b",
-          "name": "Qt"
-        }
-      ],
-      "provider": [
-        {
-          "_type": "Organization",
-          "name": "Bloomberg L.P.",
-          "image": {
-            "thumbnail": {
-              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.yAnAsiiCHte5V2il_I5mug&pid=news"
-            }
-          }
-        }
-      ],
-      "datePublished": "2024-10-17T14:00:00.0000000Z"
-    },
-    {
-      "name": "New York Comic Con 2024: Show hours, guests, ticket info and more",
-      "url": "https:\/\/www.msn.com\/en-us\/travel\/article\/new-york-comic-con-2024-show-hours-guests-ticket-info-and-more\/ar-AA1sqKRl",
-      "description": "Costumes, massive exhibits, and thousands of characters wandering through the Javits Center in NYC only mean one thing: Comic Con is back! Here's what you need to know.",
-      "provider": [
-        {
-          "_type": "Organization",
-          "name": "FOX 5 New York on MSN.com",
-          "image": {
-            "thumbnail": {
-              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.A_wgay6nFgfB-P7rnmXtOA&pid=news"
-            }
-          }
-        }
-      ],
-      "datePublished": "2024-10-17T11:12:00.0000000Z"
-    },
-    {
-      "name": "New York Giants Week 7: A Look at the Philadelphia Eagles Defense",
-      "url": "https:\/\/www.msn.com\/en-us\/sports\/nfl\/new-york-giants-week-7-a-look-at-the-philadelphia-eagles-defense\/ar-AA1srOac",
-      "image": {
-        "thumbnail": {
-          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.HlwyqjwBTgMu38Y4E1FnNS&pid=News",
-          "width": 700,
-          "height": 393
-        }
-      },
-      "description": "The New York Giants offense has struggled mightily so far this season with the fourth-lowest scoring offense in the NFL right now and are set to face their division rival Philadelphia Eagles, who allow the 19th-most points.",
-      "about": [
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/6e010b75-103f-1cf6-0c78-acf6527945af",
-          "name": "Philadelphia Eagles"
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/ab2ae02d-858b-78ac-9464-2618c8014d23",
+          "name": "New York Jets"
         },
         {
           "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/c585f0f2-498b-4cbf-0a33-5c5455aee098",
           "name": "New York Giants"
         },
         {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/04320aa0-e19d-4582-9be5-c7a0ba3af2d3",
-          "name": "Vic Fangio"
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/f2502d74-b70e-7ff3-36fd-a08bb8ff3ca6",
+          "name": "Pittsburgh Steelers"
         },
         {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/7688f870-363e-e756-7aad-0ed71972cbf6",
-          "name": "Josh Sweat"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/42019e63-56b1-5649-750c-513d46ae428c",
-          "name": "Dexter Lawrence"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/193e64bc-f7b0-6812-9cc6-fc52a57d7ef0",
-          "name": "Brian Burns"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/ab2ae02d-858b-78ac-9464-2618c8014d23",
-          "name": "New York Jets"
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/5529b630-f39f-85b1-8088-88e4d784fa9a",
+          "name": "Houston Texans"
         }
       ],
       "provider": [
         {
           "_type": "Organization",
-          "name": "New York Giants On SI on MSN.com",
+          "name": "Sports Illustrated on MSN.com",
           "image": {
             "thumbnail": {
               "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.DAlg1K6d6FcCd2ockBPdcQ&pid=news"
@@ -282,227 +335,57 @@
           }
         }
       ],
-      "datePublished": "2024-10-17T20:00:02.0000000Z"
+      "datePublished": "2024-10-21T21:32:00.0000000Z"
     },
     {
-      "name": "Yankees vs. Guardians score, live updates: New York looks for 3-0 lead as series shifts to Cleveland for ALCS Game 3",
-      "url": "https:\/\/sports.yahoo.com\/live\/yankees-vs-guardians-score-live-updates-highlights-new-york-cleveland-alcs-game-3-200042654.html",
+      "name": "Jets vs. Patriots prediction: Odds, expert picks, QB matchup, injury report, betting trends, and stats",
+      "url": "https:\/\/www.msn.com\/en-us\/sports\/nfl\/jets-vs-patriots-prediction-odds-expert-picks-qb-matchup-injury-report-betting-trends-and-stats\/ar-AA1sUScf",
       "image": {
         "thumbnail": {
-          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.DURepGwsZCh2sglCZhD9Bi&pid=News",
-          "width": 700,
-          "height": 466
-        }
-      },
-      "description": "The American League Championship Series heads to Cleveland with the New York Yankees up 2-0 on the Cleveland Guardians after their big bats jumped all over the AL Central champs in the first two games in The Bronx.",
-      "about": [
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/3a27ba26-cc96-dd69-15ea-0d248f25b924",
-          "name": "2001 American League Championship Series"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/34f268cb-0019-fa41-d7e4-7fe472f43c04",
-          "name": "New York Yankees"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/de315c8b-e1b6-27fb-021e-778bfa85ca81",
-          "name": "Cleveland Guardians"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/c720ea78-152a-eacb-71e0-a261a22551b7",
-          "name": "American League Central"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/7df5a4fa-bd7b-afb1-8d15-ee3b522a9231",
-          "name": "The Bronx"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/2de2b021-df60-c59d-3ae8-93c3a367ef82",
-          "name": "Giancarlo Stanton"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/87b16b46-ee48-6f3d-1dad-d35544ef6ed9",
-          "name": "Juan Soto"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/3bf7655a-151a-4c2f-bcc3-37954b331e80",
-          "name": "Aaron Judge"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/13a1e4cf-f342-4c9b-cbae-de93d568bf50",
-          "name": "World Series"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/7972934a-c131-9afe-ead3-35787c054960",
-          "name": "Progressive Field"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/3adc71b7-92e1-751b-e47e-e2bee9a5170f",
-          "name": "Detroit Tigers"
-        }
-      ],
-      "provider": [
-        {
-          "_type": "Organization",
-          "name": "Yahoo! Sports",
-          "image": {
-            "thumbnail": {
-              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.S719DbZoJh4YKmcI5HTI3A&pid=news"
-            }
-          }
-        }
-      ],
-      "datePublished": "2024-10-17T20:03:00.0000000Z",
-      "video": {
-        "name": "Yankees vs. Guardians score, live updates: New York looks for 3-0 lead as series shifts to Cleveland for ALCS Game 3",
-        "thumbnailUrl": "https:\/\/www.bing.com\/th?id=OVF.bf%2BNqLLIjp%2FQXJTjqoq1uw&pid=News",
-        "thumbnail": {
-          "width": 520,
-          "height": 346
-        }
-      }
-    },
-    {
-      "name": "Dziennikarka \"New York Times'a\" miażdży książkę Melanii Trump",
-      "url": "https:\/\/www.msn.com\/pl-pl\/wiadomosci\/polska\/dziennikarka-new-york-times-a-mia%C5%BCd%C5%BCy-ksi%C4%85%C5%BCk%C4%99-melanii-trump\/ar-AA1rRUSB",
-      "image": {
-        "thumbnail": {
-          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.TO56YKhY9uUVnFhALSVX7C&pid=News",
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.3Ea82BOzKWpA3aLJhK1DPy&pid=News",
           "width": 700,
           "height": 393
         }
       },
-      "description": "\"Jeśli w »Melanii« jest jakaś szczera prawda, to jest nią to, że kocha swojego syna Barrona i będzie go chronić za wszelką cenę (...)\" — ocenia autobiografię byłej pierwszej damy Alexandra Jacobs.",
+      "description": "· The Patriots have gone 0-5 ATS in their last 5 games as an underdog. · The Jets’ last 5 games against the Patriots have stayed UNDER the Total. · The Jets are 2-5 ATS and 3-4 to the OVER in 2024. · The Patriots are 1-5-1 ATS and 4-3 to the OVER in 2024.",
       "about": [
         {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/614b60a2-4ccd-3ecb-15dc-6e2fba54ed28",
-          "name": "The New York Times"
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/ab2ae02d-858b-78ac-9464-2618c8014d23",
+          "name": "New York Jets"
         },
         {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/6f7c7020-66da-2934-a3bb-190380654848",
-          "name": "Melania Trump"
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/69995e9c-2a89-f5c8-e1c3-3a62cce0061d",
+          "name": "New England Patriots"
         },
         {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/7e91ee1d-e3a3-3844-a60e-4bec4e455b04",
-          "name": "Camel"
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/b59d847c-ce03-05d7-6242-517f19549b8c",
+          "name": "Aaron Rodgers"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/ab7b6ca1-3883-d4f0-4e43-6c85fbd55cde",
+          "name": "NBC Sports"
         }
       ],
       "provider": [
         {
           "_type": "Organization",
-          "name": "MSN",
+          "name": "NBC Sports on MSN.com",
           "image": {
             "thumbnail": {
-              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.Y_NBXQC-7-xdFa0P1xXxXw&pid=news"
+              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.OZFkDFz6oPRq-aLNqgYIaQ&pid=news"
             }
           }
         }
       ],
-      "datePublished": "2024-10-08T09:53:00.0000000Z"
-    },
-    {
-      "name": "Meet the two new rescued sea otters at the New York Aquarium",
-      "url": "https:\/\/www.msn.com\/en-us\/travel\/news\/meet-the-two-new-rescued-sea-otters-at-the-new-york-aquarium\/ar-AA1srOVm",
-      "image": {
-        "thumbnail": {
-          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.ZExE31C9yt09Qi51ahxJKy&pid=News",
-          "width": 700,
-          "height": 521
-        }
-      },
-      "description": "Move over Moo Deng, New York has two new superstar animals.  Two rescued otters have recently made their way to the New York Aquarium in Coney Island, and as of",
-      "about": [
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/6536fcc1-ba1e-dd01-46c4-f333275e51b2",
-          "name": "Coney Island"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/424dcc23-810f-1f93-5c6c-084ec2611bd5",
-          "name": "Brooklyn"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/ca2602dd-ba8c-e10f-533e-3deeeeeb6e0e",
-          "name": "New York Aquarium"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/3009d91d-d582-4c34-85ba-772ba09e5be1",
-          "name": "California"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/caeb7b9a-f5d7-4686-8fb5-cf7628296b13",
-          "name": "New York"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/e0c39cd7-2af9-b368-bc80-e19cff19854d",
-          "name": "Wildlife Conservation Society"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/eaa441e6-3d87-6680-5bd7-0da870ef44a6",
-          "name": "Sea otter"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/8ea5091b-acc2-e133-1f80-b3f74547f77c",
-          "name": "United States Fish and Wildlife Service"
-        }
-      ],
-      "provider": [
-        {
-          "_type": "Organization",
-          "name": "WPIX New York City, NY on MSN.com",
-          "image": {
-            "thumbnail": {
-              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.GAmChu04jb0oRIHDjXS0wA&pid=news"
-            }
-          }
-        }
-      ],
-      "datePublished": "2024-10-17T14:05:00.0000000Z",
+      "datePublished": "2024-10-25T12:32:00.0000000Z",
       "video": {
-        "name": "Meet the two new rescued sea otters at the New York Aquarium",
-        "thumbnailUrl": "https:\/\/www.bing.com\/th?id=OVF.GW9MibRZOetSj8UU3LRr2Q&pid=News",
+        "name": "Jets vs. Patriots prediction: Odds, expert picks, QB matchup, injury report, betting trends, and stats",
+        "thumbnailUrl": "https:\/\/www.bing.com\/th?id=OVF.QL9SZSLBTsjFl7h11QZe0A&pid=News",
         "thumbnail": {
           "width": 520,
-          "height": 387
+          "height": 292
         }
       }
-    },
-    {
-      "name": "What time is New York Liberty - Minnesota Lynx Game 4? Where to watch it and Schedule for the WNBA Finals 2024",
-      "url": "https:\/\/www.marca.com\/en\/basketball\/wnba\/2024\/10\/17\/670f4c3846163f827a8b457b.html",
-      "image": {
-        "thumbnail": {
-          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.QUXNcf9m7shjQmyjAf-ECC&pid=News",
-          "width": 700,
-          "height": 466
-        }
-      },
-      "description": "The 2024 WNBA Finals will show us with an exciting showdown between the Minnesota Lynx and the New York Liberty. A matchup that promises to put the finishing touch to another magni",
-      "about": [
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/05ffa160-1727-a7b5-3733-1e3bfe70cd92",
-          "name": "New York Liberty"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/3b9a54d2-409a-79b5-1bcb-423e3b4706fb",
-          "name": "Minnesota Lynx"
-        },
-        {
-          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/66dde14a-be74-232f-7d63-21772f29a0df",
-          "name": "WNBA Finals"
-        }
-      ],
-      "provider": [
-        {
-          "_type": "Organization",
-          "name": "MARCA",
-          "image": {
-            "thumbnail": {
-              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.ToEIHob9aIfZAX_hYYZPtA&pid=news"
-            }
-          }
-        }
-      ],
-      "datePublished": "2024-10-17T19:20:00.0000000Z"
     }
   ]
 }

@@ -1,6 +1,7 @@
 package com.elasticBeanstalk.controller;
 
 import com.elasticBeanstalk.dao.News;
+import com.elasticBeanstalk.service.NewsService;
 import com.elasticBeanstalk.service.ProcessDataService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,7 @@ import reactor.core.publisher.Mono;
 public class NewsController {
     private final ProcessDataService processDataService;
 
-    public NewsController(ProcessDataService processDataService) {
+    public NewsController(ProcessDataService processDataService, NewsService newsService) {
         this.processDataService = processDataService;
     }
 

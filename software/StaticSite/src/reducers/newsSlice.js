@@ -22,7 +22,9 @@ export const fetchNews = createAsyncThunk(
     async (city) => {
 
         const response = await newsAPI.fetchNews(city);
-        return await response.json();
+        let newVar = await response.json();
+        console.log(newVar);
+        return newVar;
     },
 );
 

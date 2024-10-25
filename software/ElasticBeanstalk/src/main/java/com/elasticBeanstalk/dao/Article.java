@@ -27,8 +27,9 @@ public class Article implements Comparable<Article> {
     @NotNull
     private String url;
 
-    private String contentUrl;
+    private String image;
 
+    @Column(length=1000000)
     private String description;
 
     private LocalDateTime datePublished;
@@ -37,8 +38,8 @@ public class Article implements Comparable<Article> {
     }
 
     @JsonProperty("image")
-    private void unpackNested(Map<String, Object> image) {
-        contentUrl = (String) image.get("contentUrl");
+    private void unpackNested(Map<String, Object> imageJson) {
+        image = (String) imageJson.get("contentUrl");
     }
 
     @JsonProperty("datePublished")

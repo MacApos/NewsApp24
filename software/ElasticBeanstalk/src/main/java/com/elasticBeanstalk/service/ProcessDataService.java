@@ -43,7 +43,8 @@ public class ProcessDataService {
             if (!errors.getAllErrors().isEmpty()) {
                 return Mono.error(cityNotFound);
             }
-            return fetchDataService.fetchCity(news.getQuery() + "," + countryCode)
+            return fetchDataService.fetchCity(
+                    news.prepareQuery()+","+countryCode)
                     .flatMap(validCity -> {
                         // Data passed validation but city wasn't found
                         if (validCity.getCityName() == null) {
@@ -59,7 +60,7 @@ public class ProcessDataService {
     Mono.defer delays the creation of the Mono until it's actually needed, thereby preventing eager execution.
      */
     private Mono<News> getOrFetchNews(News news) {
-        return newsService.findMonoNews(news)
+        return newsService.findNews(news)
                 .switchIfEmpty(Mono.defer(() ->
                         fetchDataService.fetchNews(news)
                                 .doOnNext(fetchedNews -> {
@@ -81,6 +82,25 @@ public class ProcessDataService {
 
     public void fetchAndUpdateNews() {
         List<News> all = newsService.findAll();
+//        all.forEach(news -> {
+//            News fetchedNews = fetchDataService.fetchNews(news).block();
+//            if(fetchedNews==null){
+//                return;
+//            }
+////            List<Article> newArticles = fetchedNews.getArticles();
+////            List<Article> existingArticles = articleService.findAllByNews(news)
+////                    .stream()
+////                    .peek(article -> article.setId(null))
+////                    .toList();
+////
+////            newArticles.addAll(existingArticles);
+////            fetchedNews.setArticles(newArticles);
+////            fetchedNews.sortArticles();
+////
+////            newsService.deleteNews(news);
+//            newsService.saveNews(fetchedNews);
+//        });
+
         Flux.fromIterable(all)
                 .flatMap(news -> fetchDataService.fetchNews(news)
                         .doOnNext(fetchedNews -> {

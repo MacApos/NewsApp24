@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+import validator.State;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -27,10 +28,9 @@ public class News {
     @JsonProperty("name")
     private String cityName;
 
-    @Size(min = 2)
+    @State
     private String state;
 
-    @JsonProperty("value")
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Article> articles;
 
@@ -42,6 +42,18 @@ public class News {
         cityName = (String) localNamesJson.get("en");
     }
 
+    //Serialization
+    @JsonProperty("articles")
+    public List<Article> getArticles() {
+        return articles;
+    }
+
+    //Deserialization
+    @JsonProperty("value")
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
+    }
+
     public News() {
     }
 
@@ -50,7 +62,7 @@ public class News {
         this.state = state;
     }
 
-    public String getQuery() {
+    public String prepareQuery() {
         if (state == null) {
             return cityName;
         }
@@ -66,7 +78,7 @@ public class News {
         if (!articles.isEmpty()) {
             articles = articles.stream()
                     .filter(distinctByProperty(Article::getName))
-                    .limit(10)
+                    .limit(20)
                     .sorted()
                     .toList();
         }
