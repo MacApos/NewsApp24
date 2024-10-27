@@ -13,13 +13,12 @@ git add .
 git commit -m "$commitMessage"
 git push
 
-cd software/ || exit
-mvn clean install --quiet
+cd software/ElasticBeanstalk || exit
+./gradlew buildZip
 cd StaticSite/ || exit
 npm run --silent build
 cd ../../
 
 cd infrastructure/ || exit
-cdk synth
-cdk bootstrap
-cdk deploy --all --require-approval never
+terraform init
+terraform apply -auto-approve

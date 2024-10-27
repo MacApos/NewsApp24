@@ -2,4 +2,4 @@ version: 1
 cron:
   - name: "UpdateDatabase"
     url: "/update"
-    schedule: "*/5 * * * *"
+    schedule: "0 0 * * *"

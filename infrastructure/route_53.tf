@@ -1,11 +1,16 @@
+locals {
+  path = "../software/StaticSite/build"
+}
+
 resource "aws_s3_bucket" "domain_bucket" {
   bucket = var.root_domain
 }
 
 resource "aws_s3_object" "domain_bucket_object" {
+  for_each = fileset(local.path, "**")
   bucket             = aws_s3_bucket.domain_bucket.bucket
-  key                = "test"
-  source             = "bundle"
+  source             = "${local.path}/${each.value}"
+  key                = each.value
 }
 
 resource "aws_s3_bucket_public_access_block" "domain_bucket_access_block" {

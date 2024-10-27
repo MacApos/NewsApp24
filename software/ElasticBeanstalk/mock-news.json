@@ -1,0 +1,391 @@
+{
+  "_type": "News",
+  "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/news\/search?q=New+York%2cNew+York",
+  "queryContext": {
+    "originalQuery": "New York,New York",
+    "adultIntent": false
+  },
+  "totalEstimatedMatches": 225,
+  "sort": [
+    {
+      "name": "Najlepsze dopasowanie",
+      "id": "relevance",
+      "isSelected": true,
+      "url": "https:\/\/api.bing.microsoft.com\/api\/v7\/news\/search?q=New+York%2cNew+York"
+    },
+    {
+      "name": "Najnowsze",
+      "id": "date",
+      "isSelected": false,
+      "url": "https:\/\/api.bing.microsoft.com\/api\/v7\/news\/search?q=New+York%2cNew+York&sortby=date"
+    }
+  ],
+  "value": [
+    {
+      "name": "Environmentalists sue New York, New Jersey and Delaware over endangered sturgeon",
+      "url": "https:\/\/www.msn.com\/en-us\/news\/us\/environmentalists-sue-new-york-new-jersey-and-delaware-over-endangered-sturgeon\/ar-AA1sSiHZ",
+      "image": {
+        "thumbnail": {
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.DXDotcvY1Xc4lfwg9UmDwi&pid=News",
+          "width": 700,
+          "height": 393
+        }
+      },
+      "description": "Environmentalists accuse New York, New Jersey and Delaware in federal lawsuits of improperly allowing Atlantic sturgeon to be killed by commercial fishing operations even as the prehistoric fish is on",
+      "about": [
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/8ad617cc-3d7a-4b3c-a787-098de959ccc4",
+          "name": "Delaware"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/d47a5015-5824-6a7d-9e40-4048533a1367",
+          "name": "Atlantic sturgeon"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/e4f1dce6-f95e-4ff7-4913-e7c5f95eee27",
+          "name": "Riverkeeper"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/51ac4d76-043d-2176-67d8-6f69a050f5b6",
+          "name": "Endangered Species Act of 1973"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/c76bbb1c-cb45-c4b4-8c38-77083f052009",
+          "name": "Striped bass"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/9f5d3161-2e45-38fb-8943-29330bfc6274",
+          "name": "Summer flounder"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/0e269c76-1d10-8841-2119-34365277ee2e",
+          "name": "Bycatch"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/cf87492a-482e-415d-77f9-1e5ee56652b8",
+          "name": "Delaware River"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/73e4a796-7638-4256-6ed7-4ebaf9ce3429",
+          "name": "Hudson River"
+        }
+      ],
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "The Associated Press on MSN.com",
+          "image": {
+            "thumbnail": {
+              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.AlMAEy7MoWNz0OI_xSWQiw&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2024-10-24T21:26:00.0000000Z"
+    },
+    {
+      "name": "New York",
+      "url": "https:\/\/www.nytimes.com\/section\/nyregion",
+      "description": "Demetrius Crichlow, who had been serving as the interim president of New York City Transit since the summer, has been given the job permanently. A new accusation against Harvey Weinstein will be ...",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "The New York Times"
+        }
+      ],
+      "datePublished": "2024-10-24T18:40:00.0000000Z"
+    },
+    {
+      "name": "Big offshore wind project proposed for New York as other sites are evaluated in 3 states",
+      "url": "https:\/\/www.msn.com\/en-us\/money\/markets\/big-offshore-wind-project-proposed-for-new-york-as-other-sites-are-evaluated-in-3-states\/ar-AA1sJz0H",
+      "image": {
+        "thumbnail": {
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.XMlJkEBSkBZvftyXKqzxWy&pid=News",
+          "width": 700,
+          "height": 393
+        }
+      },
+      "description": "Offshore wind energy projects in New York, New Jersey and Maryland are moving forward, as federal regulators examine the proposals and opponents increase their legal challenges to the work",
+      "about": [
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/caeb7b9a-f5d7-4686-8fb5-cf7628296b13",
+          "name": "New York"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/17b15d9d-90b2-39b2-b067-96a8a00a3c65",
+          "name": "Brigantine, New Jersey"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/dc6615f4-c0bd-ac50-d392-231cd2f33439",
+          "name": "Offshore wind power"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/4c472f4d-06a8-4d90-8bb8-da4d168c73fe",
+          "name": "Maryland"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/0a65e266-216e-d486-2abf-89371970dbea",
+          "name": "Essen"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/4e94627f-f1ce-79dc-72d9-d1f472f6d3c5",
+          "name": "RWE"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/06c21b74-4424-3dbe-bce5-8bd44e6c2b00",
+          "name": "National Grid plc"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/05277898-b62b-4878-8632-09d29756a2ff",
+          "name": "New Jersey"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/9432f5ad-eb4d-372f-19c7-0999f7a19cb2",
+          "name": "Long Beach Island"
+        }
+      ],
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "The Associated Press - Business News on MSN.com",
+          "image": {
+            "thumbnail": {
+              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.AlMAEy7MoWNz0OI_xSWQiw&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2024-10-22T20:04:00.0000000Z",
+      "video": {
+        "name": "Big offshore wind project proposed for New York as other sites are evaluated in 3 states",
+        "thumbnailUrl": "https:\/\/www.bing.com\/th?id=OVF.NpdTKNBe1oBkfoPyvt%2BnTw&pid=News",
+        "thumbnail": {
+          "width": 520,
+          "height": 292
+        }
+      }
+    },
+    {
+      "name": "Albany man arrested for distributing fake license plates across states",
+      "url": "https:\/\/www.msn.com\/en-us\/news\/crime\/albany-man-arrested-for-distributing-fake-license-plates-across-states\/ar-AA1sRFW2",
+      "image": {
+        "thumbnail": {
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.0BjX-Gun9Qyg4YqAEa1yIi&pid=News",
+          "width": 648,
+          "height": 365
+        }
+      },
+      "description": "The Albany County Sheriff's department has reported the arrest of 63-year-old Albany man Wayne F. Holmes for possessing and distributing fraudulent license plates. The arrest followed a month long investigation that began after a traffic stop in Albany.",
+      "about": [
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/62ca8245-972e-448d-af38-345d4a958798",
+          "name": "Albany, New York"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/c83ccaad-49e9-2a90-d764-e8341903ba41",
+          "name": "New York State Department of Motor Vehicles"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/00a23ccd-3344-461c-8b9f-c2bb55be5815",
+          "name": "Texas"
+        }
+      ],
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "WRGB Albany on MSN.com",
+          "image": {
+            "thumbnail": {
+              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.vZgFZKnLnmdPmYzqOFyAZQ&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2024-10-24T18:19:00.0000000Z"
+    },
+    {
+      "name": "Pets Are Part of the Family, and Part of New York City’s Fabric",
+      "url": "https:\/\/www.nytimes.com\/2024\/10\/24\/arts\/pets-new-york-historical-society.html",
+      "image": {
+        "thumbnail": {
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.soCjjt6DRAfFamC5nDIWoC&pid=News",
+          "width": 700,
+          "height": 366
+        }
+      },
+      "description": "As New Yorkers have watched the city transform, so have their animal companions. “Pets on the Street” features images of pets and explores how society has adjusted to support their domesticity, including dog walkers and dog runs, canine relief stations and “curb your dog” signs.",
+      "about": [
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/60d5dc2b-c915-460b-b722-c9e3485499ca",
+          "name": "New York City"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/6522a053-eabf-9518-7559-a6b69b49e663",
+          "name": "New-York Historical Society"
+        }
+      ],
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "The New York Times",
+          "image": {
+            "thumbnail": {
+              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.GzcmUDr41J6Qc1JEQyNTCA&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2024-10-24T09:00:00.0000000Z"
+    },
+    {
+      "name": "Albany man accused of distributing fake license plates",
+      "url": "https:\/\/wnyt.com\/top-stories\/albany-man-accused-of-distributing-fake-license-plates\/",
+      "image": {
+        "thumbnail": {
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.nE5UY_EkvnGhJjWiClxKxi&pid=News",
+          "width": 700,
+          "height": 393
+        }
+      },
+      "description": "A 63-year-old Albany man for allegedly distributing fake license plates. Wayne F. Holmes was arrested after a monthlong investigation that stemmed from a traffic stop in the city of Albany. A search of Holme’s residence on Krumkill Road found fictitious New York,",
+      "about": [
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/62ca8245-972e-448d-af38-345d4a958798",
+          "name": "Albany, New York"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/00a23ccd-3344-461c-8b9f-c2bb55be5815",
+          "name": "Texas"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/a3061797-713e-5786-6c4e-9e48da278578",
+          "name": "Albany County, New York"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/c83ccaad-49e9-2a90-d764-e8341903ba41",
+          "name": "New York State Department of Motor Vehicles"
+        }
+      ],
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "WNYT NewsChannel 13",
+          "image": {
+            "thumbnail": {
+              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.b7SjM8nll2VgzcVTeApVCg&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2024-10-24T22:55:00.0000000Z",
+      "video": {
+        "name": "Albany man accused of distributing fake license plates",
+        "thumbnailUrl": "https:\/\/www.bing.com\/th?id=OVF.wVmtiZnqnW3gbkCp8aJA4w&pid=News",
+        "thumbnail": {
+          "width": 520,
+          "height": 292
+        }
+      }
+    },
+    {
+      "name": "The NFL Has a New York, New York Problem",
+      "url": "https:\/\/www.msn.com\/en-us\/sports\/nfl\/the-nfl-has-a-new-york-new-york-problem\/ar-AA1sF1jB",
+      "image": {
+        "thumbnail": {
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.izDfT-BnbOT9KpSJuz9Lty&pid=News",
+          "width": 700,
+          "height": 393
+        }
+      },
+      "description": "The NFL, and the networks that air the NFL, love to jam the New York teams down everyone’s throats because New York is the biggest television market in the country. But when it comes to performing on primetime, the Jets and Giants are nothing but an embarrassment.",
+      "about": [
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/6ff32734-2ab0-2636-a1b0-1e2f5e94a701",
+          "name": "National Football League"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/caeb7b9a-f5d7-4686-8fb5-cf7628296b13",
+          "name": "New York"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/ab2ae02d-858b-78ac-9464-2618c8014d23",
+          "name": "New York Jets"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/c585f0f2-498b-4cbf-0a33-5c5455aee098",
+          "name": "New York Giants"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/f2502d74-b70e-7ff3-36fd-a08bb8ff3ca6",
+          "name": "Pittsburgh Steelers"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/5529b630-f39f-85b1-8088-88e4d784fa9a",
+          "name": "Houston Texans"
+        }
+      ],
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "Sports Illustrated on MSN.com",
+          "image": {
+            "thumbnail": {
+              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.DAlg1K6d6FcCd2ockBPdcQ&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2024-10-21T21:32:00.0000000Z"
+    },
+    {
+      "name": "Jets vs. Patriots prediction: Odds, expert picks, QB matchup, injury report, betting trends, and stats",
+      "url": "https:\/\/www.msn.com\/en-us\/sports\/nfl\/jets-vs-patriots-prediction-odds-expert-picks-qb-matchup-injury-report-betting-trends-and-stats\/ar-AA1sUScf",
+      "image": {
+        "thumbnail": {
+          "contentUrl": "https:\/\/www.bing.com\/th?id=OVFT.3Ea82BOzKWpA3aLJhK1DPy&pid=News",
+          "width": 700,
+          "height": 393
+        }
+      },
+      "description": "· The Patriots have gone 0-5 ATS in their last 5 games as an underdog. · The Jets’ last 5 games against the Patriots have stayed UNDER the Total. · The Jets are 2-5 ATS and 3-4 to the OVER in 2024. · The Patriots are 1-5-1 ATS and 4-3 to the OVER in 2024.",
+      "about": [
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/ab2ae02d-858b-78ac-9464-2618c8014d23",
+          "name": "New York Jets"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/69995e9c-2a89-f5c8-e1c3-3a62cce0061d",
+          "name": "New England Patriots"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/b59d847c-ce03-05d7-6242-517f19549b8c",
+          "name": "Aaron Rodgers"
+        },
+        {
+          "readLink": "https:\/\/api.bing.microsoft.com\/api\/v7\/entities\/ab7b6ca1-3883-d4f0-4e43-6c85fbd55cde",
+          "name": "NBC Sports"
+        }
+      ],
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "NBC Sports on MSN.com",
+          "image": {
+            "thumbnail": {
+              "contentUrl": "https:\/\/www.bing.com\/th?id=ODF.OZFkDFz6oPRq-aLNqgYIaQ&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2024-10-25T12:32:00.0000000Z",
+      "video": {
+        "name": "Jets vs. Patriots prediction: Odds, expert picks, QB matchup, injury report, betting trends, and stats",
+        "thumbnailUrl": "https:\/\/www.bing.com\/th?id=OVF.QL9SZSLBTsjFl7h11QZe0A&pid=News",
+        "thumbnail": {
+          "width": 520,
+          "height": 292
+        }
+      }
+    }
+  ]
+}

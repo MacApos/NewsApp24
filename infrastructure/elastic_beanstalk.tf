@@ -1,10 +1,8 @@
 locals {
-  web_sg_name = "${var.app_name}-env-sg"
   web_env = {
     name                = "${var.app_name}WebEnv"
     application_name    = "${var.app_name}WebApp"
     tier                = "WebServer"
-    version_label       = ""
     security_group_name = "${var.app_name}-web-env-sg"
     instance_type       = "t3.micro"
   }
@@ -12,7 +10,6 @@ locals {
     name                = "${var.app_name}WorkerEnv"
     application_name    = "${var.app_name}WorkerApp"
     tier                = "Worker"
-    version_label       = ""
     security_group_name = "${var.app_name}-worker-env-sg"
     instance_type       = "t3.small"
   }
@@ -66,8 +63,8 @@ resource "aws_iam_role_policy_attachment" "eb_ec2_role_attachment" {
     "arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier",
     "arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier",
     "arn:aws:iam::aws:policy/AWSElasticBeanstalkMulticontainerDocker",
-    "arn:aws:iam::aws:policy/SecretsManagerReadWrite",
-    "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+    "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
+#   , "arn:aws:iam::aws:policy/AmazonS3FullAccess"
   ])
   role       = aws_iam_role.eb_ec2_role.name
   policy_arn = each.key
@@ -124,23 +121,24 @@ resource "random_id" "random_id" {
   byte_length = 8
 }
 
-# resource "aws_s3_bucket" "app_bucket" {
-#   bucket = "${lower(var.app_name)}s3${random_id.random_id.hex}"
-# }
-#
-# resource "aws_s3_object" "eb_bucket_object" {
-#   bucket = aws_s3_bucket.app_bucket.bucket
-#   key    = "elastic-beanstalk.zip"
-#   source = "../software/ElasticBeanstalk/build/libs/elastic-beanstalk.zip"
-# }
+resource "aws_s3_bucket" "app_bucket" {
+  bucket = "${lower(var.app_name)}s3${random_id.random_id.hex}"
+}
 
-# resource "aws_elastic_beanstalk_application_version" "app_web_version" {
-#   name        = "${var.app_name}WebVersion"
-#   application = aws_elastic_beanstalk_application.app_web.name
-#   bucket      = aws_s3_bucket.app_bucket.bucket
-#   key         = aws_s3_object.eb_bucket_object.key
-# }
-#
+resource "aws_s3_object" "eb_bucket_object" {
+  bucket = aws_s3_bucket.app_bucket.bucket
+  key    = "elastic-beanstalk.zip"
+  source = "../software/ElasticBeanstalk/build/libs/elastic-beanstalk.zip"
+}
+
+resource "aws_elastic_beanstalk_application_version" "app_web_versions" {
+  count = length(local.environments)
+  name        = "${local.environments[count.index]["application_name"]}Version"
+  application = local.environments[count.index]["application_name"]
+  bucket      = aws_s3_bucket.app_bucket.bucket
+  key         = aws_s3_object.eb_bucket_object.key
+}
+
 resource "aws_elastic_beanstalk_application" "applications" {
   count = length(local.environments)
   name = local.environments[count.index]["application_name"]
@@ -152,7 +150,7 @@ resource "aws_elastic_beanstalk_environment" "app_web_env" {
   tier                = local.environments[count.index]["tier"]
   application         = aws_elastic_beanstalk_application.applications[count.index].name
   solution_stack_name = "64bit Amazon Linux 2023 v4.2.7 running Corretto 17"
-  #   version_label       = aws_elastic_beanstalk_application_version.app_web_version.name
+  version_label       = aws_elastic_beanstalk_application_version.app_web_versions[count.index].name
 
   setting {
     namespace = "aws:elasticbeanstalk:environment"

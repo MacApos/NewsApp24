@@ -9,13 +9,13 @@ locals {
   subnet_ids = flatten([module.vpc.public_subnets, module.vpc.private_subnets])
   v1 = {
     username = "admin"
-    #     password = data.aws_secretsmanager_random_password.password.random_password
-    password = "password"
+    password = data.aws_secretsmanager_random_password.password.random_password
+    #     password = "password"
   }
 }
 
 resource "aws_secretsmanager_secret" "app_secret" {
-  name = "prod/${var.app_name}-secrete-testing-25/database"
+  name = "prod/${var.app_name}/database"
 }
 resource "aws_secretsmanager_secret_version" "app_secret_version" {
   secret_id = aws_secretsmanager_secret.app_secret.id

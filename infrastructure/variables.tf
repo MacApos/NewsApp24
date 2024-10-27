@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "app_name" {
-  default = "NewsTest1"
+  default = "NewsApp24"
 }
 
 variable "root_domain" {
