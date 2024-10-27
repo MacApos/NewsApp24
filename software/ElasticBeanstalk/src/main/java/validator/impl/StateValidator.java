@@ -4,8 +4,6 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import validator.State;
 
-import java.util.Objects;
-
 public class StateValidator implements ConstraintValidator<State, String> {
     @Override
     public void initialize(State constraintAnnotation) {

@@ -21,12 +21,14 @@ public class Article implements Comparable<Article> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = true, length = 1000)
     private String name;
 
     @NotNull
+    @Column(length=1000)
     private String url;
 
+    @Column(length=1000)
     private String image;
 
     @Column(length=1000000)

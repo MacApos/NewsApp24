@@ -1,24 +1,15 @@
 package com.elasticBeanstalk.service;
 
 import com.elasticBeanstalk.dao.News;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriComponentsBuilder;
 import reactor.core.publisher.Mono;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 
 @Service
 public class FetchDataService {
-    public static final ObjectMapper objectMapper = new ObjectMapper();
-    private static final Logger log = LoggerFactory.getLogger(FetchDataService.class);
     public final SecretsService secretsService = SecretsService.getSecrets();
 
     private final String cityHost = "api.openweathermap.org";
@@ -88,22 +79,6 @@ public class FetchDataService {
             query = String.join(",", List.of(news.getCityName(), news.getState()));
         }
         newsApiUriParams.put("q", query);
-
-        String fakeNews;
-        Mono<News> newsMono;
-        String jsonPath = "/home/zalman/Documents/JavaProjects/NewsApp24/software/ElasticBeanstalk/src";
-        try {
-//          fakeNews = new String(Files.readAllBytes(Paths.get(jsonPath + "/news-existing.json")));
-            fakeNews = new String(Files.readAllBytes(Paths.get(jsonPath + "/news-complete.json")));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        try {
-            newsMono = Mono.just(objectMapper.readValue(fakeNews, News.class));
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
 
         return
                 getResponse(newsHost, newsPath, newsApiUriParams, newsApiUriHeaders)

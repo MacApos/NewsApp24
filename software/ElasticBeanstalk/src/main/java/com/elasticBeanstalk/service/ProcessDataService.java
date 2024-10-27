@@ -44,7 +44,7 @@ public class ProcessDataService {
                 return Mono.error(cityNotFound);
             }
             return fetchDataService.fetchCity(
-                    news.prepareQuery()+","+countryCode)
+                            news.prepareQuery() + "," + countryCode)
                     .flatMap(validCity -> {
                         // Data passed validation but city wasn't found
                         if (validCity.getCityName() == null) {
@@ -82,25 +82,6 @@ public class ProcessDataService {
 
     public void fetchAndUpdateNews() {
         List<News> all = newsService.findAll();
-//        all.forEach(news -> {
-//            News fetchedNews = fetchDataService.fetchNews(news).block();
-//            if(fetchedNews==null){
-//                return;
-//            }
-////            List<Article> newArticles = fetchedNews.getArticles();
-////            List<Article> existingArticles = articleService.findAllByNews(news)
-////                    .stream()
-////                    .peek(article -> article.setId(null))
-////                    .toList();
-////
-////            newArticles.addAll(existingArticles);
-////            fetchedNews.setArticles(newArticles);
-////            fetchedNews.sortArticles();
-////
-////            newsService.deleteNews(news);
-//            newsService.saveNews(fetchedNews);
-//        });
-
         Flux.fromIterable(all)
                 .flatMap(news -> fetchDataService.fetchNews(news)
                         .doOnNext(fetchedNews -> {
@@ -120,5 +101,4 @@ public class ProcessDataService {
                 )
                 .subscribe();
     }
-
 }
