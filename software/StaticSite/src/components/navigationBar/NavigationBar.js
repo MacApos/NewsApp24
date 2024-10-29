@@ -12,7 +12,7 @@ export const NavigationBar = ({children}) => {
                                 <div className="col">
                                     <span className="navbar-brand text-capitalize fw-bolder fs-3">
                                         <img src={LOGO} alt="Logo" width="35"
-                                             height="auto" className=" d-inline-block align-text-top "/>
+                                             height="auto" className="d-inline-block align-text-top "/>
                                         &nbsp;NewsApp24
                                     </span>
                                 </div>

@@ -19,7 +19,7 @@ public class SecretsService {
                 .build()) {
 
             GetSecretValueRequest getSecretValueRequest = GetSecretValueRequest.builder()
-                    .secretId("com/dataProcessingLibrary")
+                    .secretId("prod/NewsApp24/api_credentials")
                     .build();
 
             GetSecretValueResponse getSecretValueResponse;
