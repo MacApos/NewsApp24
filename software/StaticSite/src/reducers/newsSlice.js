@@ -9,7 +9,7 @@ export const initialState = {
         error: null,
     },
     sort: {
-        name:"Latest",
+        name: "Latest",
         category: "datePublished",
         order: DESC
     },

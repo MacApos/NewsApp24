@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { setArticlesOnPage, setPage} from "../../reducers/newsSlice";
+import {setArticlesOnPage, setPage} from "../../reducers/newsSlice";
 import {useDispatch} from "react-redux";
 
 export const PagesSelect = () => {

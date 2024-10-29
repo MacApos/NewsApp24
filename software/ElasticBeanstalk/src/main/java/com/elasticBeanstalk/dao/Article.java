@@ -25,13 +25,13 @@ public class Article implements Comparable<Article> {
     private String name;
 
     @NotNull
-    @Column(length=1000)
+    @Column(length = 1000)
     private String url;
 
-    @Column(length=1000)
+    @Column(length = 1000)
     private String image;
 
-    @Column(length=1000000)
+    @Column(length = 1000000)
     private String description;
 
     private LocalDateTime datePublished;

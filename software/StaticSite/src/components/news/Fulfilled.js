@@ -14,8 +14,8 @@ export const Fulfilled = () => {
 
     let articles = news.articles;
     const articlesLen = articles.length;
-    if(articlesLen<1){
-        return <Rejected/>
+    if (articlesLen < 1) {
+        return <Rejected/>;
     }
 
     articles = articles.map(article => {

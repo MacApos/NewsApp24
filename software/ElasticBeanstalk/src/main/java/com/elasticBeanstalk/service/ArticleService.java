@@ -15,7 +15,7 @@ public class ArticleService {
         this.articleRepository = articleRepository;
     }
 
-    public List<Article> findAllByNews (News news){
+    public List<Article> findAllByNews(News news) {
         return articleRepository.findAllByNewsId(news.getId());
     }
 }

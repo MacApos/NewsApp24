@@ -69,7 +69,7 @@ public class News {
         return String.join(",", List.of(cityName, state));
     }
 
-    public  <T> Predicate<T> distinctByProperty(Function<? super T, ?> propertyExtractor) {
+    public <T> Predicate<T> distinctByProperty(Function<? super T, ?> propertyExtractor) {
         Set<Object> seen = ConcurrentHashMap.newKeySet();
         return t -> seen.add(propertyExtractor.apply(t));
     }

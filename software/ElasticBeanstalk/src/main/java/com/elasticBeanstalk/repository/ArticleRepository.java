@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
-        @Query(value = """
+    @Query(value = """
                 select a.*
                 from news_articles as na
                     left join articles a on a.id = na.articles_id where na.news_id=?;

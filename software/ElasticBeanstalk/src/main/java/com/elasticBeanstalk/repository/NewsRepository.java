@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface NewsRepository extends JpaRepository<News, Long> {
-    News findByCityNameAndState( String cityName, String state);
+    News findByCityNameAndState(String cityName, String state);
 }
