@@ -36,10 +36,4 @@ public class NewsController {
         processDataService.fetchAndUpdateNews();
         return "updated";
     }
-
-    @GetMapping("/test-update")
-    public String testUpdate() {
-        processDataService.fetchAndUpdateNews();
-        return "updated";
-    }
 }
